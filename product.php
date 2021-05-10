@@ -16,6 +16,7 @@
                         <div><span>Артикул</span></div>
                         <div><span>Категория</span></div>
                         <div><span>Наличие</span></div>
+                        <div><span>Бренд</span></div>
                         <div><span>Страна</span></div>
                     </div>
 
@@ -23,6 +24,7 @@
                         <div><span>23</span></div>
                         <div><span>Игрушки для кошек</span></div>
                         <div><span>В наличии</span></div>
+                        <div><span>Catz'n'toys</span></div>
                         <div><span>Россия</span></div>
                     </div>
 

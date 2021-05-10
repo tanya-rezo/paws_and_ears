@@ -30,7 +30,8 @@ function get_actions($conn) {
     SELECT 
         product.id, 
         product.name, 
-        product.price
+        product.price,
+        product.image
     FROM 
         product";
     

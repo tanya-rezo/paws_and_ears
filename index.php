@@ -17,7 +17,7 @@
             echo "
             <a href='product.php'>
               <div class='grid-item'>
-                <img src='img/mouse.png' class='product-image' />
+                <img src='products/{$row["image"]}' class='product-image' />
                 <div class='name-and-price-container'>
                   <div class='name-container'>
                     <h8 class='name-text'>{$row["name"]}</h8>

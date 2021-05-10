@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     <title>Лапки и ушки</title>
-    <link href="./css/style.bundle-ef1374224e6e034dc3b2.css" rel="stylesheet" />
+    <link href="./css/bundle.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">

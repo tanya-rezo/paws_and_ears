@@ -5,7 +5,7 @@
     </div>
   </div>
 </footer>
-<script src="./js/bundle-ef1374224e6e034dc3b2.js"></script>
+<script src="./js/bundle.js"></script>
 </body>
 
 </html>
