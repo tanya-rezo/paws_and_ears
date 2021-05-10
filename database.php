@@ -25,7 +25,7 @@ function disconnect_db($conn) {
 }
 
 // Получаем акционные товары из БД
-function get_actions($conn) {
+function get_on_sale($conn) {
     $query = "
     SELECT 
         product.id, 
@@ -33,7 +33,9 @@ function get_actions($conn) {
         product.price,
         product.image
     FROM 
-        product";
+        product
+    WHERE
+        product.is_sale = 1";
     
     return mysqli_query($conn,$query);
 }

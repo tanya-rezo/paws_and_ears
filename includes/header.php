@@ -1,7 +1,9 @@
 <?php include './database.php'; ?>
+<?php session_start(); ?>
 <?php $conn = connect_db(); ?>
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -11,7 +13,16 @@
     <title>Лапки и ушки</title>
     <link href="./css/bundle.css" rel="stylesheet" />
 </head>
+
 <body>
+    <?php
+    //echo '<pre>';
+    //var_dump($_SESSION);
+    //echo '</pre>';
+
+    // складываем все переменные сессии (счётчики товаров в корзине)
+    $cart_count = array_sum($_SESSION);
+    ?>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a href="index.php">
@@ -26,7 +37,7 @@
                 <img class="cart-icon" src="img/shopping_cart.svg"></img>
             </a>
             <a href="cart.php">
-                <div class="cart-counter vh-center">6</div>
+                <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
             </a>
         </div>
     </nav>

@@ -1,20 +1,18 @@
-<!-- <% var data={ title: "Лапки и ушки" , }; %> -->
 <?php include './includes/header.php'; ?>
 <div class="container container-fill">
   <div class="row">
 
-  <?php include './includes/menu.php'; ?>
+    <?php include './includes/menu.php'; ?>
 
     <div class="col-9">
       <h2 class="mb-4">Акции</h2>
       <div class="product-grid">
-        
-          <?php 
-          $result = get_actions($conn); // получаем акционные товары
 
-          while($row = mysqli_fetch_array($result))
-          {
-            echo "
+        <?php
+        $result = get_on_sale($conn); // получаем акционные товары
+
+        while ($row = mysqli_fetch_array($result)) {
+          echo "
             <a href='product.php?id={$row["id"]}'>
               <div class='grid-item'>
                 <img src='products/{$row["image"]}' class='product-image' />
@@ -26,8 +24,8 @@
                 </div>
               </div>
             </a>";
-          }
-          ?>
+        }
+        ?>
       </div>
     </div>
   </div>

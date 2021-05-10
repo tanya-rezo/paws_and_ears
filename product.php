@@ -1,12 +1,11 @@
-<!-- <% var data={ title: "Подробности о товаре" , }; %> -->
 <?php include './includes/header.php'; ?>
 
 <div class="container container-fill">
     <div class="row">
         <?php include './includes/menu.php'; ?>
 
-        <?php 
-        $result = get_product($conn, $_GET["id"]); 
+        <?php
+        $result = get_product($conn, $_GET["id"]);
         $product = mysqli_fetch_array($result);
         ?>
 
@@ -40,11 +39,13 @@
                         <div class="details-price-text"><?php echo $product["price"] ?> ₽</div>
                     </div>
 
-                    <a role="button" class="btn btn-primary details-add-to-card-btn" href="#">Добавить в
+                    <a role="button" class="btn btn-primary details-add-to-card-btn" href="/cart/add.php?product=<?php echo $product["id"] ?>">Добавить в
                         корзину</a>
+
+                    <a role="button" class="btn btn-primary details-add-to-card-btn mt-2" href="/cart/add.php?product=<?php echo $product["id"] ?>&go_to_cart=1">Добавить и перейти в корзину</a>
                 </div>
             </div>
-            <div class="row mt-4 mb-3 text-justify">
+            <div class=" row mt-4 mb-3 text-justify">
                 <div class="col-12">
                     <?php echo nl2br($product["description"]) ?>
                 </div>

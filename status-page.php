@@ -1,4 +1,3 @@
-<!-- <% var data={ title: "Заказ принят" , }; %> -->
 <?php include './includes/header.php'; ?>
 
 <div class="container container-fill">
