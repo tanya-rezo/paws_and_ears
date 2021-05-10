@@ -15,7 +15,7 @@
           while($row = mysqli_fetch_array($result))
           {
             echo "
-            <a href='product.php'>
+            <a href='product.php?id={$row["id"]}'>
               <div class='grid-item'>
                 <img src='products/{$row["image"]}' class='product-image' />
                 <div class='name-and-price-container'>

@@ -38,4 +38,36 @@ function get_actions($conn) {
     return mysqli_query($conn,$query);
 }
 
+// Получаем товар по id
+function get_product($conn, $id) {
+    $query = "
+    SELECT 
+        product.id, 
+        product.name, 
+        product.price, 
+        product.image, 
+        product.description, 
+        category.name as category, 
+        pet_type.name as pet_type, 
+        brand.name as brand, 
+        manufacturer_country.name as manufacturer
+    FROM 
+        product
+    LEFT JOIN
+        category
+        ON category.id = product.category_id
+    LEFT JOIN
+        pet_type
+        ON pet_type.id = category.pet_type_id
+    LEFT JOIN
+        brand
+        ON brand.id = product.brand_id
+    LEFT JOIN
+        manufacturer_country
+        ON manufacturer_country.id = product.manufacturer_country_id
+    WHERE product.id = " . $id;
+    
+    return mysqli_query($conn,$query);
+}
+
 ?>
