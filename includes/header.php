@@ -1,6 +1,7 @@
+<?php include './database.php'; ?>
+<?php $conn = connect_db(); ?>
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -10,7 +11,6 @@
     <title>Лапки и ушки</title>
     <link href="./css/style.bundle-ef1374224e6e034dc3b2.css" rel="stylesheet" />
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
