@@ -104,4 +104,17 @@ function get_product($conn, $id) {
     return mysqli_query($conn,$query);
 }
 
-?>
+// Получаем товар по id для корзины
+function get_product_for_cart($conn, $id) {
+    $query = "
+    SELECT 
+        product.id, 
+        product.name, 
+        product.price, 
+        product.image
+    FROM 
+        product
+    WHERE product.id = " . $id;
+    
+    return mysqli_query($conn,$query);
+}

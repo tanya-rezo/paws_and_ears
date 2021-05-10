@@ -7,79 +7,65 @@
         <div class="col-6">
             <div class="mb-4">
                 <h2 class="d-inline mr-1">Корзина</h2>
-                <span>2 товара</span>
+                <span><?php echo $cart_count; ?> шт. товара</span>
             </div>
 
-            <div class="cart-item">
-                <div class="cart-item-image-col">
-                    <a href="product.php">
-                        <img class="cart-item-image" src="img/mouse.png"></img>
-                    </a>
-                </div>
-                <div class="cart-item-main-col">
-                    <div class="cart-item-main-box">
-                        <a href="product.php">
-                            <div class="cart-item-name">
-                                Мышь мягкая мягкая мягкая мягкая мягкая мягкая мягкая мягкая мягкая мягкая
-                                мягкая 12,5 см
-                            </div>
+            <?php
+            $total_cost = 0;
+            foreach ($_SESSION as $product_id => $count) {
+                // обрезаем имя переменной сессии чтобы получить id продукта
+                // "product_3" -> "3"
+                $id = substr($product_id, 8);
+
+                // получаем данные о продукте для корзины
+                $product = mysqli_fetch_array(get_product_for_cart($conn, $id));
+
+                // подсчитываем общую стоимость
+                $total_cost = $total_cost + ($product["price"] * $count);
+
+                echo "
+                <div class='cart-item'>
+                    <div class='cart-item-image-col'>
+                        <a href='product.php?id={$product["id"]}'>
+                            <img class='cart-item-image' src='products/{$product["image"]}'></img>
                         </a>
-                        <div class="flex-row-container">
-                            <div class="flex-row-container">
-                                <a href="#">
-                                    <div class="cart-counter vh-center">–</div>
-                                </a>
-                                <div class="cart-item-counter-text">5</div>
-                                <a href="#">
-                                    <div class="cart-counter vh-center">+</div>
-                                </a>
+                    </div>
+                    <div class='cart-item-main-col'>
+                        <div class='cart-item-main-box'>
+                            <a href='product.php?id={$product["id"]}'>
+                                <div class='cart-item-name'>{$product["name"]}</div>
+                            </a>
+                            <div class='flex-row-container'>
+                                <div class='flex-row-container'>
+                                    <a href='/cart/minus.php?product={$product["id"]}'>
+                                        <div class='cart-counter vh-center'>–</div>
+                                    </a>
+                                    <div class='cart-item-counter-text'>$count</div>
+                                    <a href='/cart/plus.php?product={$product["id"]}'>
+                                        <div class='cart-counter vh-center'>+</div>
+                                    </a>
+                                </div>
+                                <div class='cart-item-price'>{$product["price"]} ₽</div>
                             </div>
-                            <div class="cart-item-price">299 ₽</div>
                         </div>
                     </div>
+                    <div class='cart-item-delete-col vh-center'>
+                        <a href='/cart/delete.php?product={$product["id"]}'>
+                            <img src='img/delete.svg'></img>
+                        </a>
+                    </div>
                 </div>
-                <div class="cart-item-delete-col vh-center">
-                    <a href="#">
-                        <img class="" src="img/delete.svg"></img>
-                    </a>
-                </div>
-            </div>
+                ";
+            }
 
-            <div class="cart-item">
-                <div class="cart-item-image-col">
-                    <img class="cart-item-image" src="img/mouse.png"></img>
-                </div>
-                <div class="cart-item-main-col">
-                    <div class="cart-item-main-box">
-                        <div class="cart-item-name">
-                            Мышь мягкая мягкая мягкая 12,5 см
-                        </div>
-                        <div class="flex-row-container">
-                            <div class="flex-row-container">
-                                <a href="#">
-                                    <div class="cart-counter vh-center">–</div>
-                                </a>
-                                <div class="cart-item-counter-text">5</div>
-                                <a href="#">
-                                    <div class="cart-counter vh-center">+</div>
-                                </a>
-                            </div>
-                            <div class="cart-item-price">299 ₽</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-item-delete-col vh-center">
-                    <a href="#">
-                        <img class="" src="img/delete.svg"></img>
-                    </a>
-                </div>
-            </div>
+            ?>
 
         </div>
 
+
         <div class="col-3">
             <div class="checkout-box">
-                <h5>Итого: 5002 Р</h5>
+                <h5>Итого: <?php echo $total_cost; ?> ₽</h5>
                 <div class="form-group mb-2">
                     <input type="text" class="form-control" id="firstName" placeholder="Имя">
                 </div>
@@ -101,6 +87,7 @@
                 <a href="#">Очистить корзину</a>
             </div>
         </div>
+
     </div>
 
 </div>
