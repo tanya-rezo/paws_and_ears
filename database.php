@@ -38,6 +38,38 @@ function get_actions($conn) {
     return mysqli_query($conn,$query);
 }
 
+// Получаем товары из БД по категории
+function get_products($conn, $category) {
+    $query = "
+    SELECT 
+        product.id, 
+        product.name, 
+        product.price,
+        product.image
+    FROM 
+        product
+    WHERE
+    product.category_id = " . $category;
+    
+    return mysqli_query($conn,$query);
+}
+
+// Получаем имя категории и вид питомца
+function get_category($conn, $category) {
+    $query = "
+    SELECT 
+        category.name as category,
+        pet_type.name as pet_type
+    FROM 
+        category
+    LEFT JOIN
+        pet_type ON pet_type.id = category.pet_type_id
+    WHERE
+        category.id = " . $category;
+    
+    return mysqli_query($conn,$query);
+}
+
 // Получаем товар по id
 function get_product($conn, $id) {
     $query = "
