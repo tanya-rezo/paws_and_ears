@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="favicon/favicon.ico" />
 
     <title>Лапки и ушки</title>
-    <link href="./css/bundle.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
 </head>
 
 <body>
