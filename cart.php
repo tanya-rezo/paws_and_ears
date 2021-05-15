@@ -81,7 +81,7 @@
                 <div class="form-group mb-2">
                     <textarea class="form-control" id="comment" rows="2" placeholder="Комментарий"></textarea>
                 </div>
-                <a role="button" class="btn checkout-btn">Оформить заказ</a>
+                <a role="button" class="btn checkout-btn <?php echo $cart_count == 0 ? "disabled" : ""; ?>">Оформить заказ</a>
             </div>
             <div class="mt-3 vh-center">
                 <a href="/cart/clear.php">Очистить корзину</a>
