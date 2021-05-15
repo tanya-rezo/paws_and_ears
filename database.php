@@ -9,7 +9,7 @@ function connect_db()
     $password = "root";
     $db = "paws_and_ears";
 
-    
+
     $conn = new mysqli($servername, $username, $password, $db);
     // Проверяем на ошибку
     if ($conn->connect_error) {
@@ -20,12 +20,14 @@ function connect_db()
 }
 
 // Разрываем подключение
-function disconnect_db($conn) {
+function disconnect_db($conn)
+{
     mysqli_close($conn);
 }
 
 // Получаем акционные товары из БД
-function get_on_sale($conn) {
+function get_on_sale($conn)
+{
     $query = "
     SELECT 
         product.id, 
@@ -36,12 +38,13 @@ function get_on_sale($conn) {
         product
     WHERE
         product.is_sale = 1";
-    
-    return mysqli_query($conn,$query);
+
+    return mysqli_query($conn, $query);
 }
 
 // Получаем товары из БД по категории
-function get_products($conn, $category) {
+function get_products($conn, $category)
+{
     $query = "
     SELECT 
         product.id, 
@@ -52,12 +55,13 @@ function get_products($conn, $category) {
         product
     WHERE
     product.category_id = " . $category;
-    
-    return mysqli_query($conn,$query);
+
+    return mysqli_query($conn, $query);
 }
 
 // Получаем имя категории и вид питомца
-function get_category($conn, $category) {
+function get_category($conn, $category)
+{
     $query = "
     SELECT 
         category.name as category,
@@ -68,12 +72,13 @@ function get_category($conn, $category) {
         pet_type ON pet_type.id = category.pet_type_id
     WHERE
         category.id = " . $category;
-    
-    return mysqli_query($conn,$query);
+
+    return mysqli_query($conn, $query);
 }
 
 // Получаем товар по id
-function get_product($conn, $id) {
+function get_product($conn, $id)
+{
     $query = "
     SELECT 
         product.id, 
@@ -100,12 +105,13 @@ function get_product($conn, $id) {
         manufacturer_country
         ON manufacturer_country.id = product.manufacturer_country_id
     WHERE product.id = " . $id;
-    
-    return mysqli_query($conn,$query);
+
+    return mysqli_query($conn, $query);
 }
 
 // Получаем товар по id для корзины
-function get_product_for_cart($conn, $id) {
+function get_product_for_cart($conn, $id)
+{
     $query = "
     SELECT 
         product.id, 
@@ -115,6 +121,22 @@ function get_product_for_cart($conn, $id) {
     FROM 
         product
     WHERE product.id = " . $id;
-    
-    return mysqli_query($conn,$query);
+
+    return mysqli_query($conn, $query);
+}
+
+// Поиск товаров
+function search_product($conn, $search)
+{
+    $query = "
+    SELECT 
+        product.id, 
+        product.name, 
+        product.price,
+        product.image
+    FROM 
+        product
+    WHERE product.name LIKE '%" . $search . "%'";
+
+    return mysqli_query($conn, $query);
 }

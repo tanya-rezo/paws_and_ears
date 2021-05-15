@@ -23,21 +23,29 @@
     // складываем все переменные сессии (счётчики товаров в корзине)
     $cart_count = array_sum($_SESSION);
     ?>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a href="index.php">
-                <span class="navbar-brand logo-space">
-                    <img src="img/logo.png">
-                </span>
-            </a>
-            <input type="text" class="form-control search-field" id="searchbar">
-            <a id="send-btn" role="button" class="btn btn-primary">Искать</a>
 
-            <a href="cart.php">
-                <img class="cart-icon" src="img/shopping_cart.svg"></img>
-            </a>
-            <a href="cart.php">
-                <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
-            </a>
-        </div>
-    </nav>
+
+    <form action="search.php">
+        <nav class="navbar navbar-expand-lg navbar-light">
+
+            <div class="container">
+                <a href="index.php">
+                    <span class="navbar-brand logo-space">
+                        <img src="img/logo.png">
+                    </span>
+                </a>
+
+                <input type="text" class="form-control search-field" id="searchbar" name="q" value="<?php echo $_GET["q"]; ?>"></input>
+                <button type="submit" id="send-btn" class="btn btn-primary">Искать</button>
+
+
+                <a href="cart.php">
+                    <img class="cart-icon" src="img/shopping_cart.svg"></img>
+                </a>
+                <a href="cart.php">
+                    <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
+                </a>
+            </div>
+
+        </nav>
+    </form>
