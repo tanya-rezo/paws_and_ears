@@ -84,7 +84,7 @@
                 <a role="button" class="btn checkout-btn">Оформить заказ</a>
             </div>
             <div class="mt-3 vh-center">
-                <a href="#">Очистить корзину</a>
+                <a href="/cart/clear.php">Очистить корзину</a>
             </div>
         </div>
 
