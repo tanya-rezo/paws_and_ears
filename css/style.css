@@ -7251,6 +7251,12 @@ a {
   color: white;
   padding: 6px 30px; }
 
+.empty-screen-cat {
+  opacity: .75; }
+
+.empty-screen-text {
+  opacity: .5; }
+
 .checkout-box {
   border: 1px solid lightgray;
   border-radius: 15px;

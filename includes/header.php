@@ -35,7 +35,7 @@
                     </span>
                 </a>
 
-                <input type="text" class="form-control search-field" id="searchbar" name="q" value="<?php echo $_GET["q"]; ?>"></input>
+                <input type="text" class="form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
                 <button type="submit" id="send-btn" class="btn btn-primary">Искать</button>
 
 

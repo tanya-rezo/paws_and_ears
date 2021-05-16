@@ -14,6 +14,7 @@
 
                 <?php
                 $result = get_products($conn, $_GET["category"]); // получаем товары заданной категории
+                $product_count = 0;
 
                 while ($row = mysqli_fetch_array($result)) {
                     echo "
@@ -28,10 +29,19 @@
                             </div>
                         </div>
                     </a>";
+                    $product_count = $product_count + 1;
                 }
                 ?>
-
             </div>
+
+            <?php
+            if ($product_count == 0) {
+                echo "<div class='flex-column-container mt-130px vh-center'>";
+                echo "  <img src='img/cat-in-box.svg' class='empty-screen-cat'>";
+                echo "  <h5 class='empty-screen-text mt-3'>В этой категории пока пусто</h5>";
+                echo "</div>";
+            }
+            ?>
         </div>
     </div>
 </div>
