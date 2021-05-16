@@ -140,3 +140,33 @@ function search_product($conn, $search)
 
     return mysqli_query($conn, $query);
 }
+
+// Сохранение информации о покупателе
+function create_client($conn, $firstName, $lastName, $middleName, $phoneNumber)
+{
+    $query = "
+    INSERT INTO client (id, first_name, last_name, middle_name, phone) 
+    VALUES (NULL, '" . $firstName . "', '" . $lastName . "', '" . $middleName . "', '" . $phoneNumber . "')";
+
+    $conn->query($query);
+}
+
+// Создание заказа
+function create_order($conn, $comment, $clientId)
+{
+    $query = "
+    INSERT INTO placed_order (id, comment, client_id) 
+    VALUES (NULL, '" . $comment . "', '" . $clientId . "')";
+
+    $conn->query($query);
+}
+
+// Добавление товара в заказ
+function create_order_item($conn, $orderId, $productId, $count)
+{
+    $query = "
+    INSERT INTO `placed_order_item` (`placed_order_id`, `product_id`, `count`) 
+    VALUES ('" . $orderId . "', '" . $productId . "', '" . $count . "')";
+
+    $conn->query($query);
+}

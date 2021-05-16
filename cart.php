@@ -13,7 +13,7 @@
             <?php
             $total_cost = 0;
             foreach ($_SESSION as $product_id => $count) {
-                // обрезаем имя переменной сессии чтобы получить id продукта
+                // обрезаем имя переменной сессии чтобы получить id товара
                 // "product_3" -> "3"
                 $id = substr($product_id, 8);
 
