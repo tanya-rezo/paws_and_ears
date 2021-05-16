@@ -13,6 +13,7 @@
 
                 <?php
                 $result = search_product($conn, $_GET["q"]); // отображаем найденные товары
+                $count = 0;
 
                 while ($row = mysqli_fetch_array($result)) {
                     echo "
@@ -27,10 +28,17 @@
                             </div>
                         </div>
                     </a>";
+                    $count = $count + 1;
                 }
                 ?>
-
             </div>
+
+            <?php
+            if ($count == 0) {
+                echo "<h4 class='mb-4'>Товар не найден :(</h4>";
+            }
+            ?>
+
         </div>
     </div>
 </div>
