@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 10 2021 г., 21:55
+-- Время создания: Май 16 2021 г., 22:40
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -76,6 +76,20 @@ INSERT INTO `category` (`id`, `name`, `pet_type_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `client`
+--
+
+CREATE TABLE `client` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `manufacturer_country`
 --
 
@@ -114,6 +128,30 @@ CREATE TABLE `pet_type` (
 INSERT INTO `pet_type` (`id`, `name`) VALUES
 (1, 'Для кошек'),
 (2, 'Для собак');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `placed_order`
+--
+
+CREATE TABLE `placed_order` (
+  `id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `client_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `placed_order_item`
+--
+
+CREATE TABLE `placed_order_item` (
+  `placed_order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `count` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -160,6 +198,12 @@ ALTER TABLE `category`
   ADD KEY `pet_type_id` (`pet_type_id`);
 
 --
+-- Индексы таблицы `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `manufacturer_country`
 --
 ALTER TABLE `manufacturer_country`
@@ -170,6 +214,21 @@ ALTER TABLE `manufacturer_country`
 --
 ALTER TABLE `pet_type`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `placed_order`
+--
+ALTER TABLE `placed_order`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `client_id` (`client_id`);
+
+--
+-- Индексы таблицы `placed_order_item`
+--
+ALTER TABLE `placed_order_item`
+  ADD PRIMARY KEY (`product_id`,`placed_order_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `placed_order_id` (`placed_order_id`);
 
 --
 -- Индексы таблицы `product`
@@ -194,7 +253,13 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT для таблицы `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT для таблицы `client`
+--
+ALTER TABLE `client`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `manufacturer_country`
@@ -206,13 +271,19 @@ ALTER TABLE `manufacturer_country`
 -- AUTO_INCREMENT для таблицы `pet_type`
 --
 ALTER TABLE `pet_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `placed_order`
+--
+ALTER TABLE `placed_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -223,6 +294,19 @@ ALTER TABLE `product`
 --
 ALTER TABLE `category`
   ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`pet_type_id`) REFERENCES `pet_type` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `placed_order`
+--
+ALTER TABLE `placed_order`
+  ADD CONSTRAINT `placed_order_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `placed_order_item`
+--
+ALTER TABLE `placed_order_item`
+  ADD CONSTRAINT `placed_order_item_ibfk_1` FOREIGN KEY (`placed_order_id`) REFERENCES `placed_order` (`id`),
+  ADD CONSTRAINT `placed_order_item_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `product`
