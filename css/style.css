@@ -7301,6 +7301,9 @@ a {
   margin-left: 10px;
   margin-right: 10px; }
 
+.cart-error-text {
+  color: red; }
+
 .catalog-container {
   margin-top: 9px; }
 

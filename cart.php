@@ -62,34 +62,47 @@
 
         </div>
 
-
         <div class="col-3">
-            <div class="checkout-box">
-                <h5>Итого: <?php echo $total_cost; ?> ₽</h5>
-                <div class="form-group mb-2">
-                    <input type="text" class="form-control" id="firstName" placeholder="Имя">
+            <form action="/cart/make-order.php">
+
+                <div class="checkout-box">
+                    <h5>Итого: <?php echo $total_cost; ?> ₽</h5>
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control" name="firstName" placeholder="Имя*" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control" name="lastName" placeholder="Фамилия*" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control" name="middleName" placeholder="Отчество">
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="tel" class="form-control" name="phoneNumber" placeholder="Телефон*" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <textarea class="form-control" name="comment" rows="2" placeholder="Комментарий"></textarea>
+                    </div>
+
+                    <?php
+                    if (isset($_GET["error"])) {
+                        echo "<div class='mb-2 cart-error-text'>";
+                        echo "  <span>Не заполнены обязательные поля</span>";
+                        echo "</div>";
+                    }
+                    ?>
+
+                    <button <?php echo $cart_count == 0 ? "disabled" : ""; ?> type="submit" class="btn checkout-btn">Оформить заказ</a>
                 </div>
-                <div class="form-group mb-2">
-                    <input type="text" class="form-control" id="lastName" placeholder="Фамилия">
+                <div class="mt-3 vh-center">
+                    <a href="/cart/clear.php">Очистить корзину</a>
                 </div>
-                <div class="form-group mb-2">
-                    <input type="text" class="form-control" id="middleName" placeholder="Отчество">
-                </div>
-                <div class="form-group mb-2">
-                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Телефон">
-                </div>
-                <div class="form-group mb-2">
-                    <textarea class="form-control" id="comment" rows="2" placeholder="Комментарий"></textarea>
-                </div>
-                <a role="button" class="btn checkout-btn <?php echo $cart_count == 0 ? "disabled" : ""; ?>">Оформить заказ</a>
-            </div>
-            <div class="mt-3 vh-center">
-                <a href="/cart/clear.php">Очистить корзину</a>
-            </div>
+            </form>
         </div>
+
 
     </div>
 
 </div>
+
 
 <?php include './includes/footer.php'; ?>
