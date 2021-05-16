@@ -5,7 +5,7 @@
     <?php include './includes/menu.php'; ?>
 
     <div class="col-9">
-      <h2 class="mb-4">Акции</h2>
+      <h3 class="mb-4">Акции</h3>
       <div class="product-grid">
 
         <?php
