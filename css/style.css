@@ -7316,8 +7316,8 @@ a {
 .product-grid {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px; }
+  grid-column-gap: 0;
+  grid-row-gap: 16px; }
 
 .grid-item {
   width: 250px;
@@ -7493,6 +7493,10 @@ a {
   position: absolute;
   bottom: 0;
   right: 0; }
+
+.link-sale {
+  margin-left: 8px;
+  margin-top: 11px; }
 
 @font-face {
   font-family: "Roboto";

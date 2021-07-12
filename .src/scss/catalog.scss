@@ -5,8 +5,8 @@
 .product-grid {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-column-gap: 0;
+    grid-row-gap: 16px;
 }
 
 .grid-item {

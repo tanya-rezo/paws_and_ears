@@ -25,8 +25,31 @@ function disconnect_db($conn)
     mysqli_close($conn);
 }
 
-// Получаем акционные товары из БД
-function get_on_sale($conn)
+// Получаем рандомные 6 акционных товаров из БД по виду питомца
+function get_on_sale_top_6($conn, $pet_type)
+{
+    $query = "
+    SELECT
+        product.id, 
+        product.name, 
+        product.price,
+        product.image
+    FROM 
+        product
+    LEFT JOIN
+        category ON category.id = product.category_id
+    WHERE
+        product.is_sale = 1
+        AND
+		category.pet_type_id = " . $pet_type . "
+        ORDER BY RAND()
+        LIMIT 6";
+
+    return mysqli_query($conn, $query);
+}
+
+// Получаем акционные товары из БД по виду питомца
+function get_on_sale_by_pet_type($conn, $pet_type)
 {
     $query = "
     SELECT 
@@ -36,8 +59,12 @@ function get_on_sale($conn)
         product.image
     FROM 
         product
+    LEFT JOIN
+        category ON category.id = product.category_id
     WHERE
-        product.is_sale = 1";
+        product.is_sale = 1
+        AND
+		category.pet_type_id = " . $pet_type;
 
     return mysqli_query($conn, $query);
 }
