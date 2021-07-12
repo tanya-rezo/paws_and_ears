@@ -59,7 +59,7 @@
             }
 
             if ($cart_count == 0) {
-                echo "<div class='flex-column-container mt-130px vh-center'>";
+                echo "<div class='flex-column-container mt-150px vh-center'>";
                 echo "  <img src='img/cat-in-box.svg' class='empty-screen-cat'>";
                 echo "  <h5 class='empty-screen-text mt-3'>В корзине ничего нет</h5>";
                 echo "</div>";

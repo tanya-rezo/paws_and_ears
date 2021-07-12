@@ -9,7 +9,7 @@
 
             <h3 class="mb-4">Поиск</h3>
 
-            <div class="product-grid">
+            <div class="product-grid mb-4">
 
                 <?php
                 $result = search_product($conn, $_GET["q"]); // отображаем найденные товары
@@ -35,9 +35,9 @@
 
             <?php
             if ($count == 0) {
-                echo "<div class='flex-column-container mt-130px vh-center'>";
+                echo "<div class='flex-column-container mt-150px vh-center'>";
                 echo "  <img src='img/cat-in-box.svg' class='empty-screen-cat'>";
-                echo "  <h5 class='empty-screen-text mt-3'>По запросу «‎".$_GET["q"]."» ничего не найдено‎</h5>";
+                echo "  <h5 class='empty-screen-text mt-3'>По запросу «‎" . $_GET["q"] . "» ничего не найдено‎</h5>";
                 echo "</div>";
             }
             ?>
