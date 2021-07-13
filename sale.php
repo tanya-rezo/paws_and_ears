@@ -1,18 +1,22 @@
 <?php include './includes/header.php'; ?>
 <div class="container container-fill">
-    <div class="row">
+  <div class="row">
 
-        <?php include './includes/menu.php'; ?>
+    <?php include './includes/menu.php'; ?>
 
-        <div class="col-9">
-            <h3 class="mb-4">Акции</h3>
-            <div class="product-grid">
+    <div class="col-9">
+      <?php
+      $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
+      ?>
 
-                <?php
-                $result = get_on_sale($conn); // получаем акционные товары
+      <h3 class="mb-4"><?php echo $pet["pet_type"] ?></h3>
+      <div class="product-grid mb-4">
 
-                while ($row = mysqli_fetch_array($result)) {
-                    echo "
+        <?php
+        $result = get_on_sale_by_pet_type($conn, $_GET["pet"]); // получаем акционные товары из БД по виду питомца
+
+        while ($row = mysqli_fetch_array($result)) {
+          echo "
             <a href='product.php?id={$row["id"]}'>
               <div class='grid-item'>
                 <img src='products/{$row["image"]}' class='product-image' />
@@ -24,11 +28,11 @@
                 </div>
               </div>
             </a>";
-                }
-                ?>
-            </div>
-        </div>
+        }
+        ?>
+      </div>
     </div>
+  </div>
 </div>
 
 <?php include './includes/footer.php'; ?>

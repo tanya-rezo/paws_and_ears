@@ -103,6 +103,20 @@ function get_category($conn, $category)
     return mysqli_query($conn, $query);
 }
 
+// Получаем имя питомца по его id
+function get_pet_sale_name($conn, $pet_type_id)
+{
+    $query = "
+    SELECT 
+        pet_type.sale_name as pet_type
+    FROM 
+        pet_type
+    WHERE
+        pet_type.id = " . $pet_type_id;
+
+    return mysqli_query($conn, $query);
+}
+
 // Получаем товар по id
 function get_product($conn, $id)
 {

@@ -8,7 +8,7 @@
 
       <div class="flex-row-container mb-4">
         <h3>Акции для кошек</h3>
-        <a class="link-sale" href="#">
+        <a class="link-sale" href="sale.php?pet=1">
           <h6>Смотреть все</h6>
         </a>
       </div>
@@ -37,7 +37,7 @@
 
       <div class="flex-row-container mt-4 mb-4">
         <h3>Акции для собак</h3>
-        <a class="link-sale" href="#">
+        <a class="link-sale" href="sale.php?pet=2">
           <h6>Смотреть все</h6>
         </a>
       </div>
