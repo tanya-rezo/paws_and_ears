@@ -5,11 +5,12 @@ const {
 } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const config = {
-  entry: ["./.src/js/index.js", "./.src/scss/style.scss"],
+  entry: ["./src/js/index.js", "./src/scss/style.scss"],
   output: {
-    filename: "../js/bundle.js",
+    filename: "../dist/js/bundle.js",
   },
   devtool: "source-map",
   mode: "production",
@@ -24,7 +25,7 @@ const config = {
   module: {
     rules: [{
         test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, "./.src/scss"),
+        include: path.resolve(__dirname, "./src/scss"),
         use: [{
             loader: MiniCssExtractPlugin.loader,
             options: {},
@@ -69,7 +70,29 @@ const config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "../css/style.css",
+      filename: "../dist/css/style.css",
+    }),
+    new CopyPlugin({
+      patterns: [{
+        from: "./src/**/*.php",
+        to: (path) => {
+          return path.absoluteFilename.replace('src', 'dist');
+        },
+      }, {
+        from: "./products/**/*",
+        to: ".",
+      }, {
+        from: "./favicon/**/*",
+        to: ".",
+      }, {
+        from: "./fonts/**/*",
+        to: ".",
+      }, {
+        from: "./src/img/**/*",
+        to: (path) => {
+          return path.absoluteFilename.replace('src', 'dist');
+        },
+      }, ],
     }),
   ],
 };

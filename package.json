@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "webpack --mode development --watch",
-    "build": "ROBOCOPY . dist /E /MIR /XF *.js *.json .gitignore /XD .git dist .src node_modules database_script"
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
