@@ -31,7 +31,7 @@
             <div class="container">
                 <a href="index.php">
                     <span class="navbar-brand logo-space">
-                        <img src="img/logo.png">
+                        <img src="img/logo.svg">
                     </span>
                 </a>
 
