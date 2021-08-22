@@ -91,7 +91,7 @@ function get_category($conn, $category)
 {
     $query = "
     SELECT 
-        category.name as category,
+        category.display_name as category,
         pet_type.name as pet_type
     FROM 
         category
@@ -127,7 +127,7 @@ function get_product($conn, $id)
         product.price, 
         product.image, 
         product.description, 
-        category.name as category, 
+        category.display_name as category, 
         pet_type.name as pet_type, 
         brand.name as brand, 
         manufacturer_country.name as manufacturer

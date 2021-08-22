@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 19 2021 г., 16:42
+-- Время создания: Авг 22 2021 г., 22:33
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -133,16 +133,17 @@ INSERT INTO `manufacturer_country` (`id`, `name`) VALUES
 
 CREATE TABLE `pet_type` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `sale_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `pet_type`
 --
 
-INSERT INTO `pet_type` (`id`, `name`) VALUES
-(1, 'Для кошек'),
-(2, 'Для собак');
+INSERT INTO `pet_type` (`id`, `name`, `sale_name`) VALUES
+(1, 'Для кошек', 'Акции для кошек'),
+(2, 'Для собак', 'Акции для собак');
 
 -- --------------------------------------------------------
 
