@@ -49,7 +49,8 @@ INSERT INTO `brand` (`id`, `name`) VALUES
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `url_name` varchar(255) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
   `pet_type_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -57,21 +58,21 @@ CREATE TABLE `category` (
 -- Дамп данных таблицы `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `pet_type_id`) VALUES
-(1, 'Корм', 1),
-(2, 'Миски', 1),
-(3, 'Лежанки и домики', 1),
-(4, 'Средства для ухода', 1),
-(5, 'Амуниция', 1),
-(6, 'Туалеты', 1),
-(7, 'Игрушки', 1),
-(8, 'Корм', 2),
-(9, 'Миски', 2),
-(10, 'Лежанки и домики', 2),
-(11, 'Средства для ухода', 2),
-(12, 'Одежда и обувь', 2),
-(13, 'Амуниция', 2),
-(14, 'Игрушки', 2);
+INSERT INTO `category` (`id`, `url_name`, `display_name`, `pet_type_id`) VALUES
+(1, 'cat-feed', 'Корм', 1),
+(2, 'cat-bowls', 'Миски', 1),
+(3, 'cat-beds-and-houses', 'Лежанки и домики', 1),
+(4, 'cat-care-products', 'Средства для ухода', 1),
+(5, 'cat-ammunition', 'Амуниция', 1),
+(6, 'cat-toilets', 'Туалеты', 1),
+(7, 'cat-toys', 'Игрушки', 1),
+(8, 'dog-feed', 'Корм', 2),
+(9, 'dog-bowls', 'Миски', 2),
+(10, 'dog-beds-and-houses', 'Лежанки и домики', 2),
+(11, 'dog-care-products', 'Средства для ухода', 2),
+(12, 'dog-clothes-and-footwear', 'Одежда и обувь', 2),
+(13, 'dog-ammunition', 'Амуниция', 2),
+(14, 'dog-toys', 'Игрушки', 2);
 
 -- --------------------------------------------------------
 
