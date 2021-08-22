@@ -10,7 +10,7 @@
         ?>
 
         <div class="col-9">
-            <h2 class="mb-4"><?php echo $product["name"] ?></h2>
+            <h3 class="mb-4"><?php echo $product["name"] ?></h3>
             <div class="row">
                 <div class="col-7">
                     <img class="details-product-image" src="products/<?php echo $product["image"] ?>" />
