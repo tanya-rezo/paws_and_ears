@@ -1,47 +1,47 @@
 <div class="col-3 catalog-container">
     <h4>Для кошек</h4>
-    <a href="catalog.php?category=1">
+    <a href="catalog.php?category=cat-feed">
         <h6>Корм</h6>
     </a>
-    <a href="catalog.php?category=2">
+    <a href="catalog.php?category=cat-bowls">
         <h6>Миски</h6>
     </a>
-    <a href="catalog.php?category=3">
+    <a href="catalog.php?category=cat-beds-and-houses">
         <h6>Лежанки и домики</h6>
     </a>
-    <a href="catalog.php?category=4">
+    <a href="catalog.php?category=cat-care-products">
         <h6>Средства для ухода</h6>
     </a>
-    <a href="catalog.php?category=5">
+    <a href="catalog.php?category=cat-ammunition">
         <h6>Амуниция</h6>
     </a>
-    <a href="catalog.php?category=6">
+    <a href="catalog.php?category=cat-toilets">
         <h6>Туалеты</h6>
     </a>
-    <a href="catalog.php?category=7">
+    <a href="catalog.php?category=cat-toys">
         <h6>Игрушки</h6>
     </a>
 
     <h4 class="mt-4">Для собак</h4>
-    <a href="catalog.php?category=8">
+    <a href="catalog.php?category=dog-feed">
         <h6>Корм</h6>
     </a>
-    <a href="catalog.php?category=9">
+    <a href="catalog.php?category=dog-bowls">
         <h6>Миски</h6>
     </a>
-    <a href="catalog.php?category=10">
+    <a href="catalog.php?category=dog-beds-and-houses">
         <h6>Лежанки и домики</h6>
     </a>
-    <a href="catalog.php?category=11">
+    <a href="catalog.php?category=dog-care-products">
         <h6>Средства для ухода</h6>
     </a>
-    <a href="catalog.php?category=12">
+    <a href="catalog.php?category=dog-clothes-and-footwear">
         <h6>Одежда и обувь</h6>
     </a>
-    <a href="catalog.php?category=13">
+    <a href="catalog.php?category=dog-ammunition">
         <h6>Амуниция</h6>
     </a>
-    <a href="catalog.php?category=14">
+    <a href="catalog.php?category=dog-toys">
         <h6>Игрушки</h6>
     </a>
 

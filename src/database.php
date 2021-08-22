@@ -80,8 +80,11 @@ function get_products($conn, $category)
         product.image
     FROM 
         product
+    LEFT JOIN
+        category
+        ON category.id = product.category_id
     WHERE
-    product.category_id = " . $category;
+    category.url_name = '" . $category . "'";
 
     return mysqli_query($conn, $query);
 }
@@ -98,7 +101,7 @@ function get_category($conn, $category)
     LEFT JOIN
         pet_type ON pet_type.id = category.pet_type_id
     WHERE
-        category.id = " . $category;
+        category.url_name = '" . $category . "'";
 
     return mysqli_query($conn, $query);
 }
