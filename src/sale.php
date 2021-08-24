@@ -9,7 +9,12 @@
       $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
       ?>
 
-      <h3 class="mb-4"><?php echo $pet["pet_type"] ?></h3>
+      <div class="flex-row-container mb-4">
+        <h3><?php echo $pet["pet_type"] ?></h3>
+        <a class="link-sale" href="index.php">
+          <h6>На главную</h6>
+        </a>
+      </div>
       <div class="product-grid mb-4">
 
         <?php
