@@ -8,7 +8,9 @@
         <div class="col-9">
             <?php $category = mysqli_fetch_array(get_category($conn, $_GET["category"])); ?>
 
-            <h3 class="mb-4"><?php echo $category["pet_type"] ?> - <?php echo $category["category"] ?></h3>
+            <div class="flex-row-container mb-4">
+                <h3><?php echo $category["pet_type"] ?> - <?php echo $category["category"] ?></h3>
+            </div>
 
             <div class="product-grid">
 
