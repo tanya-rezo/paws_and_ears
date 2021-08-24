@@ -84,7 +84,8 @@ function get_products($conn, $category)
         category
         ON category.id = product.category_id
     WHERE
-    category.url_name = '" . $category . "'";
+    category.url_name = '" . $category . "'
+    ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
 }
