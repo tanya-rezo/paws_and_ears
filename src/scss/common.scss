@@ -30,6 +30,10 @@ a {
     margin-top: 150px;
 }
 
+.lite-font-weight {
+    font-weight: 400;
+}
+
 .vh-center {
     display: flex;
     align-items: center;
@@ -78,4 +82,14 @@ a {
 
 .empty-screen-text {
     opacity: 0.5;
+}
+
+.breadcrumbs {
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.breadcrumbs > h5,
+h6 {
+    font-weight: 400;
 }

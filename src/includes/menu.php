@@ -1,5 +1,5 @@
 <div class="col-3 catalog-container">
-    <h4>Для кошек</h4>
+    <h5>Для кошек</h5>
     <a href="catalog.php?category=cat-feed">
         <h6>Корм</h6>
     </a>
@@ -22,7 +22,7 @@
         <h6>Игрушки</h6>
     </a>
 
-    <h4 class="mt-4">Для собак</h4>
+    <h5 class="mt-4">Для собак</h5>
     <a href="catalog.php?category=dog-feed">
         <h6>Корм</h6>
     </a>
@@ -45,7 +45,7 @@
         <h6>Игрушки</h6>
     </a>
 
-    <h4 class="mt-4">О нас</h4>
+    <h5 class="mt-4">О нас</h5>
     <a href="#">
         <h6>Доставка и оплата</h6>
     </a>
