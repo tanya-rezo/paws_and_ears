@@ -85,11 +85,16 @@ a {
 }
 
 .breadcrumbs {
-    margin-top: 4px;
-    margin-bottom: 16px;
+    margin-top: -15px;
 }
 
-.breadcrumbs > h5,
-h6 {
+.breadcrumbs > h6,
+h7 {
     font-weight: 400;
+}
+
+.breadcrumbs-delimiter {
+    margin-top: -2px;
+    margin-left: 10px;
+    margin-right: 10px;
 }

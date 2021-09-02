@@ -1,22 +1,29 @@
 <?php include './includes/header.php'; ?>
-<div class="container container-fill">
-  <div class="row">
 
+<?php
+$pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
+?>
+
+<div class="container container-fill">
+
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+      <div class="lite-font-weight flex-row-container breadcrumbs">
+        <h6>
+          <a href="index.php">Главная</a>
+        </h6>
+        <h7 class="breadcrumbs-delimiter">></h7>
+        <h6><?php echo $pet["pet_type"] ?></h6>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
     <?php include './includes/menu.php'; ?>
 
     <div class="col-9">
-      <?php
-      $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
-      ?>
-
-      <div class="lite-font-weight flex-row-container breadcrumbs">
-        <h5>
-          <a href="index.php">Главная</a>
-        </h5>
-        <h6 class="mt-1 ml-2 mr-2">></h6>
-        <h5><?php echo $pet["pet_type"] ?></h5>
-      </div>
-
       <div class="flex-row-container mb-4">
         <h3><?php echo $pet["pet_type"] ?></h3>
       </div>
