@@ -49,7 +49,7 @@ function get_on_sale_top_6($conn, $pet_type)
 }
 
 // Получаем акционные товары из БД по виду питомца
-function get_on_sale_by_pet_type($conn, $pet_type)
+function get_on_sale_by_pet_type($conn, $pet_type_id)
 {
     $query = "
     SELECT 
@@ -64,13 +64,13 @@ function get_on_sale_by_pet_type($conn, $pet_type)
     WHERE
         product.is_sale = 1
         AND
-		category.pet_type_id = " . $pet_type;
+		category.pet_type_id = " . $pet_type_id;
 
     return mysqli_query($conn, $query);
 }
 
-// Получаем товары из БД по категории
-function get_products($conn, $category)
+// Получаем товары из БД по id категории
+function get_products($conn, $category_id)
 {
     $query = "
     SELECT 
@@ -84,22 +84,23 @@ function get_products($conn, $category)
         category
         ON category.id = product.category_id
     WHERE
-    category.url_name = '" . $category . "'
+    category.id = '" . $category_id . "'
     ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
 }
 
-// Получаем полное имя категории для каждого питомца
-function get_category($conn, $category)
+// Получаем full_name категории для каждого питомца по url_name категории
+function get_category($conn, $category_url_name)
 {
     $query = "
-    SELECT 
+    SELECT
+        category.id as id,
         category.full_name as category
     FROM 
         category
     WHERE
-        category.url_name = '" . $category . "'";
+        category.url_name = '" . $category_url_name . "'";
 
     return mysqli_query($conn, $query);
 }

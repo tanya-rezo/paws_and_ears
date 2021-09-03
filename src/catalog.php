@@ -31,7 +31,7 @@ $category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
             <div class="product-grid">
 
                 <?php
-                $result = get_products($conn, $_GET["category"]); // получаем товары заданной категории
+                $result = get_products($conn, $category["id"]); // получаем товары заданной категории по id категории
                 $product_count = 0;
 
                 while ($row = mysqli_fetch_array($result)) {
