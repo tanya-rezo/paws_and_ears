@@ -21,6 +21,7 @@ $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
 
 
   <div class="row">
+
     <?php include './includes/menu.php'; ?>
 
     <div class="col-9">

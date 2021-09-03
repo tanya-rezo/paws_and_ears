@@ -1,13 +1,32 @@
 <?php include './includes/header.php'; ?>
 
-<div class="container container-fill">
-    <div class="row">
-        <?php include './includes/menu.php'; ?>
+<?php
+$result = get_product($conn, $_GET["id"]);
+$product = mysqli_fetch_array($result);
+?>
 
-        <?php
-        $result = get_product($conn, $_GET["id"]);
-        $product = mysqli_fetch_array($result);
-        ?>
+<div class="container container-fill">
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <div class="lite-font-weight flex-row-container breadcrumbs">
+                <h6>
+                    <a href="index.php">Главная</a>
+                </h6>
+                <h7 class="breadcrumbs-delimiter">></h7>
+                <h6>
+                    <a href="/catalog.php?category=<?php echo $product["category_url_name"] ?>"><?php echo $product["pet_type"] ?> - <?php echo $product["category_display_name"] ?></a>
+                </h6>
+                <h7 class="breadcrumbs-delimiter">></h7>
+                <h6><?php echo $product["name"] ?></h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <?php include './includes/menu.php'; ?>
 
         <div class="col-9">
             <h3 class="mb-4"><?php echo $product["name"] ?></h3>
@@ -26,7 +45,7 @@
 
                     <div class="details-values">
                         <div><span><?php echo $product["id"] ?></span></div>
-                        <div><span><?php echo $product["pet_type"] ?> - <?php echo $product["category"] ?></span></div>
+                        <div><span><?php echo $product["pet_type"] ?> - <?php echo $product["category_display_name"] ?></span></div>
                         <div><span>В наличии</span></div>
                         <div><span><?php echo $product["brand"] ?></span></div>
                         <div><span><?php echo $product["manufacturer"] ?></span></div>

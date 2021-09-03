@@ -1,13 +1,29 @@
 <?php include './includes/header.php'; ?>
 
+<?php
+$category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
+?>
+
 <div class="container container-fill">
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <div class="lite-font-weight flex-row-container breadcrumbs">
+                <h6>
+                    <a href="index.php">Главная</a>
+                </h6>
+                <h7 class="breadcrumbs-delimiter">></h7>
+                <h6><?php echo $category["pet_type"] ?> - <?php echo $category["category"] ?></h6>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
 
         <?php include './includes/menu.php'; ?>
 
         <div class="col-9">
-            <?php $category = mysqli_fetch_array(get_category($conn, $_GET["category"])); ?>
-
             <div class="flex-row-container mb-4">
                 <h3><?php echo $category["pet_type"] ?> - <?php echo $category["category"] ?></h3>
             </div>
