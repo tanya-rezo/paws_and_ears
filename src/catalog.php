@@ -14,7 +14,7 @@ $category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
                     <a href="index.php">Главная</a>
                 </h6>
                 <h7 class="breadcrumbs-delimiter">></h7>
-                <h6><?php echo $category["pet_type"] ?> - <?php echo $category["category"] ?></h6>
+                <h6><?php echo $category["category"] ?></h6>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@ $category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
 
         <div class="col-9">
             <div class="flex-row-container mb-4">
-                <h3><?php echo $category["pet_type"] ?> - <?php echo $category["category"] ?></h3>
+                <h3><?php echo $category["category"] ?></h3>
             </div>
 
             <div class="product-grid">

@@ -16,7 +16,7 @@ $product = mysqli_fetch_array($result);
                 </h6>
                 <h7 class="breadcrumbs-delimiter">></h7>
                 <h6>
-                    <a href="/catalog.php?category=<?php echo $product["category_url_name"] ?>"><?php echo $product["pet_type"] ?> - <?php echo $product["category_display_name"] ?></a>
+                    <a href="/catalog.php?category=<?php echo $product["category_url_name"] ?>"><?php echo $product["category_full_name"] ?></a>
                 </h6>
                 <h7 class="breadcrumbs-delimiter">></h7>
                 <h6><?php echo $product["name"] ?></h6>
@@ -45,7 +45,7 @@ $product = mysqli_fetch_array($result);
 
                     <div class="details-values">
                         <div><span><?php echo $product["id"] ?></span></div>
-                        <div><span><?php echo $product["pet_type"] ?> - <?php echo $product["category_display_name"] ?></span></div>
+                        <div><span><?php echo $product["category_full_name"] ?></span></div>
                         <div><span>В наличии</span></div>
                         <div><span><?php echo $product["brand"] ?></span></div>
                         <div><span><?php echo $product["manufacturer"] ?></span></div>

@@ -90,17 +90,14 @@ function get_products($conn, $category)
     return mysqli_query($conn, $query);
 }
 
-// Получаем имя категории и вид питомца
+// Получаем полное имя категории для каждого питомца
 function get_category($conn, $category)
 {
     $query = "
     SELECT 
-        category.display_name as category,
-        pet_type.name as pet_type
+        category.full_name as category
     FROM 
         category
-    LEFT JOIN
-        pet_type ON pet_type.id = category.pet_type_id
     WHERE
         category.url_name = '" . $category . "'";
 
@@ -131,9 +128,8 @@ function get_product($conn, $id)
         product.price, 
         product.image, 
         product.description, 
-        category.display_name as category_display_name,
+        category.full_name as category_full_name,
         category.url_name as category_url_name, 
-        pet_type.name as pet_type, 
         brand.name as brand, 
         manufacturer_country.name as manufacturer
     FROM 
@@ -141,9 +137,6 @@ function get_product($conn, $id)
     LEFT JOIN
         category
         ON category.id = product.category_id
-    LEFT JOIN
-        pet_type
-        ON pet_type.id = category.pet_type_id
     LEFT JOIN
         brand
         ON brand.id = product.brand_id
