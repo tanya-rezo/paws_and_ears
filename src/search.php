@@ -1,7 +1,21 @@
 <?php include './includes/header.php'; ?>
 
 <div class="container container-fill">
-    <div class="row mt-12px">
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <div class="lite-font-weight flex-row-container breadcrumbs">
+                <h6>
+                    <a href="index.php">Главная</a>
+                </h6>
+                <h7 class="breadcrumbs-delimiter">></h7>
+                <h6>Поиск</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
 
         <?php include './includes/menu.php'; ?>
 
