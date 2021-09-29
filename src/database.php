@@ -33,6 +33,7 @@ function get_on_sale_top_6($conn, $pet_type)
         product.id, 
         product.name, 
         product.price,
+        product.sale_price,
         product.image
     FROM 
         product
@@ -77,6 +78,8 @@ function get_products($conn, $category_id)
         product.id, 
         product.name, 
         product.price,
+        product.sale_price,
+        product.is_sale,
         product.image
     FROM 
         product

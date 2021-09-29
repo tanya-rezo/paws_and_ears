@@ -35,18 +35,40 @@ $category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
                 $product_count = 0;
 
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "
-                    <a href='product.php?id={$row["id"]}'>
-                        <div class='grid-item'>
-                            <img src='products/{$row["image"]}' class='product-image' />
-                            <div class='name-and-price-container'>
-                            <div class='name-container'>
-                                <h8 class='name-text'>{$row["name"]}</h8>
+
+                    if ($row["is_sale"] == "0") {
+                        echo "
+                        <a href='product.php?id={$row["id"]}'>
+                            <div class='grid-item'>
+                                <img src='products/{$row["image"]}' class='product-image' />
+                                <div class='name-and-price-container'>
+                                <div class='name-container'>
+                                    <h8 class='name-text'>{$row["name"]}</h8>
+                                </div>
+                                <div class='price-container'>{$row["price"]} ₽</div>
+                                </div>
                             </div>
-                            <div class='price-container'>{$row["price"]} ₽</div>
+                        </a>";
+                    } else {
+                        echo "
+                        <a href='product.php?id={$row["id"]}'>
+                            <div class='grid-item grid-item-sale'>
+                                <img src='products/{$row["image"]}' class='product-image' />
+                                <div class='name-and-price-container'>
+                                <div class='name-container'>
+                                    <h8 class='name-text'>{$row["name"]}</h8>
+                                </div>
+                                <div class='price-container'>
+                                    <div class='sale-price'>{$row["price"]} ₽ </div>  
+                                    <div class=''>{$row["sale_price"]} ₽ </div>
+                                </div>
+                                </div>
                             </div>
-                        </div>
-                    </a>";
+                        </a>";
+                    }
+
+
+
                     $product_count = $product_count + 1;
                 }
                 ?>
