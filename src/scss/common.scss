@@ -110,10 +110,7 @@ a {
 
 .empty-screen-text {
     opacity: 0.5;
-
-    @include media-breakpoint-between(xs, md) {
-        text-align: center;
-    }
+    text-align: center;
 }
 
 .breadcrumbs {

@@ -31,11 +31,14 @@ $product = mysqli_fetch_array($result);
         <div class="col-12 col-lg-9">
             <h3 class="mb-4"><?php echo $product["name"] ?></h3>
             <div class="row">
-                <div class="col-7">
+                <div class="col-12 col-lg-7">
                     <img class="details-product-image" src="products/<?php echo $product["image"] ?>" />
                 </div>
-                <div class="col-5 flex-column-container">
-                    <div class="details-headers">
+
+                <div class="col-12 d-lg-none mt-4"></div>
+
+                <div class="col-12 col-lg-5 flex-column-container">
+                    <div class="d-none d-lg-block details-headers">
                         <div><span>Артикул</span></div>
                         <div><span>Категория</span></div>
                         <div><span>Наличие</span></div>
@@ -43,7 +46,7 @@ $product = mysqli_fetch_array($result);
                         <div><span>Страна</span></div>
                     </div>
 
-                    <div class="details-values">
+                    <div class="d-none d-lg-block details-values">
                         <div><span><?php echo $product["id"] ?></span></div>
                         <div><span><?php echo $product["category_full_name"] ?></span></div>
                         <div><span>В наличии</span></div>
@@ -70,10 +73,31 @@ $product = mysqli_fetch_array($result);
 
                     <a role="button" class="btn btn-primary details-add-to-card-btn mt-2" href="/cart/add.php?product=<?php echo $product["id"] ?>&go_to_cart=1">Добавить и перейти в корзину</a>
                 </div>
-            </div>
-            <div class=" row mt-4 mb-3 text-justify">
-                <div class="col-12">
-                    <?php echo nl2br($product["description"]) ?>
+
+                <div class="col-12 d-lg-none mt-4">
+                    <div class="flex-column-container">
+                        <div class="details-headers">
+                            <span>Артикул</span>
+                            <div>Категория</div>
+                            <div>Наличие</div>
+                            <div>Бренд</div>
+                            <div>Страна</div>
+                        </div>
+
+                        <div class="details-values">
+                            <div><?php echo $product["id"] ?></div>
+                            <div><span><?php echo $product["category_full_name"] ?></span></div>
+                            <div><span>В наличии</span></div>
+                            <div><span><?php echo $product["brand"] ?></span></div>
+                            <div><span><?php echo $product["manufacturer"] ?></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" mt-4 mb-3 text-justify">
+                    <div class="col-12">
+                        <?php echo nl2br($product["description"]) ?>
+                    </div>
                 </div>
             </div>
         </div>

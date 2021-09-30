@@ -1,5 +1,8 @@
 .details-product-image {
     width: 100%;
+    @include media-breakpoint-between(xs, md) {
+        width: 90%;
+    }
 }
 
 .details-values {
