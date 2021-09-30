@@ -24,25 +24,43 @@
     $cart_count = array_sum($_SESSION);
     ?>
 
-
     <form action="search.php">
         <nav class="navbar navbar-expand-lg navbar-light">
 
             <div class="container">
-                <a href="index.php">
+                <a class="d-none d-lg-block" href="index.php">
                     <span class="navbar-brand logo-space">
                         <img src="img/logo.svg">
                     </span>
                 </a>
 
+                <div class="d-block d-lg-none d-flex flex-row flex-nowrap vh-center">
+                    <button class="hamburger hamburger--squeeze navbar-toggler hamburger-style collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                    <a href="index.php">
+                        <img class="logo-space" src="img/logo.svg">
+                    </a>
+                    <div class="d-flex flex-row vh-center">
+                        <a href="cart.php">
+                            <img class="cart-icon" src="img/shopping_cart.svg"></img>
+                        </a>
+                        <a href="cart.php">
+                            <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
+                        </a>
+                    </div>
+                </div>
+
                 <input type="text" class="form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
-                <button type="submit" id="send-btn" class="btn btn-primary">Искать</button>
+                <button type="submit" id="send-btn" class="d-none d-lg-block btn btn-primary">Искать</button>
 
 
-                <a href="cart.php">
+                <a class="d-none d-lg-block" href="cart.php">
                     <img class="cart-icon" src="img/shopping_cart.svg"></img>
                 </a>
-                <a href="cart.php">
+                <a class="d-none d-lg-block" href="cart.php">
                     <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
                 </a>
             </div>

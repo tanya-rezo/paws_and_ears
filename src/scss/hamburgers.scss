@@ -1,14 +1,14 @@
 /*
 Настройки гамбургера
 */
-$hamburger-layer-color         : #898888;
-$hamburger-types               : (squeeze);
-$hamburger-layer-height        : 3px;
-$hamburger-layer-border-radius : 3px;
-$hamburger-layer-width         : 35px;
-$hamburger-layer-spacing       : 7px;
-$hamburger-padding-x           : 0;
-$hamburger-padding-y           : 0;
+$hamburger-layer-color: #898888;
+$hamburger-types: (squeeze);
+$hamburger-layer-height: 3px;
+$hamburger-layer-border-radius: 3px;
+$hamburger-layer-width: 35px;
+$hamburger-layer-spacing: 7px;
+$hamburger-padding-x: 0;
+$hamburger-padding-y: 0;
 
 @import "~hamburgers/_sass/hamburgers/hamburgers";
 
@@ -25,9 +25,9 @@ $hamburger-padding-y           : 0;
 }
 
 .hamburger-style {
-    outline: none!important;
+    outline: none !important;
     transform: translateY(11px) translateX(11px);
     opacity: 0.7;
     margin-bottom: 17px;
-    margin-right: 15px;
+    margin-right: 25px;
 }

@@ -5,10 +5,22 @@
 
 .cart-icon {
     margin-left: 20px;
+
+    @include media-breakpoint-between(xs, md) {
+        margin-left: 0;
+    }
 }
 
 .logo-space {
     margin-right: 68px;
     margin-top: 12px;
     margin-bottom: 10px;
+
+    @include media-breakpoint-between(xs, md) {
+        width: 165px;
+        height: 61px;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
