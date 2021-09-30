@@ -57,6 +57,7 @@ function get_on_sale_by_pet_type($conn, $pet_type_id)
         product.id, 
         product.name, 
         product.price,
+        product.sale_price,
         product.image
     FROM 
         product
@@ -176,10 +177,13 @@ function search_product($conn, $search)
         product.id, 
         product.name, 
         product.price,
+        product.sale_price,
+        product.is_sale,
         product.image
     FROM 
         product
-    WHERE product.name LIKE '%" . $search . "%'";
+    WHERE product.name LIKE '%" . $search . "%'
+    ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
 }

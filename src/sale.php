@@ -42,7 +42,10 @@ $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
                   <div class='name-container'>
                     <h8 class='name-text'>{$row["name"]}</h8>
                   </div>
-                  <div class='price-container'>{$row["price"]} ₽</div>
+                  <div class='price-container'>
+                    <div class='sale-price'>{$row["price"]} ₽ </div>  
+                    <div class=''>{$row["sale_price"]} ₽ </div>
+                  </div>
                 </div>
               </div>
             </a>";
