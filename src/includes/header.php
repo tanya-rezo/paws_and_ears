@@ -52,26 +52,22 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="d-flex d-lg-none input-group mb-3">
-                    <input type="text" class="form-control search-field w-75" placeholder="Поиск по сайту" name="q" value="<?php echo $_GET["q"]; ?>"></input>
-                    <div class="input-group-append">
-                        <button class="form-control search-field" type="submit" id="send-btn"><img class="" src="img/pin.svg"></button>
+                <div class="flex-row-container w-100 mb-4 mt-4">
+                    <div class="flex-column-container w-100">
+                        <input type="text" class="form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
+                        <input type="image" class="d-lg-none search-pin" src="img/pin.svg">
                     </div>
+                    <button type="submit" id="send-btn" class="d-none d-lg-block btn btn-primary send-btn">Искать</button>
+                    <div class="d-flex flex-row vh-center">
+                        <a class="d-none d-lg-block" href="cart.php">
+                            <img class="cart-icon" src="img/shopping_cart.svg"></img>
+                        </a>
+                        <a class="d-none d-lg-block" href="cart.php">
+                            <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
+                        </a>
+                    </div>
+
                 </div>
-
-                <input type="text" class="d-none d-lg-block form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
-                <button type="submit" id="send-btn" class="d-none d-lg-block btn btn-primary">Искать</button>
-
-
-                <a class="d-none d-lg-block" href="cart.php">
-                    <img class="cart-icon" src="img/shopping_cart.svg"></img>
-                </a>
-                <a class="d-none d-lg-block" href="cart.php">
-                    <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
-                </a>
-
-            </div>
 
         </nav>
     </form>

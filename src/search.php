@@ -3,8 +3,8 @@
 <div class="container container-fill">
 
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-9">
+        <div class="col-lg-3"></div>
+        <div class="col-12 col-lg-9">
             <div class="lite-font-weight flex-row-container breadcrumbs">
                 <h6>
                     <a href="index.php">Главная</a>
@@ -19,7 +19,7 @@
 
         <?php include './includes/menu.php'; ?>
 
-        <div class="col-9">
+        <div class="col-12 col-lg-9">
 
             <h3 class="mb-4">Поиск</h3>
 

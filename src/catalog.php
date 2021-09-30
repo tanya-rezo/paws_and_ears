@@ -7,8 +7,8 @@ $category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
 <div class="container container-fill">
 
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-9">
+        <div class="col-lg-3"></div>
+        <div class="col-12 col-lg-9">
             <div class="lite-font-weight flex-row-container breadcrumbs">
                 <h6>
                     <a href="index.php">Главная</a>
@@ -23,7 +23,7 @@ $category = mysqli_fetch_array(get_category($conn, $_GET["category"]));
 
         <?php include './includes/menu.php'; ?>
 
-        <div class="col-9">
+        <div class="col-12 col-lg-9 mb-4">
             <div class="flex-row-container mb-4">
                 <h3><?php echo $category["category"] ?></h3>
             </div>

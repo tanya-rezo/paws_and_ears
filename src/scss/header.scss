@@ -4,7 +4,7 @@
 
     @include media-breakpoint-between(xs, md) {
         margin-right: 0;
-        margin-top: 15px;
+        margin-top: 0;
         font-size: 0.85rem;
     }
 }
@@ -29,4 +29,12 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+}
+.search-pin {
+    margin-top: -30px;
+    margin-left: auto;
+}
+
+.send-btn {
+    margin-left: 27px;
 }

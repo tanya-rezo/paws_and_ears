@@ -3,8 +3,8 @@
 <div class="container container-fill">
 
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-9">
+        <div class="col-lg-3"></div>
+        <div class="col-12 col-lg-9">
             <div class="lite-font-weight flex-row-container breadcrumbs">
                 <h6>
                     <a href="index.php">Главная</a>
@@ -18,7 +18,7 @@
     <div class="row">
         <?php include './includes/menu.php'; ?>
 
-        <div class="col-6">
+        <div class="col-12 col-lg-6">
             <div class="mb-4">
                 <h3 class="d-inline mr-1">Корзина</h3>
                 <span><?php echo $cart_count; ?> шт. товара</span>
@@ -82,7 +82,7 @@
             ?>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-lg-3">
             <form action="/cart/make-order.php">
 
                 <div class="checkout-box">
