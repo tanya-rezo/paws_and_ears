@@ -55,7 +55,14 @@ $product = mysqli_fetch_array($result);
 
                     <div class="position-relative mb-3">
                         <div class="details-headers"><span>Цена</span></div>
-                        <div class="details-price-text"><?php echo $product["price"] ?> ₽</div>
+                        <?php
+                        if ($product["is_sale"] == "0") {
+                            echo "<div class='details-price-text'>{$product["price"]} ₽</div>";
+                        } else {
+                            echo "<div class='details-price-text'>{$product["sale_price"]} ₽</div>
+                                  <div class='sale-price'>{$product["price"]} ₽</div>";
+                        }
+                        ?>
                     </div>
 
                     <a role="button" class="btn btn-primary details-add-to-card-btn" href="/cart/add.php?product=<?php echo $product["id"] ?>">Добавить в

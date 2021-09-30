@@ -130,7 +130,9 @@ function get_product($conn, $id)
     SELECT 
         product.id, 
         product.name, 
-        product.price, 
+        product.price,
+        product.sale_price,
+        product.is_sale, 
         product.image, 
         product.description, 
         category.full_name as category_full_name,
