@@ -4,7 +4,7 @@
 
     <?php include './includes/menu.php'; ?>
 
-    <div class="col-9">
+    <div class="col-12 col-lg-9">
 
       <div class="flex-row-container mb-4">
         <h3>Акции для кошек</h3>

@@ -1,6 +1,12 @@
 .search-field {
     margin-right: 27px;
     box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.06);
+
+    @include media-breakpoint-between(xs, md) {
+        margin-right: 0;
+        margin-top: 15px;
+        font-size: 0.85rem;
+    }
 }
 
 .cart-icon {

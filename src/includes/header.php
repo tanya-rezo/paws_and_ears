@@ -34,7 +34,7 @@
                     </span>
                 </a>
 
-                <div class="d-block d-lg-none d-flex flex-row flex-nowrap vh-center">
+                <div class="d-flex d-lg-none flex-nowrap justify-content-between w-100 mt-2">
                     <button class="hamburger hamburger--squeeze navbar-toggler hamburger-style collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
@@ -53,7 +53,14 @@
                     </div>
                 </div>
 
-                <input type="text" class="form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
+                <div class="d-flex d-lg-none input-group mb-3">
+                    <input type="text" class="form-control search-field w-75" placeholder="Поиск по сайту" name="q" value="<?php echo $_GET["q"]; ?>"></input>
+                    <div class="input-group-append">
+                        <button class="form-control search-field" type="submit" id="send-btn"><img class="" src="img/pin.svg"></button>
+                    </div>
+                </div>
+
+                <input type="text" class="d-none d-lg-block form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
                 <button type="submit" id="send-btn" class="d-none d-lg-block btn btn-primary">Искать</button>
 
 
@@ -63,6 +70,7 @@
                 <a class="d-none d-lg-block" href="cart.php">
                     <div class="cart-counter vh-center"><?php echo $cart_count; ?></div>
                 </a>
+
             </div>
 
         </nav>
