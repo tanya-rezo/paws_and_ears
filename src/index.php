@@ -28,7 +28,7 @@
                     <h8 class='name-text'>{$row["name"]}</h8>
                   </div>
                   <div class='price-container'>
-                    <div class='sale-price'>{$row["price"]} ₽ </div>  
+                    <div class='old-price'>{$row["price"]} ₽ </div>  
                     <div class=''>{$row["sale_price"]} ₽ </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                     <h8 class='name-text'>{$row["name"]}</h8>
                   </div>
                   <div class='price-container'>
-                    <div class='sale-price'>{$row["price"]} ₽ </div>  
+                    <div class='old-price'>{$row["price"]} ₽ </div>  
                     <div class=''>{$row["sale_price"]} ₽ </div>
                   </div>
                 </div>

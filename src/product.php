@@ -63,7 +63,7 @@ $product = mysqli_fetch_array($result);
                             echo "<div class='details-price-text'>{$product["price"]} ₽</div>";
                         } else {
                             echo "<div class='details-price-text'>{$product["sale_price"]} ₽</div>
-                                  <div class='sale-price'>{$product["price"]} ₽</div>";
+                                  <div class='old-price'>{$product["price"]} ₽</div>";
                         }
                         ?>
                     </div>

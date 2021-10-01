@@ -74,7 +74,7 @@ a {
     color: black;
 }
 
-.sale-price {
+.old-price {
     position: absolute;
     bottom: 30px;
     right: 7px;
@@ -83,7 +83,7 @@ a {
     opacity: 0.5;
 }
 
-.sale-price::before {
+.old-price::before {
     top: 44%;
     background: black;
     opacity: 1;

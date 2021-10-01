@@ -26,6 +26,7 @@
 
             <?php
             $total_cost = 0;
+            $total_disount = 0;
             foreach ($_SESSION as $product_id => $count) {
                 // обрезаем имя переменной сессии чтобы получить id товара
                 // "product_3" -> "3"
@@ -37,9 +38,14 @@
                 // подсчитываем общую стоимость
                 $total_cost = $total_cost + ($product["price"] * $count);
 
+                // подсчитываем общую скидку
+                if ($product["is_sale"] == "1") {
+                    $total_disount = $total_disount + (($product["price"] - $product["sale_price"]) * $count);
+                }
+
                 echo "
                 <div class='cart-item'>
-                    <div class='cart-item-image-col'>
+                    <div class='cart-item-image-col vh-center'>
                         <a href='product.php?id={$product["id"]}'>
                             <img class='cart-item-image' src='products/{$product["image"]}'></img>
                         </a>
@@ -58,9 +64,16 @@
                                     <a href='/cart/plus.php?product={$product["id"]}'>
                                         <div class='cart-counter vh-center'>+</div>
                                     </a>
-                                </div>
-                                <div class='cart-item-price'>{$product["price"]} ₽</div>
-                            </div>
+                                </div>";
+
+                if ($product["is_sale"] == "1") {
+                    echo "      <div class='cart-item-price'>{$product["sale_price"]} ₽</div>
+                                <div class='cart-item-price cart-item-old-price'>{$product["price"]} ₽</div>";
+                } else {
+                    echo "      <div class='cart-item-price'>{$product["price"]} ₽</div>";
+                }
+
+                echo "      </div>
                         </div>
                     </div>
                     <div class='cart-item-delete-col vh-center'>
@@ -73,10 +86,11 @@
             }
 
             if ($cart_count == 0) {
-                echo "<div class='flex-column-container mt-150px vh-center'>";
-                echo "  <img src='img/cat-in-box.svg' class='empty-screen-cat'>";
-                echo "  <h5 class='empty-screen-text mt-3'>В корзине ничего нет</h5>";
-                echo "</div>";
+                echo "
+                <div class='flex-column-container mt-150px vh-center'>
+                    <img src='img/cat-in-box.svg' class='empty-screen-cat'>
+                    <h5 class='empty-screen-text mt-3'>В корзине ничего нет</h5>
+                </div>";
             }
 
             ?>
@@ -86,7 +100,17 @@
             <form action="/cart/make-order.php">
 
                 <div class="checkout-box">
-                    <h5>Итого: <?php echo $total_cost; ?> ₽</h5>
+
+                    <?php
+                    if ($total_disount == 0) {
+                        echo "
+                        <h5>Итого: {$total_cost} ₽</h5>";
+                    } else {
+                        echo "
+                        <h5 class='mb-1'>Итого: {$total_cost} ₽</h5>
+                        <h6 class='cart-discount-text'>Скидка: {$total_disount} ₽</h6>";
+                    }
+                    ?>
                     <div class="form-group mb-2">
                         <input type="text" class="form-control" name="firstName" placeholder="Имя*" required>
                     </div>
@@ -105,9 +129,10 @@
 
                     <?php
                     if (isset($_GET["error"])) {
-                        echo "<div class='mb-2 cart-error-text'>";
-                        echo "  <span>Не заполнены обязательные поля</span>";
-                        echo "</div>";
+                        echo "
+                        <div class='mb-2 cart-error-text'>
+                            <span>Не заполнены обязательные поля</span>
+                        </div>";
                     }
                     ?>
 

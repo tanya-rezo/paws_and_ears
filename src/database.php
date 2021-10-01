@@ -163,6 +163,8 @@ function get_product_for_cart($conn, $id)
         product.id, 
         product.name, 
         product.price, 
+        product.sale_price, 
+        product.is_sale, 
         product.image
     FROM 
         product
