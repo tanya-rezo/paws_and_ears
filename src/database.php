@@ -221,3 +221,6 @@ function create_order_item($conn, $orderId, $productId, $count)
 
     $conn->query($query);
 }
+
+// создаём подключение к БД
+$conn = connect_db();

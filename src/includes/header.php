@@ -1,6 +1,5 @@
-<?php include './database.php'; ?>
+<?php include_once './database.php'; ?>
 <?php session_start(); ?>
-<?php $conn = connect_db(); ?>
 <!DOCTYPE html>
 <html lang="ru">
 
