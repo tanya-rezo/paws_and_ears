@@ -1,9 +1,13 @@
-<?php include './includes/header.php'; ?>
-
+<?php include_once './database.php'; ?>
 <?php
-$result = get_product($conn, $_GET["id"]);
-$product = mysqli_fetch_array($result);
+$product = mysqli_fetch_array(get_product($conn, $_GET["id"]));
+if ($product == null) {
+    header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found", true, 404);
+    include '404.php';
+    die();
+}
 ?>
+<?php include './includes/header.php'; ?>
 
 <div class="container container-fill">
 
