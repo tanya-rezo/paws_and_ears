@@ -222,5 +222,20 @@ function create_order_item($conn, $orderId, $productId, $count)
     $conn->query($query);
 }
 
-// создаём подключение к БД
+// Cоздаём подключение к БД
 $conn = connect_db();
+
+// Получение ID и название катеории для меню
+function get_menu($conn)
+{
+    $query = "
+    SELECT 
+        category.id, 
+        category.url_name, 
+        category.display_name,
+        category.pet_type_id
+    FROM 
+        category";
+
+    return mysqli_query($conn, $query);
+}
