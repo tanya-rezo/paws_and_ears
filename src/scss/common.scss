@@ -118,6 +118,7 @@ a {
 
 .breadcrumbs {
     margin-top: -15px;
+    align-items: flex-start;
 }
 
 .breadcrumbs > h6,
@@ -126,9 +127,12 @@ h7 {
 }
 
 .breadcrumbs-delimiter {
-    margin-top: -7px;
+    margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
+    @include media-breakpoint-between(xs, md) {
+        margin-top: 2px;
+    }
 }
 
 .error-cat-img {
