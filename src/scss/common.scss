@@ -1,6 +1,9 @@
 html {
     height: 100%;
     background: #b4b4b4;
+    @include media-breakpoint-between(xs, md) {
+        font-size: 14px;
+    }
 }
 
 body {
