@@ -54,7 +54,7 @@
                 <div class="flex-row-container w-100 mb-4 mt-4">
                     <div class="flex-column-container w-100">
                         <input type="text" class="form-control search-field" id="searchbar" name="q" placeholder="Поиск по сайту" value="<?php echo $_GET["q"]; ?>"></input>
-                        <input type="image" class="d-lg-none search-icon" src="img/pin.svg">
+                        <input type="image" class="d-lg-none search-icon" src="img/search_magnifier.svg">
                     </div>
                     <button type="submit" id="send-btn" class="d-none d-lg-block btn btn-primary send-btn">Искать</button>
                     <div class="d-flex flex-row vh-center">

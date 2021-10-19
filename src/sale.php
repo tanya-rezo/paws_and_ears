@@ -7,13 +7,13 @@ $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
 <div class="container container-fill">
 
   <div class="row">
-    <div class="col-3"></div>
-    <div class="col-9">
+    <div class="col-lg-3"></div>
+    <div class="col-12 col-lg-9">
       <div class="lite-font-weight flex-row-container breadcrumbs">
         <h6>
           <a href="index.php">Главная</a>
         </h6>
-        <h7 class="breadcrumbs-delimiter">></h7>
+        <img class="breadcrumbs-delimiter" src="img/breadcrumb-arrow.svg"></img>
         <h6><?php echo $pet["pet_type"] ?></h6>
       </div>
     </div>
@@ -24,7 +24,7 @@ $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
 
     <?php include './includes/menu.php'; ?>
 
-    <div class="col-9">
+    <div class="col-12 col-lg-9">
       <div class="flex-row-container mb-4">
         <h3><?php echo $pet["pet_type"] ?></h3>
       </div>

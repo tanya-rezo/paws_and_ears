@@ -9,7 +9,7 @@
                 <h6>
                     <a href="index.php">Главная</a>
                 </h6>
-                <h7 class="breadcrumbs-delimiter">></h7>
+                <img class="breadcrumbs-delimiter" src="img/breadcrumb-arrow.svg"></img>
                 <h6>Корзина</h6>
             </div>
         </div>
