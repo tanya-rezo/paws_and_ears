@@ -35,12 +35,16 @@
                 // получаем данные о продукте для корзины
                 $product = mysqli_fetch_array(get_product_for_cart($conn, $id));
 
-                // подсчитываем общую стоимость
-                $total_cost = $total_cost + ($product["price"] * $count);
-
                 // подсчитываем общую скидку
                 if ($product["is_sale"] == "1") {
                     $total_disount = $total_disount + (($product["price"] - $product["sale_price"]) * $count);
+                }
+
+                // подсчитываем общую стоимость
+                if ($product["is_sale"] == "1") {
+                    $total_cost = $total_cost + ($product["sale_price"] * $count);
+                } else {
+                    $total_cost = $total_cost + ($product["price"] * $count);
                 }
 
                 echo "
