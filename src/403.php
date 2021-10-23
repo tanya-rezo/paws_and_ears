@@ -1,6 +1,11 @@
 <?php include './includes/header.php'; ?>
+<?php include './includes/menu.php'; ?>
 
-<div class="container container-fill">
+<div class="container menu-container" style="display: none;">
+    <?php include './includes/menu-content.php'; ?>
+</div>
+
+<div class="container main-container">
     <div class="vh-center flex-column-container mt-150px">
         <img class="error-cat-img" src="img/laptop-cat.svg"></img>
         <h3 class="mt-3">Доступ запрещён</h3>

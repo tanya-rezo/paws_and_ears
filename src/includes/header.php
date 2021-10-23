@@ -34,7 +34,7 @@
                 </a>
 
                 <div class="d-flex d-lg-none flex-nowrap justify-content-between w-100 mt-2">
-                    <button class="hamburger hamburger--squeeze navbar-toggler hamburger-style collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="hamburger hamburger--squeeze hamburger-style collapsed" type="button">
                         <span class="hamburger-box">
                             <span class="hamburger-inner"></span>
                         </span>

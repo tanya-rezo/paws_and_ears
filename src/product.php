@@ -8,8 +8,13 @@ if ($product == null) {
 }
 ?>
 <?php include './includes/header.php'; ?>
+<?php include './includes/menu.php'; ?>
 
-<div class="container container-fill">
+<div class="container menu-container" style="display: none;">
+    <?php include './includes/menu-content.php'; ?>
+</div>
+
+<div class="container main-container">
 
     <div class="row">
         <div class="col-lg-3"></div>
@@ -29,8 +34,9 @@ if ($product == null) {
     </div>
 
     <div class="row">
-
-        <?php include './includes/menu.php'; ?>
+        <div class="d-none d-lg-block col-3 catalog-container">
+            <?php include './includes/menu-content.php'; ?>
+        </div>
 
         <div class="col-12 col-lg-9">
             <h3 class="mb-4"><?php echo $product["name"] ?></h3>
@@ -58,7 +64,7 @@ if ($product == null) {
                         <div><span><?php echo $product["manufacturer"] ?></span></div>
                     </div>
 
-                    <div class="container-fill"></div>
+                    <div class="flex-grow-1"></div>
 
                     <div class="position-relative mb-3">
                         <div class="details-headers"><span>Цена</span></div>

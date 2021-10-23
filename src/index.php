@@ -1,8 +1,15 @@
 <?php include './includes/header.php'; ?>
-<div class="container container-fill">
-  <div class="row mt-12px">
+<?php include './includes/menu.php'; ?>
 
-    <?php include './includes/menu.php'; ?>
+<div class="container menu-container" style="display: none;">
+  <?php include './includes/menu-content.php'; ?>
+</div>
+
+<div class="container main-container">
+  <div class="row mt-12px">
+    <div class="d-none d-lg-block col-3 catalog-container">
+      <?php include './includes/menu-content.php'; ?>
+    </div>
 
     <div class="col-12 col-lg-9">
 

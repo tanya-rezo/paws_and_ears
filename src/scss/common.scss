@@ -21,7 +21,11 @@ a {
     color: #9949bf;
 }
 
-.container-fill {
+.main-container {
+    flex: 1;
+}
+
+.menu-container {
     flex: 1;
 }
 

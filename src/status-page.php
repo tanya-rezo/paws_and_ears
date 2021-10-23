@@ -1,6 +1,6 @@
 <?php include './includes/header.php'; ?>
 
-<div class="container container-fill">
+<div class="container main-container">
     <div class="vh-center flex-column-container mt-150px">
         <img src="img/callcenter-cat.svg"></img>
         <h3 class="mt-3">Ваш заказ принят</h3>
