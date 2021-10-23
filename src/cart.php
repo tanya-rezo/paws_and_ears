@@ -64,7 +64,9 @@
                     <div class='cart-item-main-col'>
                         <div class='cart-item-main-box'>
                             <a href='product.php?id={$product["id"]}'>
-                                <div class='cart-item-name'>{$product["name"]}</div>
+                                <div class='cart-item-name box'>
+                                    <p>{$product["name"]}</p>
+                                </div>
                             </a>
                             <div class='flex-row-container'>
                                 <div class='flex-row-container'>
@@ -98,7 +100,7 @@
 
             if ($cart_count == 0) {
                 echo "
-                <div class='flex-column-container mt-150px vh-center'>
+                <div class='flex-column-container space-cat-in-box-img vh-center mb-3'>
                     <img src='img/cat-in-box.svg' class='empty-screen-cat'>
                     <h5 class='empty-screen-text mt-3'>В корзине ничего нет</h5>
                 </div>";
