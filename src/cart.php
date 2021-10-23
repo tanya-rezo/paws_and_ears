@@ -142,7 +142,7 @@
 
                     <button <?php echo $cart_count == 0 ? "disabled" : ""; ?> type="submit" class="btn checkout-btn">Оформить заказ</a>
                 </div>
-                <div class="mt-3 vh-center">
+                <div class="mt-3 mb-3 vh-center">
                     <a href="/cart/clear.php">Очистить корзину</a>
                 </div>
             </form>
