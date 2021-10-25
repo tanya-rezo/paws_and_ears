@@ -1,4 +1,9 @@
 <?php include './includes/header.php'; ?>
+<?php include './includes/menu.php'; ?>
+
+<div class="container menu-container" style="display: none;">
+    <?php include './includes/menu-content.php'; ?>
+</div>
 
 <div class="container main-container">
     <div class="vh-center flex-column-container mt-150px">
