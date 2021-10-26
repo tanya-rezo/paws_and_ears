@@ -18,7 +18,9 @@
 }
 
 .cart-item-image {
-    width: 80px;
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
 }
 
 .cart-item-image-col {
