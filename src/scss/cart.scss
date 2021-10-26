@@ -33,6 +33,10 @@
 
 .cart-item-delete-col {
     width: 50px;
+    @include media-breakpoint-between(xs, md) {
+        justify-content: flex-end;
+        margin-right: 10px;
+    }
 }
 
 .cart-item-main-box {
@@ -48,11 +52,6 @@
     align-items: center;
     display: flex;
     color: #000;
-    @include media-breakpoint-between(xs, md) {
-        /*         white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; */
-    }
 }
 
 .cart-item-price {
@@ -62,12 +61,20 @@
     font-size: 18px;
     text-align: left;
     margin-top: -1px;
+    @include media-breakpoint-between(xs, md) {
+        font-size: 14px;
+        margin-top: 0px;
+        margin-left: 14px;
+    }
 }
 
 .cart-item-old-price {
     font-weight: 400;
     font-size: 16px;
     opacity: 0.5;
+    @include media-breakpoint-between(xs, md) {
+        font-size: 14px;
+    }
 }
 
 .cart-item-old-price::before {
@@ -112,5 +119,11 @@
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+}
+
+.xs-cart-content {
+    @include media-breakpoint-between(xs, md) {
+        justify-content: space-between;
     }
 }

@@ -68,16 +68,17 @@
                                     <p>{$product["name"]}</p>
                                 </div>
                             </a>
-                            <div class='flex-row-container'>
+                            <div class='flex-row-container xs-cart-content'>
                                 <div class='flex-row-container'>
-                                    <a href='/cart/minus.php?product={$product["id"]}'>
-                                        <div class='cart-counter vh-center'>–</div>
-                                    </a>
-                                    <div class='cart-item-counter-text'>$count</div>
-                                    <a href='/cart/plus.php?product={$product["id"]}'>
-                                        <div class='cart-counter vh-center'>+</div>
-                                    </a>
-                                </div>";
+                                    <div class='flex-row-container'>
+                                        <a href='/cart/minus.php?product={$product["id"]}'>
+                                            <div class='cart-counter vh-center'>–</div>
+                                        </a>
+                                        <div class='cart-item-counter-text'>$count</div>
+                                        <a href='/cart/plus.php?product={$product["id"]}'>
+                                            <div class='cart-counter vh-center'>+</div>
+                                        </a>
+                                    </div>";
 
                 if ($product["is_sale"] == "1") {
                     echo "      <div class='cart-item-price'>{$product["sale_price"]} ₽</div>
@@ -85,11 +86,18 @@
                 } else {
                     echo "      <div class='cart-item-price'>{$product["price"]} ₽</div>";
                 }
-
-                echo "      </div>
+                echo "
+                                </div>
+                                <div class='d-blok d-lg-none cart-item-delete-col vh-center'>
+                                    <a href='/cart/delete.php?product={$product["id"]}'>
+                                        <img src='img/delete.svg'></img>
+                                    </a>
+                                </div>
+                            </div>
+                      
                         </div>
                     </div>
-                    <div class='cart-item-delete-col vh-center'>
+                    <div class='d-none d-lg-block cart-item-delete-col vh-center'>
                         <a href='/cart/delete.php?product={$product["id"]}'>
                             <img src='img/delete.svg'></img>
                         </a>
