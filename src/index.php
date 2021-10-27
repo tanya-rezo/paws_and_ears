@@ -1,5 +1,6 @@
 <?php include './includes/header.php'; ?>
 <?php include './includes/menu.php'; ?>
+<?php include './includes/catalog-item.php'; ?>
 
 <div class="container menu-container" style="display: none;">
   <?php include './includes/menu-content.php'; ?>
@@ -26,21 +27,7 @@
         $result = get_on_sale_top_6($conn, 1); // получаем 6 рандомных акционных товаров для кошек
 
         while ($row = mysqli_fetch_array($result)) {
-          echo "
-            <a href='product.php?id={$row["id"]}'>
-              <div class='grid-item'>
-                <img src='products/{$row["image"]}' class='product-image' />
-                <div class='name-and-price-container'>
-                  <div class='name-container'>
-                    <h8 class='name-text'>{$row["name"]}</h8>
-                  </div>
-                  <div class='price-container'>
-                    <div class='old-price'>{$row["price"]} ₽ </div>  
-                    <div class=''>{$row["sale_price"]} ₽ </div>
-                  </div>
-                </div>
-              </div>
-            </a>";
+          print_catalog_item($row, false, true);
         }
         ?>
       </div>
@@ -58,21 +45,7 @@
         $result = get_on_sale_top_6($conn, 2); // получаем 6 рандомных акционных товаров для собак
 
         while ($row = mysqli_fetch_array($result)) {
-          echo "
-            <a href='product.php?id={$row["id"]}'>
-              <div class='grid-item'>
-                <img src='products/{$row["image"]}' class='product-image' />
-                <div class='name-and-price-container'>
-                  <div class='name-container'>
-                    <h8 class='name-text'>{$row["name"]}</h8>
-                  </div>
-                  <div class='price-container'>
-                    <div class='old-price'>{$row["price"]} ₽ </div>  
-                    <div class=''>{$row["sale_price"]} ₽ </div>
-                  </div>
-                </div>
-              </div>
-            </a>";
+          print_catalog_item($row, false, true);
         }
         ?>
       </div>

@@ -1,5 +1,6 @@
 <?php include './includes/header.php'; ?>
 <?php include './includes/menu.php'; ?>
+<?php include './includes/catalog-item.php'; ?>
 
 <div class="container menu-container" style="display: none;">
     <?php include './includes/menu-content.php'; ?>
@@ -36,37 +37,7 @@
                 $count = 0;
 
                 while ($row = mysqli_fetch_array($result)) {
-                    if ($row["is_sale"] == "0") {
-                        echo "
-                        <a href='product.php?id={$row["id"]}'>
-                            <div class='grid-item'>
-                                <img src='products/{$row["image"]}' class='product-image' />
-                                <div class='name-and-price-container'>
-                                <div class='name-container'>
-                                    <h8 class='name-text'>{$row["name"]}</h8>
-                                </div>
-                                <div class='price-container'>{$row["price"]} ₽</div>
-                                </div>
-                            </div>
-                        </a>";
-                    } else {
-                        echo "
-                        <a href='product.php?id={$row["id"]}'>
-                            <div class='grid-item grid-item-sale'>
-                                <img src='products/{$row["image"]}' class='product-image' />
-                                <div class='name-and-price-container'>
-                                <div class='name-container'>
-                                    <h8 class='name-text'>{$row["name"]}</h8>
-                                </div>
-                                <div class='price-container'>
-                                    <div class='old-price'>{$row["price"]} ₽ </div>  
-                                    <div class=''>{$row["sale_price"]} ₽ </div>
-                                </div>
-                                </div>
-                            </div>
-                        </a>";
-                    }
-
+                    print_catalog_item($row, true, $row["is_sale"] == "1");
                     $count = $count + 1;
                 }
                 ?>

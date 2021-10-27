@@ -1,5 +1,6 @@
 <?php include './includes/header.php'; ?>
 <?php include './includes/menu.php'; ?>
+<?php include './includes/catalog-item.php'; ?>
 
 <?php
 $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
@@ -39,21 +40,7 @@ $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
         $result = get_on_sale_by_pet_type($conn, $_GET["pet"]); // получаем акционные товары из БД по виду питомца
 
         while ($row = mysqli_fetch_array($result)) {
-          echo "
-            <a href='product.php?id={$row["id"]}'>
-              <div class='grid-item'>
-                <img src='products/{$row["image"]}' class='product-image' />
-                <div class='name-and-price-container'>
-                  <div class='name-container'>
-                    <h8 class='name-text'>{$row["name"]}</h8>
-                  </div>
-                  <div class='price-container'>
-                    <div class='old-price'>{$row["price"]} ₽ </div>  
-                    <div class=''>{$row["sale_price"]} ₽ </div>
-                  </div>
-                </div>
-              </div>
-            </a>";
+          print_catalog_item($row, false, true);
         }
         ?>
       </div>
