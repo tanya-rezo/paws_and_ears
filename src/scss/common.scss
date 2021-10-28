@@ -142,6 +142,13 @@ h7 {
     }
 }
 
+.breadcrumbs-space {
+    margin-top: 12px;
+    @include media-breakpoint-between(xs, md) {
+        margin-top: 8px;
+    }
+}
+
 .error-cat-img {
     width: 176px;
 }

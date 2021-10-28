@@ -7,7 +7,7 @@
 </div>
 
 <div class="container main-container">
-  <div class="row mt-12px">
+  <div class="row breadcrumbs-space">
     <div class="d-none d-lg-block col-3 catalog-container">
       <?php include './includes/menu-content.php'; ?>
     </div>
