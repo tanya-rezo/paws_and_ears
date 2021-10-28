@@ -47,7 +47,7 @@
     height: 50%;
     font-family: Roboto;
     font-style: normal;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 16px;
     align-items: center;
     display: flex;
@@ -58,11 +58,11 @@
     font-weight: 500;
     color: black;
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 1.125rem;
     text-align: left;
     margin-top: -1px;
     @include media-breakpoint-between(xs, md) {
-        font-size: 14px;
+        font-size: 1rem;
         margin-top: 0px;
         margin-left: 14px;
     }
@@ -70,10 +70,10 @@
 
 .cart-item-old-price {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     opacity: 0.5;
     @include media-breakpoint-between(xs, md) {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
