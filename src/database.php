@@ -28,6 +28,8 @@ function disconnect_db($conn)
 // Получаем рандомные 6 акционных товаров из БД по виду питомца
 function get_on_sale_top_6($conn, $pet_type)
 {
+    settype($pet_type, 'integer');
+
     $query = "
     SELECT
         product.id, 
@@ -42,7 +44,7 @@ function get_on_sale_top_6($conn, $pet_type)
     WHERE
         product.is_sale = 1
         AND
-		category.pet_type_id = " . $pet_type . "
+		category.pet_type_id = '$pet_type'
         ORDER BY RAND()
         LIMIT 6";
 
@@ -52,6 +54,8 @@ function get_on_sale_top_6($conn, $pet_type)
 // Получаем акционные товары из БД по виду питомца
 function get_on_sale_by_pet_type($conn, $pet_type_id)
 {
+    settype($pet_type_id, 'integer');
+
     $query = "
     SELECT 
         product.id, 
@@ -66,7 +70,7 @@ function get_on_sale_by_pet_type($conn, $pet_type_id)
     WHERE
         product.is_sale = 1
         AND
-		category.pet_type_id = " . $pet_type_id;
+		category.pet_type_id = $pet_type_id";
 
     return mysqli_query($conn, $query);
 }
@@ -74,6 +78,8 @@ function get_on_sale_by_pet_type($conn, $pet_type_id)
 // Получаем товары из БД по id категории
 function get_products($conn, $category_id)
 {
+    settype($category_id, 'integer');
+
     $query = "
     SELECT 
         product.id, 
@@ -88,7 +94,7 @@ function get_products($conn, $category_id)
         category
         ON category.id = product.category_id
     WHERE
-    category.id = '" . $category_id . "'
+    category.id = '$category_id'
     ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
@@ -97,6 +103,8 @@ function get_products($conn, $category_id)
 // Получаем full_name категории для каждого питомца по url_name категории
 function get_category($conn, $category_url_name)
 {
+    $category_url_name = mysqli_real_escape_string($conn, $category_url_name);
+
     $query = "
     SELECT
         category.id as id,
@@ -104,7 +112,7 @@ function get_category($conn, $category_url_name)
     FROM 
         category
     WHERE
-        category.url_name = '" . $category_url_name . "'";
+        category.url_name = '$category_url_name'";
 
     return mysqli_query($conn, $query);
 }
@@ -112,13 +120,15 @@ function get_category($conn, $category_url_name)
 // Получаем имя питомца по его id
 function get_pet_sale_name($conn, $pet_type_id)
 {
+    settype($pet_type_id, 'integer');
+
     $query = "
     SELECT 
         pet_type.sale_name as pet_type
     FROM 
         pet_type
     WHERE
-        pet_type.id = " . $pet_type_id;
+        pet_type.id = $pet_type_id";
 
     return mysqli_query($conn, $query);
 }
@@ -126,6 +136,8 @@ function get_pet_sale_name($conn, $pet_type_id)
 // Получаем товар по id
 function get_product($conn, $id)
 {
+    settype($id, 'integer');
+
     $query = "
     SELECT 
         product.id, 
@@ -150,7 +162,7 @@ function get_product($conn, $id)
     LEFT JOIN
         manufacturer_country
         ON manufacturer_country.id = product.manufacturer_country_id
-    WHERE product.id = " . $id;
+    WHERE product.id = $id";
 
     return mysqli_query($conn, $query);
 }
@@ -158,6 +170,8 @@ function get_product($conn, $id)
 // Получаем товар по id для корзины
 function get_product_for_cart($conn, $id)
 {
+    settype($id, 'integer');
+
     $query = "
     SELECT 
         product.id, 
@@ -168,7 +182,7 @@ function get_product_for_cart($conn, $id)
         product.image
     FROM 
         product
-    WHERE product.id = " . $id;
+    WHERE product.id = $id";
 
     return mysqli_query($conn, $query);
 }
@@ -176,6 +190,8 @@ function get_product_for_cart($conn, $id)
 // Поиск товаров
 function search_product($conn, $search)
 {
+    $search = mysqli_real_escape_string($conn, $search);
+
     $query = "
     SELECT 
         product.id, 
@@ -186,7 +202,7 @@ function search_product($conn, $search)
         product.image
     FROM 
         product
-    WHERE product.name LIKE '%" . $search . "%'
+    WHERE product.name LIKE '%$search%'
     ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
@@ -195,9 +211,14 @@ function search_product($conn, $search)
 // Сохранение информации о покупателе
 function create_client($conn, $firstName, $lastName, $middleName, $phoneNumber)
 {
+    $firstName = mysqli_real_escape_string($conn, $firstName);
+    $lastName = mysqli_real_escape_string($conn, $lastName);
+    $middleName = mysqli_real_escape_string($conn, $middleName);
+    $phoneNumber = mysqli_real_escape_string($conn, $phoneNumber);
+
     $query = "
     INSERT INTO client (id, first_name, last_name, middle_name, phone) 
-    VALUES (NULL, '" . $firstName . "', '" . $lastName . "', '" . $middleName . "', '" . $phoneNumber . "')";
+    VALUES (NULL, '$firstName', '$lastName', '$middleName', '$phoneNumber')";
 
     $conn->query($query);
 }
@@ -205,9 +226,12 @@ function create_client($conn, $firstName, $lastName, $middleName, $phoneNumber)
 // Создание заказа
 function create_order($conn, $comment, $clientId)
 {
+    $comment = mysqli_real_escape_string($conn, $comment);
+    settype($clientId, 'integer');
+
     $query = "
     INSERT INTO placed_order (id, comment, client_id) 
-    VALUES (NULL, '" . $comment . "', '" . $clientId . "')";
+    VALUES (NULL, '$comment', '$clientId')";
 
     $conn->query($query);
 }
@@ -215,9 +239,13 @@ function create_order($conn, $comment, $clientId)
 // Добавление товара в заказ
 function create_order_item($conn, $orderId, $productId, $count)
 {
+    settype($orderId, 'integer');
+    settype($productId, 'integer');
+    settype($count, 'integer');
+
     $query = "
     INSERT INTO `placed_order_item` (`placed_order_id`, `product_id`, `count`) 
-    VALUES ('" . $orderId . "', '" . $productId . "', '" . $count . "')";
+    VALUES ('$orderId', '$productId', '$count')";
 
     $conn->query($query);
 }
