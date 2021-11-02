@@ -16,7 +16,11 @@ function print_categories($categories)
 {
     foreach ($categories as $category) {
         echo "<a href='catalog.php?category={$category['url_name']}'>
-                <h6>{$category['display_name']}</h6>
+                <h6 class='d-none d-lg-block'>{$category['display_name']}</h6>
+                <div class='d-lg-none'>
+                    <div class='xs-menu-line'></div>
+                    <div class='xs-menu-text'>{$category['display_name']}<img src='img/menu-arrow.svg'></div>
+                </div>
               </a>";
     }
 }
