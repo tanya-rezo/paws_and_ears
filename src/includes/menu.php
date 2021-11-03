@@ -12,15 +12,23 @@ while ($row = mysqli_fetch_array($all_categories)) {
     }
 }
 
-function print_categories($categories)
+function print_categories_desktop($categories)
 {
     foreach ($categories as $category) {
         echo "<a href='catalog.php?category={$category['url_name']}'>
-                <h6 class='d-none d-lg-block'>{$category['display_name']}</h6>
-                <div class='d-lg-none'>
-                    <div class='xs-menu-line'></div>
-                    <div class='xs-menu-text'>{$category['display_name']}<img src='img/menu-arrow.svg'></div>
-                </div>
+                <h6>{$category['display_name']}</h6>
+              </a>";
+    }
+}
+
+function print_categories_mobile($categories)
+{
+    foreach ($categories as $category) {
+        echo "<a class='text-decoration-none' href='catalog.php?category={$category['url_name']}'>
+                    <div class='menu-line'></div>
+                    <div class='menu-text'>{$category['display_name']}
+                        <img src='img/menu-arrow.svg'>
+                    </div>
               </a>";
     }
 }

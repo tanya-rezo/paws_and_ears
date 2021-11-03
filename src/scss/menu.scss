@@ -1,18 +1,14 @@
 .menu-big-text-space {
-    @include media-breakpoint-up(lg) {
-        margin-top: 1.5rem;
-    }
+    margin-top: 1.5rem;
 }
 
-.xs-menu-big-text {
-    @include media-breakpoint-between(xs, md) {
-        font-size: 1.75rem;
-        margin-top: 10px;
-        margin-bottom: 14px;
-    }
+.menu-big-text {
+    font-size: 1.75rem;
+    margin-top: 10px;
+    margin-bottom: 14px;
 }
 
-.xs-menu-text {
+.menu-text {
     font-size: 1.0625rem;
     margin-top: 7px;
     margin-bottom: 7px;
@@ -24,7 +20,7 @@
     font-weight: 400;
 }
 
-.xs-menu-line {
+.menu-line {
     height: 1px;
     background: #ececec;
 }

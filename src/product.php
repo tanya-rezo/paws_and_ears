@@ -11,7 +11,7 @@ if ($product == null) {
 <?php include './includes/menu.php'; ?>
 
 <div class="container menu-container" style="display: none;">
-    <?php include './includes/menu-content.php'; ?>
+    <?php include './includes/menu-content-mobile.php'; ?>
 </div>
 
 <div class="container main-container">
@@ -35,7 +35,7 @@ if ($product == null) {
 
     <div class="row">
         <div class="d-none d-lg-block col-3 catalog-container">
-            <?php include './includes/menu-content.php'; ?>
+            <?php include './includes/menu-content-desktop.php'; ?>
         </div>
 
         <div class="col-12 col-lg-9">

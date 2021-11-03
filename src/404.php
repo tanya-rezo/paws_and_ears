@@ -2,7 +2,7 @@
 <?php include './includes/menu.php'; ?>
 
 <div class="container menu-container" style="display: none;">
-    <?php include './includes/menu-content.php'; ?>
+    <?php include './includes/menu-content-mobile.php'; ?>
 </div>
 
 <div class="container main-container">
