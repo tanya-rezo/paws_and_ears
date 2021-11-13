@@ -29,3 +29,4 @@ jobs:
           port: ${{ secrets.port }}
           dry-run: true
           local-dir: ./dist/
+          log-level: verbose
