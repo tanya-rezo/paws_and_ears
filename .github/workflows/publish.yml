@@ -1,4 +1,4 @@
-name: Upload to FTP
+name: 🚀 Upload to FTP
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -11,9 +11,21 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
       
-      - name: Build
+      - name: 🔨 Build
         run: |
           npm install
           npm run build
+          
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.server }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          protocol: ftps
+          port: ${{ secrets.port }}
+          dry-run: true
+          local-dir: ./dist/
