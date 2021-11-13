@@ -20,13 +20,11 @@ jobs:
           npm run build
           
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        uses: wangyucode/sftp-upload-action@v1.1
         with:
-          server: ${{ secrets.server }}
+          host: ${{ secrets.server }}
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
-          protocol: ftps-legacy
           port: ${{ secrets.port }}
-          dry-run: true
-          local-dir: ./dist/
-          log-level: verbose
+          dryRun: true
+          localDir: ./dist/
