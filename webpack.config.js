@@ -24,47 +24,47 @@ const config = {
   },
   module: {
     rules: [{
-        test: /\.(sass|scss)$/,
-        include: path.resolve(__dirname, "./src/scss"),
-        use: [{
-            loader: MiniCssExtractPlugin.loader,
-            options: {},
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-              url: false,
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-              postcssOptions: {
-                plugins: () => [
-                  require("cssnano")({
-                    preset: [
-                      "default",
-                      {
-                        discardComments: {
-                          removeAll: true,
-                        },
-                      },
-                    ],
-                  }),
-                ],
-              },
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
+      test: /\.(sass|scss)$/,
+      include: path.resolve(__dirname, "./src/scss"),
+      use: [{
+        loader: MiniCssExtractPlugin.loader,
+        options: {},
       },
+      {
+        loader: "css-loader",
+        options: {
+          sourceMap: true,
+          url: false,
+        },
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          sourceMap: true,
+          postcssOptions: {
+            plugins: () => [
+              require("cssnano")({
+                preset: [
+                  "default",
+                  {
+                    discardComments: {
+                      removeAll: true,
+                    },
+                  },
+                ],
+              }),
+            ],
+          },
+        },
+      },
+      {
+        loader: "sass-loader",
+        options: {
+          sourceMap: true,
+        },
+      },
+      ],
+    },
 
     ],
   },
@@ -88,11 +88,14 @@ const config = {
         from: "./fonts/**/*",
         to: ".",
       }, {
+        from: "./php_config/",
+        to: ".",
+      }, {
         from: "./src/img/**/*",
         to: (path) => {
           return path.absoluteFilename.replace('src', 'dist');
         },
-      }, ],
+      },],
     }),
   ],
 };
