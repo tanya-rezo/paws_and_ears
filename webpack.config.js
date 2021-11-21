@@ -88,9 +88,6 @@ const config = {
         from: "./fonts/**/*",
         to: ".",
       }, {
-        from: "./php_config/",
-        to: ".",
-      }, {
         from: "./src/img/**/*",
         to: (path) => {
           return path.absoluteFilename.replace('src', 'dist');
