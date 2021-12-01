@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 28 2021 г., 20:10
+-- Время создания: Дек 01 2021 г., 19:07
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -89,23 +89,6 @@ CREATE TABLE `client` (
   `phone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `client`
---
-
-INSERT INTO `client` (`id`, `first_name`, `last_name`, `middle_name`, `phone`) VALUES
-(1, 'Татьяна', 'Резо', '', '89997778855'),
-(2, 'Serj', 'Tikhonvo', '', '+79057155555'),
-(3, 'Arina', 'Petrova', '', '+995959'),
-(4, 'Татьяна', 'Резо', '', '89997778855'),
-(5, 'Татьяна', 'Резо', '', '89997778855'),
-(6, 'Татьяна', 'Резо', '', '00000000000'),
-(7, 'Татьяна', 'Резо', '', '89997778855'),
-(8, 'Татьяна', 'Резо', '', '89997778855'),
-(9, 'Татьяна', 'Резо', '', '89997778855'),
-(10, 'Татьяна', 'Резо', '', '89997778855'),
-(11, 'Надежда', 'Растегаева', 'Анатольева', '89999999999');
-
 -- --------------------------------------------------------
 
 --
@@ -158,25 +141,11 @@ INSERT INTO `pet_type` (`id`, `name`, `sale_name`) VALUES
 CREATE TABLE `placed_order` (
   `id` int(11) NOT NULL,
   `comment` text NOT NULL,
-  `client_id` int(11) NOT NULL
+  `client_id` int(11) NOT NULL,
+  `total_cost` decimal(11,0) NOT NULL,
+  `total_discount` decimal(11,0) NOT NULL,
+  `total_product_count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `placed_order`
---
-
-INSERT INTO `placed_order` (`id`, `comment`, `client_id`) VALUES
-(1, '', 1),
-(2, '', 2),
-(3, 'Комментарий', 3),
-(4, '321', 4),
-(5, '-----', 5),
-(6, '', 6),
-(7, '', 7),
-(8, '', 8),
-(9, '', 9),
-(10, '', 10),
-(11, '', 11);
 
 -- --------------------------------------------------------
 
@@ -187,29 +156,10 @@ INSERT INTO `placed_order` (`id`, `comment`, `client_id`) VALUES
 CREATE TABLE `placed_order_item` (
   `placed_order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `count` int(11) NOT NULL
+  `count` int(11) NOT NULL,
+  `cost` decimal(11,0) NOT NULL,
+  `discount` decimal(11,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `placed_order_item`
---
-
-INSERT INTO `placed_order_item` (`placed_order_id`, `product_id`, `count`) VALUES
-(2, 1, 1),
-(9, 1, 1),
-(10, 1, 2),
-(11, 1, 1),
-(2, 2, 1),
-(2, 3, 1),
-(3, 3, 2),
-(4, 3, 3),
-(5, 3, 10),
-(6, 3, 1),
-(7, 3, 1),
-(8, 3, 1),
-(8, 6, 3),
-(8, 9, 1),
-(8, 15, 1);
 
 -- --------------------------------------------------------
 

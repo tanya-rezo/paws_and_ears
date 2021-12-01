@@ -33,7 +33,7 @@
 
             <?php
             $total_cost = 0;
-            $total_disount = 0;
+            $total_discount = 0;
             foreach ($_SESSION as $product_id => $count) {
                 // обрезаем имя переменной сессии чтобы получить id товара
                 // "product_3" -> "3"
@@ -44,7 +44,7 @@
 
                 // подсчитываем общую скидку
                 if ($product["is_sale"] == "1") {
-                    $total_disount = $total_disount + (($product["price"] - $product["sale_price"]) * $count);
+                    $total_discount = $total_discount + (($product["price"] - $product["sale_price"]) * $count);
                 }
 
                 // подсчитываем общую стоимость
@@ -123,13 +123,13 @@
                 <div class="checkout-box">
 
                     <?php
-                    if ($total_disount == 0) {
+                    if ($total_discount == 0) {
                         echo "
                         <h5>Итого: {$total_cost} ₽</h5>";
                     } else {
                         echo "
                         <h5 class='mb-1'>Итого: {$total_cost} ₽</h5>
-                        <h6 class='cart-discount-text'>Скидка: {$total_disount} ₽</h6>";
+                        <h6 class='cart-discount-text'>Скидка: {$total_discount} ₽</h6>";
                     }
                     ?>
                     <div class="form-group mb-2">
