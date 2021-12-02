@@ -1,5 +1,6 @@
 <?php include './includes/header.php'; ?>
 <?php include './includes/menu.php'; ?>
+<?php include './cart/_cart.php'; ?>
 
 <div class="container menu-container" style="display: none;">
     <?php include './includes/menu-content-mobile.php'; ?>
@@ -32,64 +33,46 @@
             </div>
 
             <?php
-            $total_cost = 0;
-            $total_discount = 0;
-            foreach ($_SESSION as $product_id => $count) {
-                // обрезаем имя переменной сессии чтобы получить id товара
-                // "product_3" -> "3"
-                $id = substr($product_id, 8);
+            $cart = new Cart($_SESSION);
+            $cart->load($conn);
 
-                // получаем данные о продукте для корзины
-                $product = mysqli_fetch_array(get_product_for_cart($conn, $id));
-
-                // подсчитываем общую скидку
-                if ($product["is_sale"] == "1") {
-                    $total_discount = $total_discount + (($product["price"] - $product["sale_price"]) * $count);
-                }
-
-                // подсчитываем общую стоимость
-                if ($product["is_sale"] == "1") {
-                    $total_cost = $total_cost + ($product["sale_price"] * $count);
-                } else {
-                    $total_cost = $total_cost + ($product["price"] * $count);
-                }
-
+            foreach ($cart->items as $product) {
                 echo "
                 <div class='cart-item'>
                     <div class='cart-item-image-col vh-center'>
-                        <a href='product.php?id={$product["id"]}'>
-                            <img class='cart-item-image' src='products/{$product["image"]}'></img>
+                        <a href='product.php?id={$product->id}'>
+                            <img class='cart-item-image' src='products/{$product->image}'></img>
                         </a>
                     </div>
                     <div class='cart-item-main-col'>
                         <div class='cart-item-main-box'>
-                            <a href='product.php?id={$product["id"]}'>
+                            <a href='product.php?id={$product->id}'>
                                 <div class='cart-item-name box'>
-                                    <p>{$product["name"]}</p>
+                                    <p>{$product->name}</p>
                                 </div>
                             </a>
                             <div class='flex-row-container xs-cart-content'>
                                 <div class='flex-row-container'>
                                     <div class='flex-row-container'>
-                                        <a href='/cart/minus.php?product={$product["id"]}'>
+                                        <a href='/cart/minus.php?product={$product->id}'>
                                             <div class='cart-counter vh-center'>–</div>
                                         </a>
-                                        <div class='cart-item-counter-text'>$count</div>
-                                        <a href='/cart/plus.php?product={$product["id"]}'>
+                                        <div class='cart-item-counter-text'>$product->count</div>
+                                        <a href='/cart/plus.php?product={$product->id}'>
                                             <div class='cart-counter vh-center'>+</div>
                                         </a>
                                     </div>";
 
-                if ($product["is_sale"] == "1") {
-                    echo "      <div class='cart-item-price'>{$product["sale_price"]} ₽</div>
-                                <div class='cart-item-price cart-item-old-price'>{$product["price"]} ₽</div>";
+                if ($product->is_sale == true) {
+                    echo "      <div class='cart-item-price'>{$product->sale_price} ₽</div>
+                                <div class='cart-item-price cart-item-old-price'>{$product->price} ₽</div>";
                 } else {
-                    echo "      <div class='cart-item-price'>{$product["price"]} ₽</div>";
+                    echo "      <div class='cart-item-price'>{$product->price} ₽</div>";
                 }
                 echo "
                                 </div>
                                 <div class='d-blok d-lg-none cart-item-delete-col vh-center'>
-                                    <a href='/cart/delete.php?product={$product["id"]}'>
+                                    <a href='/cart/delete.php?product={$product->id}'>
                                         <img src='img/delete.svg'></img>
                                     </a>
                                 </div>
@@ -98,7 +81,7 @@
                         </div>
                     </div>
                     <div class='d-none d-lg-block cart-item-delete-col vh-center'>
-                        <a href='/cart/delete.php?product={$product["id"]}'>
+                        <a href='/cart/delete.php?product={$product->id}'>
                             <img src='img/delete.svg'></img>
                         </a>
                     </div>
@@ -123,13 +106,13 @@
                 <div class="checkout-box">
 
                     <?php
-                    if ($total_discount == 0) {
+                    if ($cart->total_discount == 0) {
                         echo "
-                        <h5>Итого: {$total_cost} ₽</h5>";
+                        <h5>Итого: {$cart->total_cost} ₽</h5>";
                     } else {
                         echo "
-                        <h5 class='mb-1'>Итого: {$total_cost} ₽</h5>
-                        <h6 class='cart-discount-text'>Скидка: {$total_discount} ₽</h6>";
+                        <h5 class='mb-1'>Итого: {$cart->total_cost} ₽</h5>
+                        <h6 class='cart-discount-text'>Скидка: {$cart->total_discount} ₽</h6>";
                     }
                     ?>
                     <div class="form-group mb-2">

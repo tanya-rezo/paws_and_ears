@@ -15,9 +15,6 @@
 
 <body>
     <?php
-    /*     echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>'; */
 
     // складываем все переменные сессии (счётчики товаров в корзине)
     $cart_count = array_sum($_SESSION);
