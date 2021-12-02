@@ -224,28 +224,30 @@ function create_client($conn, $firstName, $lastName, $middleName, $phoneNumber)
 }
 
 // Создание заказа
-function create_order($conn, $comment, $clientId)
+function create_order($conn, $comment, $clientId, $total_cost, $total_discount, $total_product_count)
 {
     $comment = mysqli_real_escape_string($conn, $comment);
     settype($clientId, 'integer');
 
     $query = "
-    INSERT INTO placed_order (id, comment, client_id) 
-    VALUES (NULL, '$comment', '$clientId')";
+    INSERT INTO placed_order (id, comment, client_id, total_cost, total_discount, total_product_count) 
+    VALUES (NULL, '$comment', '$clientId', '$total_cost', '$total_discount', '$total_product_count')";
 
     $conn->query($query);
 }
 
 // Добавление товара в заказ
-function create_order_item($conn, $orderId, $productId, $count)
+function create_order_item($conn, $orderId, $productId, $count, $cost_per_item, $discount_per_item)
 {
     settype($orderId, 'integer');
     settype($productId, 'integer');
     settype($count, 'integer');
+    settype($cost_per_item, 'double');
+    settype($discount_per_item, 'double');
 
     $query = "
-    INSERT INTO `placed_order_item` (`placed_order_id`, `product_id`, `count`) 
-    VALUES ('$orderId', '$productId', '$count')";
+    INSERT INTO `placed_order_item` (`placed_order_id`, `product_id`, `count`, `cost_per_item`, `discount_per_item`) 
+    VALUES ('$orderId', '$productId', '$count', '$cost_per_item', '$discount_per_item')";
 
     $conn->query($query);
 }

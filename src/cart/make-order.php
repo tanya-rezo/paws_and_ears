@@ -1,4 +1,5 @@
 <?php include './../database.php'; ?>
+<?php include './_cart.php'; ?>
 <?php
 session_start();
 
@@ -13,17 +14,16 @@ if ($_GET["firstName"] == '' && $_GET["lastName"] == '' && $_GET["phoneNumber"] 
     create_client($conn, $_GET["firstName"], $_GET["lastName"], $_GET["middleName"], $_GET["phoneNumber"]);
     $clientId = mysqli_insert_id($conn);
 
+    $cart = new Cart($_SESSION);
+    $cart->load($conn);
+
     // заводим заказ
-    create_order($conn, $_GET["comment"], $clientId);
+    create_order($conn, $_GET["comment"], $clientId, $cart->total_cost, $cart->total_discount, $cart->cart_count);
     $orderId = mysqli_insert_id($conn);
 
     // сохраняем содержимое корзины в заказ
-    foreach ($_SESSION as $product_id => $count) {
-        // обрезаем имя переменной сессии чтобы получить id товара
-        // "product_3" -> "3"
-        $id = intval(substr($product_id, 8));
-
-        create_order_item($conn, $orderId, $id, intval($count));
+    foreach ($cart->items as $product) {
+        create_order_item($conn, $orderId, $product->id, $product->count, $product->price, $product->get_discount());
     }
 
     // фиксируем транзакцию
