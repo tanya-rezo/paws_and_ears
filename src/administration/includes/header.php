@@ -1,4 +1,3 @@
-<?php include_once '../database.php'; ?>
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru">
