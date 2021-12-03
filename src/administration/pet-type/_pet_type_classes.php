@@ -31,10 +31,20 @@ class PetType extends Entity
     public $name;
     public $sale_name;
 
-    public function load($db_data)
+    public function load($row)
     {
-        $this->id = $db_data["pet_type_id"];
-        $this->name = $db_data["pet_type_name"];
-        $this->sale_name = $db_data["pet_type_sale_name"];
+        $this->id = $row["pet_type_id"];
+        $this->name = $row["pet_type_name"];
+        $this->sale_name = $row["pet_type_sale_name"];
+    }
+
+    public function create($conn)
+    {
+    }
+    public function save($conn)
+    {
+    }
+    public function delete($conn)
+    {
     }
 }

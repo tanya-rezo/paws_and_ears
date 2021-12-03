@@ -29,9 +29,19 @@ class ManufacturingCountry extends Entity
 {
     public $name;
 
-    public function load($db_data)
+    public function load($row)
     {
-        $this->id = $db_data["manufacturer_country_id"];
-        $this->name = $db_data["manufacturer_country_name"];
+        $this->id = $row["manufacturer_country_id"];
+        $this->name = $row["manufacturer_country_name"];
+    }
+
+    public function create($conn)
+    {
+    }
+    public function save($conn)
+    {
+    }
+    public function delete($conn)
+    {
     }
 }

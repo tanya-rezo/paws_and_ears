@@ -51,4 +51,14 @@ class Category extends Entity
         $this->pet_type = new PetType();
         $this->pet_type->load($row);
     }
+
+    public function create($conn)
+    {
+    }
+    public function save($conn)
+    {
+    }
+    public function delete($conn)
+    {
+    }
 }
