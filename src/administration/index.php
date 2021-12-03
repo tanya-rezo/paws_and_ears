@@ -1,7 +1,7 @@
 <?php include './includes/header.php'; ?>
 <?php include_once '../database.php'; ?>
 
-<?php $counters = mysqli_fetch_array(get_count_columns($conn)); ?>
+<?php $counters = mysqli_fetch_array(admin_get_count_columns($conn)); ?>
 
 <div class="container main-container">
     <div class="vh-center">

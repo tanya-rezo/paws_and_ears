@@ -271,51 +271,17 @@ function get_menu($conn)
 }
 
 // Получение количества столбцов в таблицах для главной страницы админки
-function get_count_columns($conn)
+function admin_get_count_columns($conn)
 {
     $query = "
     SELECT 
-        (
-            SELECT COUNT(*)
-            FROM pet_type
-        ) 
-        AS count_pet_type,
-    
-        (
-            SELECT COUNT(*)
-            FROM category
-        ) 
-        AS count_category,
-    
-        (
-            SELECT COUNT(*)
-            FROM product
-        ) 
-        AS count_product,
-
-        (
-            SELECT COUNT(*)
-            FROM brand
-        ) 
-        AS count_brand,
-        
-        (
-            SELECT COUNT(*)
-            FROM manufacturer_country
-        ) 
-        AS count_manufacturer_country,
-        
-        (
-            SELECT COUNT(*)
-            FROM placed_order
-        ) 
-        AS count_placed_order,
-        
-        (
-            SELECT COUNT(*)
-            FROM client
-        ) 
-        AS count_client";
+        (SELECT COUNT(*) FROM pet_type) AS count_pet_type,
+        (SELECT COUNT(*) FROM category) AS count_category,
+        (SELECT COUNT(*) FROM product) AS count_product,
+        (SELECT COUNT(*) FROM brand) AS count_brand,
+        (SELECT COUNT(*) FROM manufacturer_country) AS count_manufacturer_country,
+        (SELECT COUNT(*) FROM placed_order) AS count_placed_order,
+        (SELECT COUNT(*) FROM client) AS count_client";
 
     return mysqli_query($conn, $query);
 }
