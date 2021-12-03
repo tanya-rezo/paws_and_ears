@@ -1,23 +1,22 @@
 <?php include_once '../_base_classes.php'; ?>
 
 <?php
-class PetTypeManager extends EntityManager
+class ManufacturingCountriesManager extends EntityManager
 {
     public function getAll($conn)
     {
         $query = "
         SELECT 
-            pet_type.id as pet_type_id,
-            pet_type.name as pet_type_name,
-            pet_type.sale_name as pet_type_sale_name
+            manufacturer_country.id as manufacturer_country_id,
+            manufacturer_country.name as manufacturer_country_name
         FROM 
-            pet_type";
+            manufacturer_country";
 
         $array = [];
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_array($result)) {
-            $item = new PetType();
+            $item = new ManufacturingCountry();
             $item->load($row);
             array_push($array, $item);
         }
@@ -26,15 +25,13 @@ class PetTypeManager extends EntityManager
     }
 }
 
-class PetType extends Entity
+class ManufacturingCountry extends Entity
 {
     public $name;
-    public $sale_name;
 
     public function load($db_data)
     {
-        $this->id = $db_data["pet_type_id"];
-        $this->name = $db_data["pet_type_name"];
-        $this->sale_name = $db_data["pet_type_sale_name"];
+        $this->id = $db_data["manufacturer_country_id"];
+        $this->name = $db_data["manufacturer_country_name"];
     }
 }

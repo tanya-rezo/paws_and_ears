@@ -24,9 +24,9 @@ class CategoryManager extends EntityManager
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_array($result)) {
-            $category = new Category();
-            $category->load($row);
-            array_push($array, $category);
+            $item = new Category();
+            $item->load($row);
+            array_push($array, $item);
         }
 
         return $array;

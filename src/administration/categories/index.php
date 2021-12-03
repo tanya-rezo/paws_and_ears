@@ -6,7 +6,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>ID</th>
+                <th scope="col">ID</th>
                 <th scope="col">Название</th>
                 <th scope="col">Полное название</th>
                 <th scope="col">Вид животного</th>
