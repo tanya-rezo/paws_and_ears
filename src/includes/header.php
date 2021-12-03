@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
 
             <div class="container">
-                <a class="d-none d-lg-block" href="index.php">
+                <a class="d-none d-lg-block" href="/index.php">
                     <span class="navbar-brand logo-space">
                         <img src="/img/logo.svg">
                     </span>
@@ -36,7 +36,7 @@
                             <span class="hamburger-inner"></span>
                         </span>
                     </button>
-                    <a href="index.php">
+                    <a href="/index.php">
                         <img class="logo-space" src="/img/logo.svg">
                     </a>
                     <div class="d-flex flex-row vh-center">
