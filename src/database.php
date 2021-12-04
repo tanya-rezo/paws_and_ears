@@ -4,11 +4,12 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 // Создаём подключение
 function connect_db()
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $db = "paws_and_ears";
+    $config = parse_ini_file("php.ini"); 
 
+    $servername = $config["servername"];
+    $username = $config["username"];
+    $password = $config["password"];
+    $db = $config["db"];
 
     $conn = new mysqli($servername, $username, $password, $db);
     // Проверяем на ошибку
