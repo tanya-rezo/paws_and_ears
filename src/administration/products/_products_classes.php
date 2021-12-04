@@ -17,8 +17,11 @@ class ProductManager extends EntityManager
             product.is_sale as product_is_sale,
             product.sale_price as product_sale_price,
             category.id as category_id,
+            category.display_name as category_display_name,
             brand.id as brand_id,
-            manufacturer_country.id as manufacturer_country_id
+            brand.name as brand_name,
+            manufacturer_country.id as manufacturer_country_id,
+            manufacturer_country.name as manufacturer_country_name
         FROM 
             product
         LEFT JOIN
@@ -64,7 +67,7 @@ class Product extends Entity
         $this->price = $row["product_price"];
         $this->image = $row["product_image"];
         $this->description = $row["product_description"];
-        $this->is_sale = $row["product_is_sale"];
+        $this->is_sale = $row["product_is_sale"] == "1";
         $this->sale_price = $row["product_sale_price"];
 
         $this->category = new Category();
