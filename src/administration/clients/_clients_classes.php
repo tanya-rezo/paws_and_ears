@@ -30,7 +30,10 @@ class ClientManager extends EntityManager
 
 class Client extends Entity
 {
-    public $name;
+    public $first_name;
+    public $last_name;
+    public $middle_name;
+    public $phone;
 
     public function load($row)
     {
