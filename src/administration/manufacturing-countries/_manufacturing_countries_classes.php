@@ -35,6 +35,9 @@ class ManufacturingCountry extends Entity
         $this->name = $row["manufacturer_country_name"];
     }
 
+    public function refresh($conn)
+    {
+    }
     public function create($conn)
     {
     }

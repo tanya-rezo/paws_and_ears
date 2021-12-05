@@ -80,6 +80,9 @@ class Product extends Entity
         $this->manufacturer_country->load($row);
     }
 
+    public function refresh($conn)
+    {
+    }
     public function create($conn)
     {
     }

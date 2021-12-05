@@ -44,6 +44,9 @@ class Client extends Entity
         $this->phone = $row["client_phone"];
     }
 
+    public function refresh($conn)
+    {
+    }
     public function create($conn)
     {
     }

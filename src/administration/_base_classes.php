@@ -10,9 +10,10 @@ abstract class Entity
 {
     public $id;
 
-    public abstract function load($row); // загрузить данные
+    public abstract function load($row); // загрузить данные из массива данных
 
     public abstract function create($conn); // создать
-    public abstract function save($conn); // сохранить
-    public abstract function delete($conn); // удлить
+    public abstract function refresh($conn); // обновить объект данными из БД (id должен быть указан)
+    public abstract function save($conn); // сохранить (обновить по id)
+    public abstract function delete($conn); // удалить (по id)
 }

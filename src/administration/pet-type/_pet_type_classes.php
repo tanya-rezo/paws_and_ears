@@ -37,6 +37,9 @@ class PetType extends Entity
         $this->sale_name = $row["pet_type_sale_name"];
     }
 
+    public function refresh($conn)
+    {
+    }
     public function create($conn)
     {
     }

@@ -17,8 +17,9 @@ class CategoryManager extends EntityManager
         FROM 
             category
         LEFT JOIN
-            pet_type 
-                ON pet_type.id = category.pet_type_id";
+            pet_type ON pet_type.id = category.pet_type_id
+        ORDER BY
+            category.id";
 
         $array = [];
         $result = mysqli_query($conn, $query);
@@ -41,6 +42,7 @@ class Category extends Entity
 
     public $pet_type;
 
+
     public function load($row)
     {
         $this->id = $row["category_id"];
@@ -50,6 +52,30 @@ class Category extends Entity
 
         $this->pet_type = new PetType();
         $this->pet_type->load($row);
+    }
+
+    public function refresh($conn)
+    {
+        $query = "
+        SELECT 
+            category.id as category_id,
+            category.url_name as category_url_name, 
+            category.display_name as category_display_name,
+            category.full_name as category_full_name,
+            pet_type.id as pet_type_id,
+            pet_type.name as pet_type_name,
+            pet_type.sale_name as pet_type_sale_name
+        FROM 
+            category
+        LEFT JOIN
+            pet_type ON pet_type.id = category.pet_type_id
+        WHERE
+            category.id = {$this->id}";
+
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+        $this->load($row);
     }
 
     public function create($conn)
@@ -62,6 +88,20 @@ class Category extends Entity
     }
     public function save($conn)
     {
+        $query = "
+        UPDATE 
+            category 
+        SET 
+            category.url_name = '{$this->url_name}', 
+            category.display_name = '{$this->display_name}', 
+            category.full_name = '{$this->full_name}', 
+            category.pet_type_id = {$this->pet_type->id}
+        WHERE 
+            category.id = {$this->id}";
+
+        //error_log($query, 0);
+
+        $conn->query($query);
     }
     public function delete($conn)
     {

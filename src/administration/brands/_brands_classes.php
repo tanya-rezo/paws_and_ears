@@ -29,12 +29,16 @@ class Brand extends Entity
 {
     public $name;
 
+
     public function load($row)
     {
         $this->id = $row["brand_id"];
         $this->name = $row["brand_name"];
     }
 
+    public function refresh($conn)
+    {
+    }
     public function create($conn)
     {
     }
