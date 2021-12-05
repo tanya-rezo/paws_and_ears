@@ -54,6 +54,11 @@ class Category extends Entity
 
     public function create($conn)
     {
+        $query = "
+        INSERT INTO `category` (`id`, `url_name`, `display_name`, `full_name`, `pet_type_id`)
+        VALUES (NULL, '{$this->url_name}', '{$this->display_name}', '{$this->full_name}', '{$this->pet_type->id}')";
+
+        $conn->query($query);
     }
     public function save($conn)
     {

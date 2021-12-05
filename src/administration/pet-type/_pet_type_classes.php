@@ -1,5 +1,4 @@
 <?php include_once '../_base_classes.php'; ?>
-
 <?php
 class PetTypeManager extends EntityManager
 {
