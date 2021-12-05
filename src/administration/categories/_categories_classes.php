@@ -98,8 +98,6 @@ class Category extends Entity
         WHERE 
             category.id = {$this->id}";
 
-        //error_log($query, 0);
-
         $conn->query($query);
     }
     public function delete($conn)
