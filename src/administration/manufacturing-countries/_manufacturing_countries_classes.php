@@ -10,7 +10,9 @@ class ManufacturingCountriesManager extends EntityManager
             manufacturer_country.id as manufacturer_country_id,
             manufacturer_country.name as manufacturer_country_name
         FROM 
-            manufacturer_country";
+            manufacturer_country
+        ORDER BY
+            manufacturer_country.id";
 
         $array = [];
         $result = mysqli_query($conn, $query);

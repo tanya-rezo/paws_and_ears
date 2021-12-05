@@ -32,7 +32,9 @@ class ProductManager extends EntityManager
                 ON brand.id = product.brand_id
         LEFT JOIN
             manufacturer_country 
-                ON manufacturer_country.id = product.manufacturer_country_id";
+                ON manufacturer_country.id = product.manufacturer_country_id
+        ORDER BY
+            product.id";
 
         $array = [];
         $result = mysqli_query($conn, $query);

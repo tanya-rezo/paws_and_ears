@@ -10,7 +10,9 @@ class BrandManager extends EntityManager
             brand.id as brand_id,
             brand.name as brand_name
         FROM 
-            brand";
+            brand
+        ORDER BY
+            brand.id";
 
         $array = [];
         $result = mysqli_query($conn, $query);

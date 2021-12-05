@@ -13,7 +13,9 @@ class ClientManager extends EntityManager
             client.middle_name as client_middle_name,
             client.phone as client_phone
         FROM 
-            client";
+            client
+        ORDER BY
+            client.id";
 
         $array = [];
         $result = mysqli_query($conn, $query);
