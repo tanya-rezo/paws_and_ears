@@ -42,7 +42,6 @@ class Category extends Entity
 
     public $pet_type;
 
-
     public function load($row)
     {
         $this->id = $row["category_id"];
@@ -105,5 +104,7 @@ class Category extends Entity
     }
     public function delete($conn)
     {
+        $query = "DELETE FROM category WHERE category.id={$this->id}";
+        $conn->query($query);
     }
 }

@@ -4,7 +4,6 @@
 
 <?php
 $is_edit = isset($_GET["id"]);
-//$is_create = !$is_edit;
 
 if ($is_edit) {
     $id = $_GET["id"];
@@ -54,6 +53,7 @@ if ($is_edit) {
         </div>
         <div class="form-group">
             <label for="url">URL-адрес</label>
+            <!-- это для префикса ссылки из макета -->
             <!-- <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">lapki-ushki.ru/catalog.php?category=</span>
             </div> -->
