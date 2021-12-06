@@ -25,14 +25,11 @@ class ProductManager extends EntityManager
         FROM 
             product
         LEFT JOIN
-            category 
-                ON category.id = product.category_id
+            category ON category.id = product.category_id
         LEFT JOIN
-            brand 
-                ON brand.id = product.brand_id
+            brand ON brand.id = product.brand_id
         LEFT JOIN
-            manufacturer_country 
-                ON manufacturer_country.id = product.manufacturer_country_id
+            manufacturer_country ON manufacturer_country.id = product.manufacturer_country_id
         ORDER BY
             product.id";
 
@@ -84,14 +81,68 @@ class Product extends Entity
 
     public function refresh($conn)
     {
+        $query = "
+        SELECT 
+            product.id as product_id,
+            product.name as product_name, 
+            product.price as product_price,
+            product.image as product_image,
+            product.description as product_description,
+            product.is_sale as product_is_sale,
+            product.sale_price as product_sale_price,
+            category.id as category_id,
+            category.display_name as category_display_name,
+            brand.id as brand_id,
+            brand.name as brand_name,
+            manufacturer_country.id as manufacturer_country_id,
+            manufacturer_country.name as manufacturer_country_name
+        FROM 
+            product
+        LEFT JOIN
+            category ON category.id = product.category_id
+        LEFT JOIN
+            brand ON brand.id = product.brand_id
+        LEFT JOIN
+            manufacturer_country ON manufacturer_country.id = product.manufacturer_country_id
+        WHERE
+            product.id = {$this->id}";
+
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+        $this->load($row);
     }
     public function create($conn)
     {
+        $query = "
+        INSERT INTO `product` (`id`, `name`, `price`, `image`, `description`, `is_sale`, `sale_price`, `category_id`, `brand_id`, `manufacturer_country_id`)
+        VALUES (NULL, '{$this->name}', '{$this->price}', '{$this->image}', '{$this->description}', '{$this->is_sale}', '{$this->sale_price}','{$this->category->id}','{$this->brand->id}','{$this->manufacturer_country->id}')";
+
+        $conn->query($query);
     }
     public function save($conn)
     {
+        $query = "
+        UPDATE 
+            product 
+        SET 
+            product.name = '{$this->name}', 
+            product.price = '{$this->price}',
+            product.image = '{$this->image}',
+            product.description = '{$this->description}',
+            product.is_sale = '{$this->is_sale}',
+            product.sale_price = '{$this->sale_price}',
+            product.category_id = {$this->category->id},
+            product.brand_id = {$this->brand->id},
+            product.manufacturer_country_id = {$this->manufacturer_country->id}
+        WHERE 
+            product.id = {$this->id}";
+
+        $conn->query($query);
     }
     public function delete($conn)
     {
+        $query = "DELETE FROM product WHERE product.id={$this->id}";
+        $conn->query($query);
     }
 }
