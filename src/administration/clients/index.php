@@ -3,6 +3,7 @@
 <?php include_once './_clients_classes.php'; ?>
 
 <div class="container main-container">
+    <a class="btn btn-primary" href="./create.php">Создать</a>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -27,8 +28,8 @@
                     <td>{$item->middle_name}</td>
                     <td>{$item->phone}</td>
                     <td>
-                        <a href='./edit.php'>Изменить</a>
-                        <a href='./delete.php'>Удалить</a>
+                        <a href='./edit.php?id={$item->id}'>Изменить</a>
+                        <a href='./delete.php?id={$item->id}'>Удалить</a>
                     </td>
                 </tr>
                 ";

@@ -1,5 +1,4 @@
 <?php include_once '../_base_classes.php'; ?>
-
 <?php
 class BrandManager extends EntityManager
 {
@@ -40,14 +39,43 @@ class Brand extends Entity
 
     public function refresh($conn)
     {
+        $query = "
+        SELECT 
+            brand.id as brand_id,
+            brand.name as brand_name
+        FROM 
+            brand
+        WHERE
+            brand.id = {$this->id}";
+
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+        $this->load($row);
     }
     public function create($conn)
     {
+        $query = "
+        INSERT INTO `brand` (`id`, `name`)
+        VALUES (NULL, '{$this->name}')";
+
+        $conn->query($query);
     }
     public function save($conn)
     {
+        $query = "
+        UPDATE 
+            brand 
+        SET 
+            brand.name = '{$this->name}'
+        WHERE 
+            brand.id = {$this->id}";
+
+        $conn->query($query);
     }
     public function delete($conn)
     {
+        $query = "DELETE FROM brand WHERE brand.id={$this->id}";
+        $conn->query($query);
     }
 }
