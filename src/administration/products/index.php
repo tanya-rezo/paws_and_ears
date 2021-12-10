@@ -13,7 +13,7 @@
                     <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
                     <h6>Товары</h6>
                 </div>
-                <a class="btn btn-primary admin-btn" style="margin-top:40px" href="./create.php">Создать</a>
+                <a class="btn btn-primary admin-btn mt-40px" href="./create.php">Создать</a>
             </div>
         </div>
     </div>
