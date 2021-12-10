@@ -16,6 +16,20 @@ if ($is_edit) {
 ?>
 
 <div class="container main-container">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="lite-font-weight flex-row-container admin-breadcrumbs">
+                <h6>
+                    <a href="../index.php">Администрирование</a>
+                </h6>
+                <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
+                <h6>
+                    <a href="./index.php">Клиенты</a>
+                </h6>
+            </div>
+        </div>
+    </div>
+
     <form action="./update_item.php">
         <?php if ($is_edit) : ?>
             <div class="form-group">
@@ -40,10 +54,12 @@ if ($is_edit) {
             <input required type="tel" class="form-control" id="phone" name="phone" value="<?php echo $edit_item->phone ?>">
         </div>
         <?php if ($is_edit) : ?>
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="submit" class="btn btn-primary admin-btn mt-2">Сохранить</button>
         <?php else : ?>
-            <button type="submit" class="btn btn-primary">Создать</button>
+            <button type="submit" class="btn btn-primary admin-btn mt-2">Создать</button>
         <?php endif; ?>
 
     </form>
 </div>
+
+<?php include '../../includes/footer.php';

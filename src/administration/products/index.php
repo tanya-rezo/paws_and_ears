@@ -3,8 +3,22 @@
 <?php include_once './_products_classes.php'; ?>
 
 <div class="container main-container">
-    <a class="btn btn-primary" href="./create.php">Создать</a>
-    <table class="table table-hover">
+    <div class="row">
+        <div class="col-12">
+            <div class="flex-row-container mb-3">
+                <div class="lite-font-weight flex-row-container admin-breadcrumbs">
+                    <h6>
+                        <a href="../index.php">Администрирование</a>
+                    </h6>
+                    <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
+                    <h6>Товары</h6>
+                </div>
+                <a class="btn btn-primary admin-btn" style="margin-top:40px" href="./create.php">Создать</a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover mb-4">
         <thead>
             <tr>
                 <th scope="col">ID</th>

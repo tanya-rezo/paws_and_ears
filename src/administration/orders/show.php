@@ -17,6 +17,20 @@ if ($is_edit) {
 ?>
 
 <div class="container main-container">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="lite-font-weight flex-row-container admin-breadcrumbs">
+                <h6>
+                    <a href="../index.php">Администрирование</a>
+                </h6>
+                <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
+                <h6>
+                    <a href="./index.php">Оформленные заказы</a>
+                </h6>
+            </div>
+        </div>
+    </div>
+
     <form action="./update_item.php">
         <div class="form-group">
             <label for="id">ID</label>
@@ -67,3 +81,5 @@ if ($is_edit) {
         </table>
     </form>
 </div>
+
+<?php include '../../includes/footer.php';

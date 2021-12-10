@@ -22,3 +22,15 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.admin-breadcrumbs {
+    align-items: flex-start;
+    margin-top: 50px;
+    flex: auto;
+}
+
+.admin-btn {
+    flex: 0;
+    min-width: 149px;
+    height: 40px;
+}

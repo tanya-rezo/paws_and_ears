@@ -3,7 +3,19 @@
 <?php include_once './_orders_classes.php'; ?>
 
 <div class="container main-container">
-    <table class="table table-hover">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="lite-font-weight flex-row-container admin-breadcrumbs">
+                <h6>
+                    <a href="../index.php">Администрирование</a>
+                </h6>
+                <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
+                <h6>Оформленные заказы</h6>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover mb-4">
         <thead>
             <tr>
                 <th scope="col">ID</th>

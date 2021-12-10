@@ -16,6 +16,20 @@ if ($is_edit) {
 ?>
 
 <div class="container main-container">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <div class="lite-font-weight flex-row-container admin-breadcrumbs">
+                <h6>
+                    <a href="../index.php">Администрирование</a>
+                </h6>
+                <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
+                <h6>
+                    <a href="./index.php">Товары</a>
+                </h6>
+            </div>
+        </div>
+    </div>
+
     <form action="./update_item.php">
         <?php if ($is_edit) : ?>
             <div class="form-group">
@@ -110,10 +124,12 @@ if ($is_edit) {
             <input required type="number" class="form-control" id="sale-price" name="sale-price" value="<?php echo $edit_item->sale_price ?>">
         </div>
         <?php if ($is_edit) : ?>
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="submit" class="btn btn-primary admin-btn mt-2 mb-4">Сохранить</button>
         <?php else : ?>
-            <button type="submit" class="btn btn-primary">Создать</button>
+            <button type="submit" class="btn btn-primary admin-btn mt-2 mb-4">Создать</button>
         <?php endif; ?>
 
     </form>
 </div>
+
+<?php include '../../includes/footer.php';
