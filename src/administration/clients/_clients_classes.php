@@ -36,6 +36,11 @@ class Client extends Entity
     public $middle_name;
     public $phone;
 
+    public function get_full_name_with_id()
+    {
+        return "{$this->id} - {$this->first_name} {$this->middle_name} {$this->last_name}";
+    }
+
     public function load($row)
     {
         $this->id = $row["client_id"];
