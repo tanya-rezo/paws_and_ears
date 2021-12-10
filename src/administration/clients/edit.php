@@ -25,11 +25,11 @@ if ($is_edit) {
         <?php endif ?>
         <div class="form-group">
             <label for="first-name">Имя</label>
-            <input type="text" class="form-control" id="first-name" name="first-name" value="<?php echo $edit_item->first_name ?>">
+            <input required type="text" class="form-control" id="first-name" name="first-name" value="<?php echo $edit_item->first_name ?>">
         </div>
         <div class="form-group">
             <label for="last-name">Фамилия</label>
-            <input type="text" class="form-control" id="last-name" name="last-name" value="<?php echo $edit_item->last_name ?>">
+            <input required type="text" class="form-control" id="last-name" name="last-name" value="<?php echo $edit_item->last_name ?>">
         </div>
         <div class="form-group">
             <label for="middle-name">Отчество</label>
@@ -37,7 +37,7 @@ if ($is_edit) {
         </div>
         <div class="form-group">
             <label for="phone">Телефон</label>
-            <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $edit_item->phone ?>">
+            <input required type="tel" class="form-control" id="phone" name="phone" value="<?php echo $edit_item->phone ?>">
         </div>
         <?php if ($is_edit) : ?>
             <button type="submit" class="btn btn-primary">Сохранить</button>

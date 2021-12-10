@@ -25,11 +25,11 @@ if ($is_edit) {
         <?php endif ?>
         <div class="form-group">
             <label for="name">Название</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->display_name ?>">
+            <input required type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->display_name ?>">
         </div>
         <div class="form-group">
             <label for="full-name">Полное название</label>
-            <input type="text" class="form-control" id="full-name" name="full-name" value="<?php echo $edit_item->full_name ?>">
+            <input required type="text" class="form-control" id="full-name" name="full-name" value="<?php echo $edit_item->full_name ?>">
         </div>
         <div class="form-group">
             <label for="pet-type">Вид живтного</label>
@@ -57,7 +57,7 @@ if ($is_edit) {
             <!-- <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">lapki-ushki.ru/catalog.php?category=</span>
             </div> -->
-            <input type="text" class="form-control" id="url" name="url" value="<?php echo $edit_item->url_name ?>">
+            <input required type="text" class="form-control" id="url" name="url" value="<?php echo $edit_item->url_name ?>">
         </div>
         <?php if ($is_edit) : ?>
             <button type="submit" class="btn btn-primary">Сохранить</button>

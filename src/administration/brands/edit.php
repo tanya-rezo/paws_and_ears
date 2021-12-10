@@ -25,7 +25,7 @@ if ($is_edit) {
         <?php endif ?>
         <div class="form-group">
             <label for="name">Название</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->name ?>">
+            <input required type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->name ?>">
         </div>
         <?php if ($is_edit) : ?>
             <button type="submit" class="btn btn-primary">Сохранить</button>

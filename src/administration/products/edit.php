@@ -25,15 +25,15 @@ if ($is_edit) {
         <?php endif ?>
         <div class="form-group">
             <label for="name">Название</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->name ?>">
+            <input required type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->name ?>">
         </div>
         <div class="form-group">
             <label for="price">Цена</label>
-            <input type="number" class="form-control" id="price" name="price" value="<?php echo $edit_item->price ?>">
+            <input required type="number" class="form-control" id="price" name="price" value="<?php echo $edit_item->price ?>">
         </div>
         <div class="form-group">
             <label for="image">Картинка</label>
-            <input type="text" class="form-control" id="image" name="image" value="<?php echo $edit_item->image ?>">
+            <input required type="text" class="form-control" id="image" name="image" value="<?php echo $edit_item->image ?>">
         </div>
         <div class="form-group">
             <label for="description">Комментарий</label>
@@ -107,7 +107,7 @@ if ($is_edit) {
         </div>
         <div class="form-group">
             <label for="sale-price">Цена по скидке</label>
-            <input type="number" class="form-control" id="sale-price" name="sale-price" value="<?php echo $edit_item->sale_price ?>">
+            <input required type="number" class="form-control" id="sale-price" name="sale-price" value="<?php echo $edit_item->sale_price ?>">
         </div>
         <?php if ($is_edit) : ?>
             <button type="submit" class="btn btn-primary">Сохранить</button>

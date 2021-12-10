@@ -25,11 +25,11 @@ if ($is_edit) {
         <?php endif ?>
         <div class="form-group">
             <label for="name">Название</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->name ?>">
+            <input required type="text" class="form-control" id="name" name="name" value="<?php echo $edit_item->name ?>">
         </div>
         <div class="form-group">
             <label for="sale-name">Название для акций</label>
-            <input type="text" class="form-control" id="sale-name" name="sale-name" value="<?php echo $edit_item->sale_name ?>">
+            <input required type="text" class="form-control" id="sale-name" name="sale-name" value="<?php echo $edit_item->sale_name ?>">
         </div>
         <?php if ($is_edit) : ?>
             <button type="submit" class="btn btn-primary">Сохранить</button>
