@@ -37,6 +37,10 @@ if ($is_edit) {
             <input readonly class="form-control" id="id" name="id" value="<?php echo $edit_item->id ?>">
         </div>
         <div class="form-group">
+            <label for="order_date">Дата заказа</label>
+            <input readonly type="text" class="form-control" id="order_date" name="order_date" value="<?php echo $edit_item->order_date ?>">
+        </div>
+        <div class="form-group">
             <label for="client">Клиент</label>
             <input readonly type="text" class="form-control" id="client" name="client" value="<?php echo $edit_item->client->get_full_name_with_id() ?>">
         </div>

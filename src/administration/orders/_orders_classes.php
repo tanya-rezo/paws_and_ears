@@ -13,7 +13,8 @@ class OrderManager extends EntityManager
             client.last_name as client_last_name,
             client.middle_name as client_middle_name,
             placed_order.total_product_count as placed_order_total_product_count,
-            placed_order.total_cost as placed_order_total_cost
+            placed_order.total_cost as placed_order_total_cost,
+            placed_order.order_date as placed_order_order_date
         FROM 
             placed_order
         LEFT JOIN
@@ -39,12 +40,14 @@ class Order extends Entity
     public $client;
     public $total_product_count;
     public $total_cost;
+    public $order_date;
 
     public function load($row)
     {
         $this->id = $row["placed_order_id"];
         $this->total_product_count = $row["placed_order_total_product_count"];
         $this->total_cost = $row["placed_order_total_cost"];
+        $this->order_date = $row["placed_order_order_date"];
 
         $this->client = new Client();
         $this->client->load($row);
@@ -61,7 +64,8 @@ class Order extends Entity
             client.middle_name as client_middle_name,
             client.phone as client_phone,
             placed_order.total_product_count as placed_order_total_product_count,
-            placed_order.total_cost as placed_order_total_cost
+            placed_order.total_cost as placed_order_total_cost,
+            placed_order.order_date as placed_order_order_date
         FROM 
             placed_order
         LEFT JOIN
