@@ -30,7 +30,7 @@ if ($is_edit) {
         </div>
     </div>
 
-    <form action="./update_item.php">
+    <form action="./update_item.php" method="post" enctype="multipart/form-data">
         <?php if ($is_edit) : ?>
             <div class="form-group">
                 <label for="id">ID</label>
@@ -47,7 +47,10 @@ if ($is_edit) {
         </div>
         <div class="form-group">
             <label for="image">Картинка</label>
-            <input required type="text" class="form-control" id="image" name="image" value="<?php echo $edit_item->image ?>">
+            <?php if ($is_edit) : ?>
+                <img class="admin-product-image-preview d-block" src="/products/<?php echo $edit_item->image ?>">
+            <?php endif ?>
+            <input <?php echo ($is_edit ? '' : 'required') ?> type="file" class="form-control form-group-file-input" id="image" name="image">
         </div>
         <div class="form-group">
             <label for="description">Комментарий</label>
@@ -63,9 +66,9 @@ if ($is_edit) {
 
                 foreach ($all as $item) {
                     if ($is_edit && $item->id == $selected_item_id) {
-                        echo "<option selected value='{$item->id}'>{$item->display_name}</option>";
+                        echo "<option selected value='{$item->id}'>{$item->full_name}</option>";
                     } else {
-                        echo "<option value='{$item->id}'>{$item->display_name}</option>";
+                        echo "<option value='{$item->id}'>{$item->full_name}</option>";
                     }
                 }
                 ?>

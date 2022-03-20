@@ -46,7 +46,7 @@
                     <td>{$item->price}</td>
                     <td>{$item->image}</td>
                     <td class='admin-comment-text'>{$item->description}</td>
-                    <td>{$item->category->display_name}</td>
+                    <td>{$item->category->full_name}</td>
                     <td>{$item->brand->name}</td>
                     <td>{$item->manufacturer_country->name}</td>
                     <td>" . ($item->is_sale ? "Да" : "Нет") . "</td>

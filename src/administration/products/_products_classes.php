@@ -18,6 +18,7 @@ class ProductManager extends EntityManager
             product.sale_price as product_sale_price,
             category.id as category_id,
             category.display_name as category_display_name,
+            category.full_name as category_full_name,
             brand.id as brand_id,
             brand.name as brand_name,
             manufacturer_country.id as manufacturer_country_id,
