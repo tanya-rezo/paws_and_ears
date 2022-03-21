@@ -48,7 +48,7 @@ if ($is_edit) {
         <div class="form-group">
             <label for="image">Картинка</label>
             <?php if ($is_edit) : ?>
-                <img class="admin-product-image-preview d-block" src="/products/<?php echo $edit_item->image ?>">
+                <img class="admin-product-image-preview-edit d-block" src="/products/<?php echo $edit_item->image ?>">
             <?php endif ?>
             <input <?php echo ($is_edit ? '' : 'required') ?> type="file" class="form-control form-group-file-input" id="image" name="image">
         </div>

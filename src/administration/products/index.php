@@ -30,7 +30,7 @@
                 <th scope="col">Бренд</th>
                 <th scope="col">Страна</th>
                 <th scope="col">Наличие скидки</th>
-                <th scope="col">Цена по скидке</th>
+                <th scope="col" style="min-width:90px">Цена по скидке</th>
                 <th scope="col">Действия</th>
             </tr>
         </thead>
@@ -44,7 +44,7 @@
                     <th scope='row'>{$item->id}</th>
                     <td>{$item->name}</td>
                     <td>{$item->price}</td>
-                    <td>{$item->image}</td>
+                    <td><img class='admin-product-image-preview' src='/products/{$item->image}'></td>
                     <td class='admin-comment-text'>{$item->description}</td>
                     <td>{$item->category->full_name}</td>
                     <td>{$item->brand->name}</td>
