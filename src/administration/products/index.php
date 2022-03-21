@@ -22,9 +22,9 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Картинка</th>
                 <th scope="col">Название</th>
                 <th scope="col">Цена</th>
-                <th scope="col">Картинка</th>
                 <th scope="col">Комментарий</th>
                 <th scope="col">Категория</th>
                 <th scope="col">Бренд</th>
@@ -42,9 +42,9 @@
                 echo "
                 <tr>
                     <th scope='row'>{$item->id}</th>
+                    <td><img class='admin-product-image-preview' src='/products/{$item->image}'></td>
                     <td>{$item->name}</td>
                     <td>{$item->price}</td>
-                    <td><img class='admin-product-image-preview' src='/products/{$item->image}'></td>
                     <td class='admin-comment-text'>{$item->description}</td>
                     <td>{$item->category->full_name}</td>
                     <td>{$item->brand->name}</td>
