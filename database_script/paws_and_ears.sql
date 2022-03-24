@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 20 2022 г., 20:20
+-- Время создания: Мар 24 2022 г., 22:20
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -111,6 +111,30 @@ INSERT INTO `manufacturer_country` (`id`, `name`) VALUES
 (4, 'Франция'),
 (5, 'Германия'),
 (6, 'США');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `order_status`
+--
+
+CREATE TABLE `order_status` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `order_status`
+--
+
+INSERT INTO `order_status` (`id`, `name`, `message`) VALUES
+(1, 'Оформлен', 'Ваш заказ принят. В ближайшее время с Вами свяжется оператор для подтверждения заказа.'),
+(2, 'Подтверждён', ''),
+(3, 'Собран на складе', ''),
+(4, 'Передан в доставку', ''),
+(5, 'Завершён', ''),
+(6, 'Отменён', '');
 
 -- --------------------------------------------------------
 
@@ -252,6 +276,12 @@ ALTER TABLE `manufacturer_country`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `order_status`
+--
+ALTER TABLE `order_status`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `pet_type`
 --
 ALTER TABLE `pet_type`
@@ -313,6 +343,12 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT для таблицы `manufacturer_country`
 --
 ALTER TABLE `manufacturer_country`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `order_status`
+--
+ALTER TABLE `order_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
