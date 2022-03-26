@@ -20,6 +20,8 @@ function connect_db()
     if ($conn->connect_error) {
         die("Ошибка подключения: " . $conn->connect_error);
     }
+	
+    mysqli_query($conn, "SET NAMES 'utf8'");
 
     return $conn;
 }
