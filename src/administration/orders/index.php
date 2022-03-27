@@ -19,7 +19,8 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Дата заказа</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Дата</th>
                 <th scope="col">Клиент</th>
                 <th scope="col">Количество позиций</th>
                 <th scope="col">Сумма</th>
@@ -34,12 +35,13 @@
                 echo "
                 <tr>
                     <th scope='row'>{$item->id}</th>
+                    <td>{$item->order_status->name}</td>
                     <td>{$item->order_date}</td>
                     <td>{$item->client->get_full_name_with_id()}</td>
                     <td>{$item->total_product_count}</td>
                     <td>{$item->total_cost}</td>
                     <td>
-                        <a href='./show.php?id={$item->id}'>Посмотреть</a>
+                        <a href='./edit.php?id={$item->id}'>Изменить</a>
                         <a href='./delete.php?id={$item->id}'>Удалить</a>
                     </td>
                 </tr>

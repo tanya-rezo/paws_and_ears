@@ -1,5 +1,6 @@
 <?php include_once '../_base_classes.php'; ?>
 <?php include_once '../clients/_clients_classes.php'; ?>
+<?php include_once '../order-status/_order_status_classes.php'; ?>
 <?php
 class OrderManager extends EntityManager
 {
@@ -14,13 +15,17 @@ class OrderManager extends EntityManager
             client.middle_name as client_middle_name,
             placed_order.total_product_count as placed_order_total_product_count,
             placed_order.total_cost as placed_order_total_cost,
-            placed_order.order_date as placed_order_order_date
+            placed_order.order_date as placed_order_order_date,
+            order_status.id as order_status_id,
+            order_status.name as order_status_name
         FROM 
             placed_order
         LEFT JOIN
             client ON client.id = placed_order.client_id
-            ORDER BY
-        placed_order.id";
+        LEFT JOIN
+            order_status ON order_status.id = placed_order.order_status_id
+        ORDER BY
+            placed_order.id";
 
         $array = [];
         $result = mysqli_query($conn, $query);
@@ -37,10 +42,12 @@ class OrderManager extends EntityManager
 
 class Order extends Entity
 {
-    public $client;
     public $total_product_count;
     public $total_cost;
     public $order_date;
+
+    public $client;
+    public $order_status;
 
     public function load($row)
     {
@@ -51,6 +58,9 @@ class Order extends Entity
 
         $this->client = new Client();
         $this->client->load($row);
+
+        $this->order_status = new OrderStatus();
+        $this->order_status->load($row);
     }
 
     public function refresh($conn)
@@ -65,11 +75,15 @@ class Order extends Entity
             client.phone as client_phone,
             placed_order.total_product_count as placed_order_total_product_count,
             placed_order.total_cost as placed_order_total_cost,
-            placed_order.order_date as placed_order_order_date
+            placed_order.order_date as placed_order_order_date,
+            order_status.id as order_status_id,
+            order_status.name as order_status_name
         FROM 
             placed_order
         LEFT JOIN
             client ON client.id = placed_order.client_id
+        LEFT JOIN
+            order_status ON order_status.id = placed_order.order_status_id
         WHERE
             placed_order.id = {$this->id}";
 
@@ -85,7 +99,15 @@ class Order extends Entity
     }
     public function save($conn)
     {
-        // не реализуется в соответствии с бизнес требованиями (в текущей версии нельзя создавать и менять заказы)
+        $query = "
+        UPDATE 
+            placed_order 
+        SET 
+            placed_order.order_status_id = {$this->order_status->id}
+        WHERE 
+            placed_order.id = {$this->id}";
+
+        $conn->query($query);
     }
     public function delete($conn)
     {

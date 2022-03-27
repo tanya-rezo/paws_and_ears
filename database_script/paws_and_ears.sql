@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 24 2022 г., 22:20
+-- Время создания: Мар 27 2022 г., 18:57
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -169,7 +169,8 @@ CREATE TABLE `placed_order` (
   `total_cost` decimal(11,0) NOT NULL,
   `total_discount` decimal(11,0) NOT NULL,
   `total_product_count` int(11) NOT NULL,
-  `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_status_id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -292,7 +293,8 @@ ALTER TABLE `pet_type`
 --
 ALTER TABLE `placed_order`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `client_id` (`client_id`);
+  ADD KEY `client_id` (`client_id`),
+  ADD KEY `order_status_id` (`order_status_id`) USING BTREE;
 
 --
 -- Индексы таблицы `placed_order_item`
@@ -389,7 +391,8 @@ ALTER TABLE `category`
 -- Ограничения внешнего ключа таблицы `placed_order`
 --
 ALTER TABLE `placed_order`
-  ADD CONSTRAINT `placed_order_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
+  ADD CONSTRAINT `placed_order_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
+  ADD CONSTRAINT `placed_order_ibfk_2` FOREIGN KEY (`order_status_id`) REFERENCES `order_status` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `placed_order_item`

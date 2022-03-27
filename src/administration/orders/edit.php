@@ -2,6 +2,7 @@
 <?php include_once '../../database.php'; ?>
 <?php include_once './_orders_classes.php'; ?>
 <?php include_once '../order-item/_order_items_classes.php'; ?>
+<?php include_once '../order-status/_order_status_classes.php'; ?>
 
 <?php
 $is_edit = isset($_GET["id"]);
@@ -35,6 +36,24 @@ if ($is_edit) {
         <div class="form-group">
             <label for="id">ID</label>
             <input readonly class="form-control" id="id" name="id" value="<?php echo $edit_item->id ?>">
+        </div>
+        <div class="form-group">
+            <label for="order-status">Статус заказа</label>
+            <select class="form-control" id="order-status" name="order-status">
+                <?php
+                $manager = new OrderStatusManager();
+                $all = $manager->getAll($conn);
+                $selected_item_id = $edit_item->order_status->id;
+
+                foreach ($all as $item) {
+                    if ($is_edit && $item->id == $selected_item_id) {
+                        echo "<option selected value='{$item->id}'>{$item->name}</option>";
+                    } else {
+                        echo "<option value='{$item->id}'>{$item->name}</option>";
+                    }
+                }
+                ?>
+            </select>
         </div>
         <div class="form-group">
             <label for="order_date">Дата заказа</label>
@@ -83,6 +102,9 @@ if ($is_edit) {
 
             </tbody>
         </table>
+        <?php if ($is_edit) : ?>
+            <button type="submit" class="btn btn-primary admin-btn mt-2 mb-4">Сохранить</button>
+        <?php endif; ?>
     </form>
 </div>
 
