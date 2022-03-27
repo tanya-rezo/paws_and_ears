@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 27 2022 г., 18:57
+-- Время создания: Мар 28 2022 г., 02:24
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -170,7 +170,8 @@ CREATE TABLE `placed_order` (
   `total_discount` decimal(11,0) NOT NULL,
   `total_product_count` int(11) NOT NULL,
   `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `order_status_id` int(11) NOT NULL DEFAULT '1'
+  `order_status_id` int(11) NOT NULL DEFAULT '1',
+  `guid` char(36) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
