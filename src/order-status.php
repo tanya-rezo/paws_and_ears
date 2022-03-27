@@ -9,7 +9,10 @@ $order_items_result = get_order_items($conn, $id);
 ?>
 
 <div class="container main-container">
-    <div class="mt-150px">
+    <a class="mt-3 vh-center" href="/index.php">
+        <img class="logo-space mr-0" src="/img/logo.svg">
+    </a>
+    <div class="mt-4">
         <h3 class="mt-3">
             <span>Заказ №<?= $order['placed_order_id'] ?></span>
         </h3>
