@@ -3,7 +3,7 @@
     © 2021 Зоомагазин «Лапки и ушки»
   </div>
 </footer>
-<script src="./js/bundle.js"></script>
+<script src="/js/bundle.js"></script>
 </body>
 
 </html>

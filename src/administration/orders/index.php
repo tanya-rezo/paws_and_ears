@@ -15,6 +15,8 @@
         </div>
     </div>
 
+    <?php include '../includes/crud_messages.php'; ?>
+
     <table class="table table-hover mb-4">
         <thead>
             <tr>
