@@ -14,4 +14,3 @@
 </head>
 
 <body>
-    <?php include 'top-bar.php'; ?>

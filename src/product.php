@@ -8,6 +8,7 @@ if ($product == null) {
 }
 ?>
 <?php include './includes/header.php'; ?>
+<?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>
 
 <div class="container menu-container" style="display: none;">
