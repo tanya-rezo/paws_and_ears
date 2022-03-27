@@ -20,7 +20,7 @@ function connect_db()
     if ($conn->connect_error) {
         die("Ошибка подключения: " . $conn->connect_error);
     }
-	
+
     mysqli_query($conn, "SET NAMES 'utf8'");
 
     return $conn;
@@ -237,8 +237,8 @@ function create_order($conn, $comment, $clientId, $total_cost, $total_discount, 
     settype($clientId, 'integer');
 
     $query = "
-    INSERT INTO placed_order (id, comment, client_id, total_cost, total_discount, total_product_count) 
-    VALUES (NULL, '$comment', '$clientId', '$total_cost', '$total_discount', '$total_product_count')";
+    INSERT INTO placed_order (id, comment, client_id, total_cost, total_discount, total_product_count, guid) 
+    VALUES (NULL, '$comment', '$clientId', '$total_cost', '$total_discount', '$total_product_count', UUID())";
 
     $conn->query($query);
 }
@@ -258,9 +258,6 @@ function create_order_item($conn, $orderId, $productId, $count, $cost_per_item, 
 
     $conn->query($query);
 }
-
-// Cоздаём подключение к БД
-$conn = connect_db();
 
 // Получение ID и название катеории для меню
 function get_menu($conn)
@@ -292,3 +289,85 @@ function admin_get_count_columns($conn)
 
     return mysqli_query($conn, $query);
 }
+
+function get_order($conn, $order_id)
+{
+    settype($order_id, 'integer');
+
+    $query = "
+        SELECT 
+            placed_order.id as placed_order_id,
+            placed_order.total_product_count as placed_order_total_product_count,
+            placed_order.total_cost as placed_order_total_cost,
+            placed_order.order_date as placed_order_order_date,
+            order_status.id as order_status_id,
+            order_status.name as order_status_name,
+            order_status.message as order_status_message
+        FROM 
+            placed_order
+        LEFT JOIN
+            order_status ON order_status.id = placed_order.order_status_id
+        WHERE
+            placed_order.id = $order_id";
+
+    return mysqli_query($conn, $query);
+}
+
+function get_order_items($conn, $order_id)
+{
+    settype($order_id, 'integer');
+
+    $query = "
+        SELECT 
+            placed_order_item.cost_per_item as placed_order_item_cost_per_item,
+            placed_order_item.discount_per_item as placed_order_item_discount_per_item,
+            placed_order_item.count as placed_order_item_count,
+            product.id as product_id,
+            product.name as product_name, 
+            product.price as product_price,
+            product.image as product_image,
+            product.description as product_description,
+            product.is_sale as product_is_sale,
+            product.sale_price as product_sale_price
+        FROM 
+            placed_order_item
+        LEFT JOIN
+            product ON product.id = placed_order_item.product_id
+        WHERE 
+            placed_order_item.placed_order_id = $order_id";
+
+    return mysqli_query($conn, $query);
+}
+
+function get_order_guid($conn, $orderId)
+{
+    settype($orderId, 'integer');
+
+    $query = "
+        SELECT 
+            placed_order.guid as placed_order_guid
+        FROM 
+            placed_order
+        WHERE 
+            placed_order.id = $orderId";
+
+    return mysqli_query($conn, $query);
+}
+
+function get_order_id($conn, $orderGuid)
+{
+    settype($orderId, 'integer');
+
+    $query = "
+        SELECT 
+            placed_order.id as placed_order_id
+        FROM 
+            placed_order
+        WHERE 
+            placed_order.guid = '$orderGuid'";
+
+    return mysqli_query($conn, $query);
+}
+
+// Cоздаём подключение к БД
+$conn = connect_db();

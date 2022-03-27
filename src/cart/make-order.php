@@ -20,6 +20,7 @@ if ($_GET["firstName"] == '' && $_GET["lastName"] == '' && $_GET["phoneNumber"] 
     // заводим заказ
     create_order($conn, $_GET["comment"], $clientId, $cart->total_cost, $cart->total_discount, $cart->cart_count);
     $orderId = mysqli_insert_id($conn);
+    $orderGuid = mysqli_fetch_array(get_order_guid($conn, $orderId))['placed_order_guid'];
 
     // сохраняем содержимое корзины в заказ
     foreach ($cart->items as $product) {
@@ -31,7 +32,7 @@ if ($_GET["firstName"] == '' && $_GET["lastName"] == '' && $_GET["phoneNumber"] 
 
     // чистим корзину и направляем на страницу подтверждения
     session_unset();
-    header('Location: /status-page.php');
+    header("Location: /order-created-page.php?guid=$orderGuid");
 
     disconnect_db($conn);
 }
