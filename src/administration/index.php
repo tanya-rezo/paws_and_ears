@@ -4,8 +4,10 @@
 <?php $counters = mysqli_fetch_array(admin_get_count_columns($conn)); ?>
 
 <div class="container main-container">
-    <div class="vh-center">
-        <img class="admin-logo" src="../img/logo.svg">
+    <div class="mt-3 mb-1 vh-center">
+        <a href="/index.php">
+            <img class="logo-space mr-0" src="../img/logo.svg">
+        </a>
     </div>
     <div class="row">
         <div class="col-4">
