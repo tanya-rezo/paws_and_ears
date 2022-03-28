@@ -105,10 +105,11 @@ $item->manufacturer_country->id = $manufacturer_country_id;
 if ($is_edit) {
     // обновляем в БД
     $item->save($conn);
+    header('Location: ./index.php?save=1');
 } else {
     // создаём в БД
     $item->create($conn);
+    header('Location: ./index.php?create=1');
 }
 
-header('Location: ./index.php');
 disconnect_db($conn);

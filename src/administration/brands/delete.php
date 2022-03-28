@@ -12,7 +12,11 @@ settype($id, 'integer');
 $item = new Brand();
 $item->id = $id;
 
-$item->delete($conn);
-
-header('Location: ./index.php');
-disconnect_db($conn);
+try {
+    $item->delete($conn);
+    header('Location: ./index.php?delete-success=1');
+} catch (Exception $e) {
+    header('Location: ./index.php?delete-error=1');
+} finally {
+    disconnect_db($conn);
+}

@@ -21,7 +21,7 @@ $item->order_status->id = $order_status_id;
 if ($is_edit) {
     // обновляем в БД
     $item->save($conn);
+    header('Location: ./index.php?save=1');
 }
 
-header('Location: ./index.php');
 disconnect_db($conn);
