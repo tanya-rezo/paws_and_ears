@@ -27,12 +27,12 @@ $order_items_result = get_order_items($conn, $id);
         <p class="py-2"><?= $order['order_status_message'] ?></p>
 
         <h5>Состав заказа</h5>
-        <table class="table table-hover">
+        <table class="table table-hover table-responsive-sm">
             <thead>
                 <tr>
                     <th scope="col">№</th>
                     <th scope="col">Товар</th>
-                    <th scope="col">Количество</th>
+                    <th scope="col">Кол-во шт</th>
                     <th scope="col">Цена за шт</th>
                     <th scope="col">Скидка за шт</th>
                 </tr>
@@ -56,7 +56,7 @@ $order_items_result = get_order_items($conn, $id);
 
             </tbody>
         </table>
-        <h5>Итого с учётом скидки: <?= $order['placed_order_total_cost'] ?> ₽ </h5>
+        <h5 class="mb-4">Итого с учётом скидки: <?= $order['placed_order_total_cost'] ?> ₽ </h5>
     </div>
 </div>
 
