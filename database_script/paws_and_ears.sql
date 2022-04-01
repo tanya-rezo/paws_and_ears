@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 28 2022 г., 02:24
+-- Время создания: Апр 01 2022 г., 20:33
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -232,21 +232,44 @@ INSERT INTO `product` (`id`, `name`, `price`, `image`, `description`, `category_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Структура таблицы `role`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `role` (
   `id` int(11) NOT NULL,
-  `login` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `users`
+-- Дамп данных таблицы `role`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`) VALUES
-(1, 'admin', 'admin');
+INSERT INTO `role` (`id`, `name`, `description`) VALUES
+(1, 'Администратор', 'Неограниченный доступ ко всем данным в панели администратора.'),
+(2, 'Менеджер склада', 'Доступ ко всем данным в панели администратора, кроме раздела Пользователи.'),
+(3, 'Менеджер по продажам', 'Доступ ко всем данным в панели администратора, кроме раздела Пользователи.'),
+(4, 'Оператор колл-центра', 'Доступ только к разделам Заказы и Клиенты в панели администратора.');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `role_id`) VALUES
+(1, 'admin', 'admin', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -315,10 +338,17 @@ ALTER TABLE `product`
   ADD KEY `manufacturer_country_id` (`manufacturer_country_id`);
 
 --
--- Индексы таблицы `users`
+-- Индексы таблицы `role`
 --
-ALTER TABLE `users`
+ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -373,9 +403,15 @@ ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT для таблицы `users`
+-- AUTO_INCREMENT для таблицы `role`
 --
-ALTER TABLE `users`
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `user`
+--
+ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -409,6 +445,12 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`),
   ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`manufacturer_country_id`) REFERENCES `manufacturer_country` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
