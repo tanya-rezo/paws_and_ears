@@ -2,7 +2,6 @@
 $title = "Заказы";
 include '../includes/header.php';
 ?>
-<?php include '../includes/header.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_orders_classes.php'; ?>
 <?php include_once '../order-item/_order_items_classes.php'; ?>

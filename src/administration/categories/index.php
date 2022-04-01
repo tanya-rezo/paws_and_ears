@@ -2,7 +2,6 @@
 $title = "Категории";
 include '../includes/header.php';
 ?>
-<?php include '../includes/header.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_categories_classes.php'; ?>
 

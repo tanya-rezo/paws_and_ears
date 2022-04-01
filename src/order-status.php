@@ -10,7 +10,6 @@ $order_items_result = get_order_items($conn, $id);
 $title = "Статус заказа №" . $order['placed_order_id'];
 include './includes/header.php';
 ?>
-<?php include './includes/header.php'; ?>
 
 <div class="container main-container">
     <div class="mt-3 vh-center">

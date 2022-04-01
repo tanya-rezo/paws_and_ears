@@ -11,7 +11,6 @@ if ($category == null) {
 $title = $category["category"];
 include './includes/header.php';
 ?>
-<?php include './includes/header.php'; ?>
 <?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>
 <?php include './includes/catalog-item.php'; ?>

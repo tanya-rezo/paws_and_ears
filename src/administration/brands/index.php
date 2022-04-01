@@ -2,7 +2,6 @@
 $title = "Бренды";
 include '../includes/header.php';
 ?>
-<?php include '../includes/header.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_brands_classes.php'; ?>
 

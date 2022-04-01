@@ -6,7 +6,6 @@ $pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
 $title = $pet["pet_type"];
 include './includes/header.php';
 ?>
-<?php include './includes/header.php'; ?>
 <?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>
 <?php include './includes/catalog-item.php'; ?>
