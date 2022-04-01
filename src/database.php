@@ -285,7 +285,8 @@ function admin_get_count_columns($conn)
         (SELECT COUNT(*) FROM brand) AS count_brand,
         (SELECT COUNT(*) FROM manufacturer_country) AS count_manufacturer_country,
         (SELECT COUNT(*) FROM placed_order) AS count_placed_order,
-        (SELECT COUNT(*) FROM client) AS count_client";
+        (SELECT COUNT(*) FROM client) AS count_client,
+        (SELECT COUNT(*) FROM user) AS count_user";
 
     return mysqli_query($conn, $query);
 }

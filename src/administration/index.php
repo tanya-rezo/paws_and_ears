@@ -72,6 +72,15 @@
                 </div>
             </a>
         </div>
+
+        <div class="col-4">
+            <a class="text-decoration-none" role="button" href="users">
+                <div class="admin-tile flex-column-container justify-content-around align-items-end">
+                    <h1 class="admin-tile-text mr-3"><?php echo $counters["count_user"] ?></h1>
+                    <h3 class="admin-tile-text mr-3">Пользователи</h3>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 <?php include '../includes/footer.php';
