@@ -1,3 +1,11 @@
+<?php
+if ($_GET["q"] == "") {
+    $title = "Поиск";
+} else {
+    $title = "Поиск по запросу " . $_GET['q'];
+}
+include './includes/header.php';
+?>
 <?php include './includes/header.php'; ?>
 <?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>

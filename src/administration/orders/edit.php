@@ -1,3 +1,7 @@
+<?php
+$title = "Заказы";
+include '../includes/header.php';
+?>
 <?php include '../includes/header.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_orders_classes.php'; ?>
@@ -26,7 +30,7 @@ if ($is_edit) {
                 </h6>
                 <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
                 <h6>
-                    <a href="./index.php">Оформленные заказы</a>
+                    <a href="./index.php">Заказы</a>
                 </h6>
             </div>
         </div>

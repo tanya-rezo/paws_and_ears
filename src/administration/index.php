@@ -59,7 +59,7 @@
             <a class="text-decoration-none" role="button" href="orders">
                 <div class="admin-tile flex-column-container justify-content-around align-items-end">
                     <h1 class="admin-tile-text mr-3"><?php echo $counters["count_placed_order"] ?></h1>
-                    <h3 class="admin-tile-text mr-3 text-right">Оформленные<br>заказы</h3>
+                    <h3 class="admin-tile-text mr-3 text-right">Заказы</h3>
                 </div>
             </a>
         </div>

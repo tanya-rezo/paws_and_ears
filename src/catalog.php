@@ -7,6 +7,10 @@ if ($category == null) {
     die();
 }
 ?>
+<?php
+$title = $category["category"];
+include './includes/header.php';
+?>
 <?php include './includes/header.php'; ?>
 <?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>

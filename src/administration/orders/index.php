@@ -1,3 +1,7 @@
+<?php
+$title = "Заказы";
+include '../includes/header.php';
+?>
 <?php include '../includes/header.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_orders_classes.php'; ?>
@@ -10,7 +14,7 @@
                     <a href="../index.php">Администрирование</a>
                 </h6>
                 <img class="breadcrumbs-delimiter" src="/img/breadcrumb-arrow.svg"></img>
-                <h6>Оформленные заказы</h6>
+                <h6>Заказы</h6>
             </div>
         </div>
     </div>

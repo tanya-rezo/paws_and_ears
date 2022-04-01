@@ -8,7 +8,14 @@
     <meta name="theme-color" content="#FAFAFA">
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
 
-    <title>Лапки и ушки - Администрирование</title>
+    <title>
+        <?php if (!isset($title)) {
+            echo "Администрирование - Лапки и ушки";
+        } else {
+            echo "$title - Администрирование - Лапки и ушки";
+        }
+        ?>
+    </title>
     <link href="/css/style.css" rel="stylesheet" />
 </head>
 

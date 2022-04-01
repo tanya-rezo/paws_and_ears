@@ -1,11 +1,15 @@
+<?php include_once './database.php'; ?>
+<?php
+$pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
+?>
+<?php
+$title = $pet["pet_type"];
+include './includes/header.php';
+?>
 <?php include './includes/header.php'; ?>
 <?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>
 <?php include './includes/catalog-item.php'; ?>
-
-<?php
-$pet = mysqli_fetch_array(get_pet_sale_name($conn, $_GET["pet"]));
-?>
 
 <div class="container menu-container" style="display: none;">
   <?php include './includes/menu-content-mobile.php'; ?>

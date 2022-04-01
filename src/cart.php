@@ -1,3 +1,7 @@
+<?php
+$title = "Корзина";
+include './includes/header.php';
+?>
 <?php include './includes/header.php'; ?>
 <?php include './includes/top-bar.php'; ?>
 <?php include './includes/menu.php'; ?>

@@ -1,5 +1,4 @@
-<?php include './includes/header.php'; ?>
-
+<?php include_once './database.php'; ?>
 <?php
 $guid = $_GET["id"];
 $id = mysqli_fetch_array(get_order_id($conn, $guid))['placed_order_id'];
@@ -7,6 +6,11 @@ $id = mysqli_fetch_array(get_order_id($conn, $guid))['placed_order_id'];
 $order = mysqli_fetch_array(get_order($conn, $id));
 $order_items_result = get_order_items($conn, $id);
 ?>
+<?php
+$title = "Статус заказа №" . $order['placed_order_id'];
+include './includes/header.php';
+?>
+<?php include './includes/header.php'; ?>
 
 <div class="container main-container">
     <div class="mt-3 vh-center">
