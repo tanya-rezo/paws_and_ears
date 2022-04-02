@@ -10,7 +10,8 @@ class RoleManager extends EntityManager
             role.name as role_name,
             role.description as role_description
         FROM 
-            role";
+            role
+        ORDER BY role_id DESC";
 
         $array = [];
         $result = mysqli_query($conn, $query);

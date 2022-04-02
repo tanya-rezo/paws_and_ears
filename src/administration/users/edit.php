@@ -54,10 +54,14 @@ if ($is_edit) {
             <?php
             $manager = new RoleManager();
             $all = $manager->getAll($conn);
-            $selected_item_id = $edit_item->role->id;
+            if ($is_edit) {
+                $selected_item_id = $edit_item->role->id;
+            } else {
+                $selected_item_id = 4;
+            }
 
             foreach ($all as $item) {
-                if ($is_edit && $item->id == $selected_item_id) {
+                if ($item->id == $selected_item_id) {
                     echo "
                 <div class='form-check mb-1'>
                     <input class='form-check-input' type='radio' name='role' id='{$item->id}' value='{$item->id}'checked>
