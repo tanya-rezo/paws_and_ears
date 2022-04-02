@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="container flex-row-container">
-    © 2021 Зоомагазин «Лапки и ушки»
+    © <?= date("Y") ?> Зоомагазин «Лапки и ушки»
   </div>
 </footer>
 <script src="/js/bundle.js"></script>
