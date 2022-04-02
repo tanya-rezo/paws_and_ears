@@ -13,7 +13,7 @@
         <?php if (!isset($title)) {
             echo "Лапки и ушки";
         } else {
-            echo "$title - Лапки и ушки";
+            echo "$title – Лапки и ушки";
         }
         ?>
     </title>
