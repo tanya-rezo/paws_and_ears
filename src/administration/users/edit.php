@@ -60,8 +60,8 @@ if ($is_edit) {
                 if ($is_edit && $item->id == $selected_item_id) {
                     echo "
                 <div class='form-check mb-1'>
-                    <input class='form-check-input' type='radio' name='role' id='role' value='{$item->id}'checked>
-                    <label class='form-check-label' for='role'>
+                    <input class='form-check-input' type='radio' name='role' id='{$item->id}' value='{$item->id}'checked>
+                    <label class='form-check-label' for='{$item->id}'>
                     {$item->name}<br>
                     <p class='font-weight-light'>{$item->description}</p>
                     </label>
@@ -69,8 +69,8 @@ if ($is_edit) {
                 } else {
                     echo "
                 <div class='form-check mb-1'>
-                    <input class='form-check-input' type='radio' name='role' id='role' value='{$item->id}'>
-                    <label class='form-check-label' for='role'>
+                    <input class='form-check-input' type='radio' name='role' id='{$item->id}' value='{$item->id}'>
+                    <label class='form-check-label' for='{$item->id}'>
                     {$item->name}<br>
                     <p class='font-weight-light'>{$item->description}</p>
                     </label>
