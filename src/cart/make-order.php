@@ -33,6 +33,6 @@ if ($_GET["firstName"] == '' && $_GET["lastName"] == '' && $_GET["phoneNumber"] 
     // чистим корзину и направляем на страницу подтверждения
     session_unset();
     header("Location: /order-created-page.php?guid=$orderGuid");
-
-    disconnect_db($conn);
 }
+
+disconnect_db($conn);

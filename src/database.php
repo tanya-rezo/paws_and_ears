@@ -357,8 +357,6 @@ function get_order_guid($conn, $orderId)
 
 function get_order_id($conn, $orderGuid)
 {
-    settype($orderId, 'integer');
-
     $query = "
         SELECT 
             placed_order.id as placed_order_id
@@ -366,6 +364,22 @@ function get_order_id($conn, $orderGuid)
             placed_order
         WHERE 
             placed_order.guid = '$orderGuid'";
+
+    return mysqli_query($conn, $query);
+}
+
+function get_user_by_login($conn, $login)
+{
+    $query = "
+        SELECT 
+            user.id, 
+            user.login, 
+            user.password, 
+            user.role_id 
+        FROM 
+            user 
+        WHERE
+            user.login = '$login'";
 
     return mysqli_query($conn, $query);
 }
