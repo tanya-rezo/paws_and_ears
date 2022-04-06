@@ -384,5 +384,20 @@ function get_user_by_login($conn, $login)
     return mysqli_query($conn, $query);
 }
 
+function cancel_order($conn, $order_id)
+{
+    settype($orderId, 'integer');
+
+    $query = "
+        UPDATE
+            placed_order
+        SET
+            placed_order.order_status_id = 6 
+        WHERE 
+            placed_order.id = '$order_id'";
+
+    $conn->query($query);
+}
+
 // Cоздаём подключение к БД
 $conn = connect_db();

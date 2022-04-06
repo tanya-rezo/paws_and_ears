@@ -18,9 +18,14 @@ include './includes/header.php';
         </a>
     </div>
     <div class="mt-4">
-        <h3 class="mt-3">
-            <span>Заказ №<?= $order['placed_order_id'] ?></span>
-        </h3>
+        <div class="flex-row-container justify-content-between">
+            <h3 class="mt-3">
+                <span>Заказ №<?= $order['placed_order_id'] ?></span>
+            </h3>
+            <?php if ($order['order_status_id'] < 5) : ?>
+                <a role="button" class="btn btn-primary btn-order-cancellation mt-3" href="/cancel-order.php?id=<?= $guid ?>">Отменить заказ</a>
+            <?php endif; ?>
+        </div>
 
         <h5 class="mt-3">
             Статус
