@@ -47,7 +47,7 @@ if ($is_edit) {
         </div>
         <div class="form-group">
             <label for="name">Пароль</label>
-            <input required type="text" class="form-control" id="password" name="password" value="<?php echo $edit_item->password ?>">
+            <input required type="password" class="form-control" id="password" name="password" value="<?php echo $edit_item->password ?>">
         </div>
         <div class="form-group">
             <label for="name">Роль</label>

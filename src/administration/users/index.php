@@ -28,7 +28,6 @@ include '../includes/header.php';
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Логин</th>
-                <th scope="col">Пароль</th>
                 <th scope="col">Роль</th>
                 <th scope="col">Действия</th>
             </tr>
@@ -42,7 +41,6 @@ include '../includes/header.php';
                 <tr>
                     <th scope='row'>{$item->id}</th>
                     <td>{$item->login}</td>
-                    <td>{$item->password}</td>
                     <td>{$item->role->name}</td>
                     <td>
                         <a href='./edit.php?id={$item->id}'>Изменить</a>
