@@ -7,6 +7,13 @@ $order = mysqli_fetch_array(get_order($conn, $id));
 $order_items_result = get_order_items($conn, $id);
 ?>
 <?php
+if ($order == null) {
+    header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found", true, 404);
+    include '404.php';
+    die();
+}
+?>
+<?php
 $title = "Статус заказа №" . $order['placed_order_id'];
 include './includes/header.php';
 ?>
