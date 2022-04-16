@@ -1,3 +1,4 @@
+<?php include './check-rights.php'; ?>
 <?php
 $title = "Пользователи";
 include '../includes/header.php';

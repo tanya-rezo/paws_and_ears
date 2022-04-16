@@ -1,3 +1,4 @@
+<?php include './check-rights.php'; ?>
 <?php
 $title = "Категории";
 include '../includes/header.php';

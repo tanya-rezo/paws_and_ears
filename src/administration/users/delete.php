@@ -1,3 +1,4 @@
+<?php include './check-rights.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_users_classes.php'; ?>
 <?php

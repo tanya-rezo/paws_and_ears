@@ -1,3 +1,4 @@
+<?php include './check-rights.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_manufacturing_countries_classes.php'; ?>
 <?php

@@ -1,3 +1,4 @@
+<?php include './check-rights.php'; ?>
 <?php
 $title = "Страны производители";
 include '../includes/header.php';

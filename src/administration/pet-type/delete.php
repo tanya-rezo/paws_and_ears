@@ -1,3 +1,4 @@
+<?php include './check-rights.php'; ?>
 <?php include_once '../../database.php'; ?>
 <?php include_once './_pet_type_classes.php'; ?>
 <?php
