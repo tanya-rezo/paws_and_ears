@@ -1,5 +1,7 @@
 <?php session_start(); ?>
-<?php if (isset($_SESSION['user_login'])) {
+<?php
+// перенаправление на главную страницу админки, если пользователь авторизован
+if (isset($_SESSION['user_login'])) {
     header('Location: /administration/index.php');
     exit;
 }

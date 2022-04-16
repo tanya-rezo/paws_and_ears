@@ -1,7 +1,14 @@
 <?php
 
+$cart_count = 0;
+
 // складываем все переменные сессии (счётчики товаров в корзине)
-$cart_count = array_sum($_SESSION);
+foreach ($_SESSION as $product_id => $count) {
+    if (substr($product_id, 0, 8) == "product_") {
+        $cart_count = $cart_count + $count;
+    }
+}
+
 ?>
 
 <form action="search.php">

@@ -1,4 +1,15 @@
 <?php session_start(); ?>
+<?php
+
+$is_user_logged_in = isset($_SESSION['user_login']);
+$is_login_page = substr($_SERVER['REQUEST_URI'], 0, 25) == '/administration/login.php';
+
+// перенаправление на страницу логина, если пользователь не авторизован
+if (!$is_user_logged_in && !$is_login_page) {
+    header('Location: /administration/login.php?msg=1');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 

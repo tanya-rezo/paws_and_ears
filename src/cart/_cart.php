@@ -20,10 +20,11 @@ class Cart
 
         $total_cost = 0;
         $total_discount = 0;
-        $cart_count = array_sum($this->session);
+        $cart_count = 0;
 
         foreach ($this->session as $product_id => $count) {
             if (substr($product_id, 0, 8) == "product_") {
+                $cart_count = $cart_count + $count;
                 // обрезаем имя переменной сессии чтобы получить id товара
                 // "product_3" -> "3"
                 $id = substr($product_id, 8);
