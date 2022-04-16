@@ -6,7 +6,10 @@ if (isset($_SESSION['user_login'])) {
     exit;
 }
 ?>
-<?php include './includes/header.php'; ?>
+<?php
+$title = "Вход";
+include './includes/header.php';
+?>
 <?php include_once '../database.php'; ?>
 
 <div class="container main-container">
