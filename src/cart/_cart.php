@@ -23,36 +23,38 @@ class Cart
         $cart_count = array_sum($this->session);
 
         foreach ($this->session as $product_id => $count) {
-            // обрезаем имя переменной сессии чтобы получить id товара
-            // "product_3" -> "3"
-            $id = substr($product_id, 8);
+            if (substr($product_id, 0, 8) == "product_") {
+                // обрезаем имя переменной сессии чтобы получить id товара
+                // "product_3" -> "3"
+                $id = substr($product_id, 8);
 
-            // получаем данные о продукте для корзины
-            $product = mysqli_fetch_array(get_product_for_cart($conn, $id));
+                // получаем данные о продукте для корзины
+                $product = mysqli_fetch_array(get_product_for_cart($conn, $id));
 
-            // подсчитываем общую скидку
-            if ($product["is_sale"] == "1") {
-                $total_discount = $total_discount + (($product["price"] - $product["sale_price"]) * $count);
+                // подсчитываем общую скидку
+                if ($product["is_sale"] == "1") {
+                    $total_discount = $total_discount + (($product["price"] - $product["sale_price"]) * $count);
+                }
+
+                // подсчитываем общую стоимость
+                if ($product["is_sale"] == "1") {
+                    $total_cost = $total_cost + ($product["sale_price"] * $count);
+                } else {
+                    $total_cost = $total_cost + ($product["price"] * $count);
+                }
+
+                $product_obj = new Product();
+
+                $product_obj->id = $product["id"];
+                $product_obj->name = $product["name"];
+                $product_obj->price = $product["price"];
+                $product_obj->sale_price = $product["sale_price"];
+                $product_obj->is_sale = ($product["is_sale"] == "1");
+                $product_obj->image = $product["image"];
+                $product_obj->count = $count;
+
+                array_push($this->items, $product_obj);
             }
-
-            // подсчитываем общую стоимость
-            if ($product["is_sale"] == "1") {
-                $total_cost = $total_cost + ($product["sale_price"] * $count);
-            } else {
-                $total_cost = $total_cost + ($product["price"] * $count);
-            }
-
-            $product_obj = new Product();
-
-            $product_obj->id = $product["id"];
-            $product_obj->name = $product["name"];
-            $product_obj->price = $product["price"];
-            $product_obj->sale_price = $product["sale_price"];
-            $product_obj->is_sale = ($product["is_sale"] == "1");
-            $product_obj->image = $product["image"];
-            $product_obj->count = $count;
-
-            array_push($this->items, $product_obj);
         }
 
         $this->total_cost = $total_cost;

@@ -1,9 +1,17 @@
+<?php session_start(); ?>
+<?php if (isset($_SESSION['user_login'])) {
+    header('Location: /administration/index.php');
+    exit;
+}
+?>
 <?php include './includes/header.php'; ?>
 <?php include_once '../database.php'; ?>
 
 <div class="container main-container">
     <div class="mt-3 mb-1 vh-center">
-        <img class="logo-space mr-0" src="../img/logo.svg">
+        <a href="/index.php">
+            <img class="logo-space mr-0" src="/img/logo.svg">
+        </a>
     </div>
     <div class="row mt-5">
         <div class="col-4"></div>
@@ -43,4 +51,4 @@
 
 </div>
 
-<?php include '../includes/footer.php';
+<?php include './includes/footer.php';

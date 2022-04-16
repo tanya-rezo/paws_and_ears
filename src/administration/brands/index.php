@@ -53,4 +53,4 @@ include '../includes/header.php';
     </table>
 </div>
 
-<?php include '../../includes/footer.php';
+<?php include '../includes/footer.php';

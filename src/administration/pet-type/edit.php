@@ -57,4 +57,4 @@ if ($is_edit) {
     </form>
 </div>
 
-<?php include '../../includes/footer.php';
+<?php include '../includes/footer.php';
