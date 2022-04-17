@@ -21,7 +21,7 @@ settype($role_id, 'integer');
 $item = new User();
 $item->id = $id;
 $item->login = $login;
-$item->password = $password;
+$item->password = password_hash($password, PASSWORD_DEFAULT);
 $item->role = new Role();
 $item->role->id = $role_id;
 

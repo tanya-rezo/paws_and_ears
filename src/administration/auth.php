@@ -15,7 +15,7 @@ if (!isset($user)) {
     exit;
 }
 
-if ($user['password'] == $password) {
+if (password_verify($password, $user['password'])) {
     $user_level = $user['role_id'];
     settype($user_level, 'integer');
 
