@@ -1,6 +1,7 @@
 import $ from "jquery";
 import popper from "popper.js";
 import bootstrap from "bootstrap";
+import slick from "slick-carousel";
 
 
 $(function () {
@@ -22,4 +23,10 @@ $(function () {
         }
     });
 
+    $('.carousel-container').slick({
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots: true,
+        arrows: false,
+    });
 });

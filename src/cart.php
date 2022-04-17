@@ -75,7 +75,7 @@ include './includes/header.php';
                 }
                 echo "
                                 </div>
-                                <div class='d-blok d-lg-none cart-item-delete-col vh-center'>
+                                <div class='d-block d-lg-none cart-item-delete-col vh-center'>
                                     <a href='/cart/delete.php?product={$product->id}'>
                                         <img src='img/delete.svg'></img>
                                     </a>

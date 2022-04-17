@@ -1,0 +1,10 @@
+$slick-dot-size: 26px;
+
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+
+.slick-dots {
+    li {
+        margin: 0 !important;
+    }
+}
