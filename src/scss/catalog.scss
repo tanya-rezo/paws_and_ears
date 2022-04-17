@@ -23,6 +23,13 @@
     overflow: hidden;
 }
 
+.carousel-container {
+    height: calc(162px +  /* высота grid-item */
+                 0.5rem + /* padding снизу */
+                 0.5rem   /* padding сверху */
+                 );
+}
+
 .grid-item-sale::before {
     width: 150px;
     height: 17px;

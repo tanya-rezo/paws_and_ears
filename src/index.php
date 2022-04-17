@@ -41,7 +41,7 @@
         $result = get_on_sale_top_6($conn, 1); // получаем 6 рандомных акционных товаров для кошек
 
         while ($row = mysqli_fetch_array($result)) {
-          echo '<div class="p-2">';
+          echo '<div class="p-2" style="display: none;">';
           print_catalog_item($row, false, true);
           echo '</div>';
         }
@@ -69,12 +69,12 @@
       </div>
 
       <!-- акции для собак на мобильном устройстве -->
-      <div class="carousel-container mb-4 d-block d-lg-none">
+      <div class="carousel-container d-block d-lg-none">
         <?php
         $result = get_on_sale_top_6($conn, 2); // получаем 6 рандомных акционных товаров для собак
 
         while ($row = mysqli_fetch_array($result)) {
-          echo '<div class="p-2">';
+          echo '<div class="p-2" style="display: none;">';
           print_catalog_item($row, false, true);
           echo '</div>';
         }
