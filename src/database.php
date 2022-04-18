@@ -52,8 +52,7 @@ function get_on_sale_top_6($conn, $pet_type)
         product.is_sale = 1
         AND
 		category.pet_type_id = '$pet_type'
-        ORDER BY RAND()
-        LIMIT 6";
+    ORDER BY RAND() LIMIT 6";
 
     return mysqli_query($conn, $query);
 }
@@ -77,7 +76,8 @@ function get_on_sale_by_pet_type($conn, $pet_type_id)
     WHERE
         product.is_sale = 1
         AND
-		category.pet_type_id = $pet_type_id";
+		category.pet_type_id = $pet_type_id
+    ORDER BY product.sale_price";
 
     return mysqli_query($conn, $query);
 }
@@ -101,7 +101,7 @@ function get_products($conn, $category_id)
         category
         ON category.id = product.category_id
     WHERE
-    category.id = '$category_id'
+        category.id = '$category_id'
     ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
@@ -169,7 +169,8 @@ function get_product($conn, $id)
     LEFT JOIN
         manufacturer_country
         ON manufacturer_country.id = product.manufacturer_country_id
-    WHERE product.id = $id";
+    WHERE 
+        product.id = $id";
 
     return mysqli_query($conn, $query);
 }
@@ -189,7 +190,8 @@ function get_product_for_cart($conn, $id)
         product.image
     FROM 
         product
-    WHERE product.id = $id";
+    WHERE 
+        product.id = $id";
 
     return mysqli_query($conn, $query);
 }
@@ -209,7 +211,8 @@ function search_product($conn, $search)
         product.image
     FROM 
         product
-    WHERE product.name LIKE '%$search%'
+    WHERE 
+        product.name LIKE '%$search%'
     ORDER BY is_sale DESC";
 
     return mysqli_query($conn, $query);
