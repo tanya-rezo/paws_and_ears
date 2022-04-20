@@ -29,7 +29,7 @@ include '../includes/header.php';
             <tr>
                 <th scope="col" style="min-width:52px">ID</th>
                 <th scope="col" style="min-width:216px">Картинка</th>
-                <th scope="col" style="min-width:200px">Название</th>
+                <th scope="col" style="min-width:190px">Название</th>
                 <th scope="col">Цена</th>
                 <th scope="col" style="min-width:150px">Категория</th>
                 <th scope="col" style="min-width:115px">Бренд</th>
