@@ -31,7 +31,6 @@ include '../includes/header.php';
                 <th scope="col">Картинка</th>
                 <th scope="col">Название</th>
                 <th scope="col">Цена</th>
-                <th scope="col">Комментарий</th>
                 <th scope="col">Категория</th>
                 <th scope="col">Бренд</th>
                 <th scope="col">Страна</th>
@@ -51,7 +50,6 @@ include '../includes/header.php';
                     <td><img class='admin-product-image-preview' src='/products/{$item->image}'></td>
                     <td>{$item->name}</td>
                     <td>{$item->price}</td>
-                    <td class='admin-comment-text'>{$item->description}</td>
                     <td>{$item->category->full_name}</td>
                     <td>{$item->brand->name}</td>
                     <td>{$item->manufacturer_country->name}</td>
