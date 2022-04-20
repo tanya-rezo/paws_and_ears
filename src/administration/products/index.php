@@ -27,13 +27,13 @@ include '../includes/header.php';
     <table class="table table-hover mb-4">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Картинка</th>
-                <th scope="col">Название</th>
+                <th scope="col" style="min-width:52px">ID</th>
+                <th scope="col" style="min-width:216px">Картинка</th>
+                <th scope="col" style="min-width:200px">Название</th>
                 <th scope="col">Цена</th>
-                <th scope="col">Категория</th>
-                <th scope="col">Бренд</th>
-                <th scope="col">Страна</th>
+                <th scope="col" style="min-width:150px">Категория</th>
+                <th scope="col" style="min-width:115px">Бренд</th>
+                <th scope="col" style="min-width:100px">Страна</th>
                 <th scope="col">Наличие скидки</th>
                 <th scope="col" style="min-width:90px">Цена по скидке</th>
                 <th scope="col">Действия</th>
